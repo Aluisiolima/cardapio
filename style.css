@@ -5,12 +5,34 @@
 }
 .cabecario{
     background: #DD1010;
+    display: flex;
+    
 }
     .cabecario >.logo{
         display: flex;
-        width: auto;
+        width: 40%;
         padding: 1.25em;
     }
     .cabecario >.logo > p{
         margin: 0.25em;
     }
+    .cabecario >.logo > img{
+        border-radius: 12%;
+    }
+
+.link-navegacao{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+} 
+.links{
+    margin-left: 1em;
+}   
+    .links > p {
+        font-size: larger;
+        font-weight: bold;
+        color: white;
+    }
+.bi{
+    width: 10%;
+}
