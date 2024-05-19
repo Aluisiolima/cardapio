@@ -2,37 +2,65 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
 }
 .cabecario{
     background: #DD1010;
     display: flex;
-    
 }
-    .cabecario >.logo{
-        display: flex;
-        width: 40%;
-        padding: 1.25em;
-    }
-    .cabecario >.logo > p{
-        margin: 0.25em;
-    }
-    .cabecario >.logo > img{
-        border-radius: 12%;
-    }
+.cabecario >.logo{
+    display: flex;
+    width: 40%;
+    padding: 1.25em;
+}
+.cabecario >.logo > p{
+    margin: 0.25em;
+}
+.cabecario >.logo > img{
+    border-radius: 12%;
+}
 
+.operacional{
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+}
 .link-navegacao{
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: flex-start;
+   
+
 } 
 .links{
+    display: flex;
     margin-left: 1em;
+    align-items: flex-end;
 }   
     .links > p {
         font-size: larger;
         font-weight: bold;
         color: white;
     }
-.bi{
-    width: 10%;
+.contatos{
+    display: flex;
+    height: min-content;
+    align-items: center;
+    justify-content: flex-end;
+    
+    flex: auto;
+}
+.contatos > ul{
+    display: flex;
+}
+@media (min-width: 425px) {
+    .container{
+        border: .2em solid black;
+        width: 425px;
+        margin: 0 auto;
+    }
 }
