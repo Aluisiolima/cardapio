@@ -19,11 +19,10 @@ function homeAtiva(){
     }
 }
 
-document.addEventListener("DOMContentLoaded", homeAtiva());
+setInterval(1000, homeAtiva())
 
 
 function cardapioAtivo(){
-   let cardapioAtv = cardapio.getAttribute("ativo")
-   cardapioAtv = "true";
-   home_page.style.display = "none"
+   cardapio.ativo = "true";
+   home_page.style.display = "none";
 }
