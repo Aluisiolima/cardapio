@@ -8,10 +8,11 @@ const home_page = document.querySelector(".container_home");
 
 
 function homeAtiva(){
-    let estaAtiva = home.getAttribute("ativo") === "true";
+    let homeAtv = home.getAttribute("ativo") === "true";
     
-    if (estaAtiva){
+    if (homeAtv){
         home.style.textDecoration = "underline";
+        home_page.style.display = "flex"
     }else{
         cardapio.style.textDecoration = "underline";
       
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", homeAtiva());
 
 
 function cardapioAtivo(){
-   let cardapioatv = cardapio.getAttribute("ativo")
-   cardapioatv = "true";
+   let cardapioAtv = cardapio.getAttribute("ativo")
+   cardapioAtv = "true";
    home_page.style.display = "none"
 }
