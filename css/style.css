@@ -28,13 +28,14 @@
 .link-navegacao{
     display: flex;
     align-items: flex-start;
-   
-
 } 
+#home{text-decoration: underline;}
+
 .links{
     display: flex;
     margin-left: 1em;
     align-items: flex-end;
+    cursor: pointer;
 }   
     .links > p {
         font-size: larger;
@@ -91,6 +92,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.container_cardapio{
+    display: none;
+    background: black;
+    height: 80vh;
 }
 
 @media (min-width: 425px) {
