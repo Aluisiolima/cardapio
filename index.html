@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cardapio digital</title>
-    <link rel="stylesheet" href="/reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
 </head>
@@ -23,10 +23,10 @@
     <div class="operacional">
         <div class="link-navegacao">
             <div class="links">
-                <p ativo="true">home</p>
+                <p ativo="true"  id="home">home</p>
             </div>
-            <div class="links">
-                <p>cardapio</p>
+            <div class="links" >
+                <p ativo="false" id="cardapio" onclick="cardapioAtivo()">cardapio</p>
             </div>
         </div>
 
@@ -69,4 +69,5 @@
    </footer>
 </div>
 </body>
+<script src="/js/main.js" defer></script>
 </html>
