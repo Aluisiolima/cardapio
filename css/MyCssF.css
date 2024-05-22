@@ -2,13 +2,58 @@
 .bg-dark {
     background-color: #343a40 !important;
 }
+.text {
+    /* Define a cor do texto como preto por padrão */
+    color: #000000;
+}
 .text-light{
     color: #ffffff !important;
 }
 .text-center {
     text-align: center !important;
 }
-
+  
+  /* Classes para alterar a cor do texto */
+.text-primary {
+    color: #007bff; /* Azul */
+}
+  
+.text-secondary {
+    color: #6c757d; /* Cinza */
+}
+  
+.text-success {
+    color: #28a745; /* Verde */
+}
+  
+.text-danger {
+    color: #dc3545; /* Vermelho */
+}
+  
+.text-warning {
+    color: #ffc107; /* Amarelo */
+}
+  
+.text-info {
+    color: #17a2b8; /* Azul claro */
+}
+  
+.text-light {
+    color: #f8f9fa; /* Branco */
+}
+  
+.text-dark {
+    color: #343a40; /* Preto escuro */
+}
+  
+.text-body {
+    color: #212529; /* Cor padrão do corpo do texto */
+}
+  
+.text-muted {
+    color: #6c757d; /* Texto cinza desativado */
+}
+  
 .container-fluid {
     width: 100%;
     padding-right: 15px;
@@ -84,3 +129,190 @@
     flex: 0 0 100%;
     max-width: 100%;
 }
+
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+} 
+
+.nav-item {
+    margin-bottom: 0.25rem;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #007bff;
+    text-decoration: none;
+} 
+
+.nav-link:hover {
+    color: #0056b3;
+} 
+
+.nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+}  
+
+.nav-link.disabled {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+}
+  
+.flex-column {
+    flex-direction: column;
+}
+  
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+  
+.flex-column-reverse {
+    flex-direction: column-reverse;
+}
+  
+.flex-wrap {
+    flex-wrap: wrap;
+}
+  
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+  
+.justify-content-start {
+    justify-content: flex-start;
+}
+  
+.justify-content-end {
+    justify-content: flex-end;
+}
+  
+.justify-content-center {
+    justify-content: center;
+}
+  
+.justify-content-between {
+    justify-content: space-between;
+}
+  
+.justify-content-around {
+    justify-content: space-around;
+}
+  
+.align-items-start {
+    align-items: flex-start;
+}
+  
+.align-items-end {
+    align-items: flex-end;
+}
+  
+.align-items-center {
+    align-items: center;
+}
+  
+.align-items-baseline {
+    align-items: baseline;
+}
+  
+.align-items-stretch {
+    align-items: stretch;
+}
+  
+.align-content-start {
+    align-content: flex-start;
+}
+  
+.align-content-end {
+    align-content: flex-end;
+}
+  
+.align-content-center {
+    align-content: center;
+}
+  
+.align-content-between {
+    align-content: space-between;
+}
+  
+.align-content-around {
+    align-content: space-around;
+}
+  
+.align-content-stretch {
+    align-content: stretch;
+}  
+
+/* Definição de fonte para os ícones do Bootstrap Icons */
+@font-face {
+    font-family: 'bootstrap-icons';
+    src: url('path/to/bootstrap-icons.woff2') format('woff2'),
+         url('path/to/bootstrap-icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+  /* Estilos para os ícones */
+  .bi::before {
+    font-family: 'bootstrap-icons';
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Tamanho dos ícones */
+  .bi-lg::before {
+    font-size: 1.25rem; /* 20px */
+  }
+  
+  .bi-sm::before {
+    font-size: 0.875rem; /* 14px */
+  }
+  
+  /* Espaçamento entre os ícones */
+  .bi-me-2::before,
+  .bi-me-3::before,
+  .bi-me-4::before,
+  .bi-me-5::before,
+  .bi-me-6::before,
+  .bi-me-7::before,
+  .bi-me-8::before,
+  .bi-me-9::before,
+  .bi-me-10::before {
+    margin-right: 0.5rem; /* 8px */
+  }
+  a{
+   color: #fff; 
+   text-decoration: none;
+   padding-right: 5px;
+  }  
+ /* CSS media query dentro de um stylesheet */
+@media (max-width: 450px) {
+    a{
+      width: 90px;
+    }
+  }
+  
