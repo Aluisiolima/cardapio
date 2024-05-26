@@ -1,0 +1,80 @@
+/*For testing*/
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+.text-light {
+    color: #ffffff !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-secondary {
+    color: #6c757d; /* Cinza */
+}
+
+.text-success {
+    color: #28a745; /* Verde */
+}
+
+.text-danger {
+    color: #dc3545; /* Vermelho */
+}
+
+.text-info {
+    color: #17a2b8; /* Azul claro */
+}
+
+.text-light {
+    color: #f8f9fa; /* Branco */
+}
+
+.text-dark {
+    color: #343a40; /* Preto escuro */
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.py-3 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.direitaF {
+    margin-left: 0%;
+    margin-right: 10px;
+    padding-right: 20px;
+}
+
+.span {
+    width: 70000px;
+    text-decoration: none;
+}
+
+.a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.margin-bottom{
+    margin-bottom: 4%;
+}
