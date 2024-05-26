@@ -1,0 +1,50 @@
+let lista = [
+    { nome: "Pizza de Pernil", valor: 51.00, img: "./img/pizza_pernil.jpg", tipo: "pizza" },
+    { nome: "Pizza Margherita", valor: 45.00, img: "./img/pizza_margherita.jpg", tipo: "pizza" },
+    { nome: "Pizza de Calabresa", valor: 48.00, img: "./img/pizza_calabresa.jpg", tipo: "pizza" },
+    { nome: "Pizza de Quatro Queijos", valor: 55.00, img: "./img/pizza_quatro_queijos.jpg", tipo: "pizza" },
+    { nome: "Pizza de Pepperoni", valor: 52.00, img: "./img/pizza_pepperoni.jpg", tipo: "pizza" },
+    { nome: "Pizza de Frango com Catupiry", valor: 50.00, img: "./img/pizza_frango_catupiry.jpg", tipo: "pizza" },
+    { nome: "Pizza Vegetariana", valor: 47.00, img: "./img/pizza_vegetariana.jpg", tipo: "pizza" },
+    { nome: "Pizza Portuguesa", valor: 53.00, img: "./img/pizza_portuguesa.jpg", tipo: "pizza" },
+    { nome: "Pizza de Atum", valor: 49.00, img: "./img/pizza_atum.jpg", tipo: "pizza" },
+    { nome: "Pizza de Bacon", valor: 56.00, img: "./img/pizza_bacon.jpg", tipo: "pizza" },
+    { nome: "Hambúrguer Clássico", valor: 25.00, img: "./img/hamburguer_classico.jpg", tipo: "hamburguer" },
+    { nome: "Cheeseburger", valor: 28.00, img: "./img/cheeseburger.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer de Frango", valor: 27.00, img: "./img/hamburguer_frango.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer Vegetariano", valor: 29.00, img: "./img/hamburguer_vegetariano.jpg", tipo: "hamburguer" },
+    { nome: "Double Cheeseburger", valor: 35.00, img: "./img/double_cheeseburger.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer com Bacon", valor: 32.00, img: "./img/hamburguer_bacon.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer de Costela", valor: 34.00, img: "./img/hamburguer_costela.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer de Cordeiro", valor: 38.00, img: "./img/hamburguer_cordeiro.jpg", tipo: "hamburguer" },
+    { nome: "Cheeseburger com Champignon", valor: 30.00, img: "./img/cheeseburger_champignon.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer BBQ", valor: 33.00, img: "./img/hamburguer_bbq.jpg", tipo: "hamburguer" },
+    { nome: "Refrigerante", valor: 5.00, img: "./img/refrigerante.jpg", tipo: "bebida" },
+    { nome: "Suco de Laranja", valor: 8.00, img: "./img/suco_laranja.jpg", tipo: "bebida" },
+    { nome: "Água Mineral", valor: 3.00, img: "./img/agua_mineral.jpg", tipo: "bebida" },
+    { nome: "Chá Gelado", valor: 7.00, img: "./img/cha_gelado.jpg", tipo: "bebida" },
+    { nome: "Cerveja", valor: 10.00, img: "./img/cerveja.jpg", tipo: "bebida" },
+    { nome: "Vinho Tinto", valor: 25.00, img: "./img/vinho_tinto.jpg", tipo: "bebida" },
+    { nome: "Vinho Branco", valor: 27.00, img: "./img/vinho_branco.jpg", tipo: "bebida" },
+    { nome: "Suco de Uva", valor: 9.00, img: "./img/suco_uva.jpg", tipo: "bebida" },
+    { nome: "Suco de Maçã", valor: 8.00, img: "./img/suco_maca.jpg", tipo: "bebida" },
+    { nome: "Smoothie de Morango", valor: 12.00, img: "./img/smoothie_morango.jpg", tipo: "bebida" },
+    { nome: "Pizza de Rúcula com Tomate Seco", valor: 54.00, img: "./img/pizza_rucula_tomate_seco.jpg", tipo: "pizza" },
+    { nome: "Pizza de Palmito", valor: 50.00, img: "./img/pizza_palmito.jpg", tipo: "pizza" },
+    { nome: "Pizza de Muçarela", valor: 46.00, img: "./img/pizza_mucarela.jpg", tipo: "pizza" },
+    { nome: "Pizza de Bacon com Cheddar", valor: 57.00, img: "./img/pizza_bacon_cheddar.jpg", tipo: "pizza" },
+    { nome: "Hambúrguer de Picanha", valor: 36.00, img: "./img/hamburguer_picanha.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer com Ovo", valor: 31.00, img: "./img/hamburguer_ovo.jpg", tipo: "hamburguer" },
+    { nome: "Hambúrguer de Salmão", valor: 40.00, img: "./img/hamburguer_salmao.jpg", tipo: "hamburguer" },
+    { nome: "Mini Hambúrguer", valor: 20.00, img: "./img/mini_hamburguer.jpg", tipo: "hamburguer" },
+    { nome: "Chá Quente", valor: 5.00, img: "./img/cha_quente.jpg", tipo: "bebida" },
+    { nome: "Milkshake de Chocolate", valor: 15.00, img: "./img/milkshake_chocolate.jpg", tipo: "bebida" },
+    { nome: "Milkshake de Baunilha", valor: 15.00, img: "./img/milkshake_baunilha.jpg", tipo: "bebida" },
+    { nome: "Energético", valor: 12.00, img: "./img/energetico.jpg", tipo: "bebida" }
+];
+
+
+var pizzas = lista.filter(produto => produto.tipo === "pizza");
+var bebidas = lista.filter(produto => produto.tipo === "bebida");
+var hamburgues = lista.filter(produto => produto.tipo === "hamburguer");
+

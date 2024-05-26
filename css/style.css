@@ -98,9 +98,10 @@
     background: black;
     height: auto;
     width: 100%;
+    align-items: baseline;
     
 }
-.cardapio_produtos{
+.cardapio_produtos_lanche{
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 75%;
@@ -132,7 +133,41 @@
     padding: .5em 1em .5em 1em;
     color: white;
 }
+.cardapio_produtos_acompanhamento{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
 
+.card_bebida{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    background: antiquewhite;
+    margin: .6em;
+    border-radius: 1.5em;
+    padding: .5em;
+}
+.card_bebida> img{
+    width: 3.8em;
+    border-radius: .5em;
+}
+
+.card_hamburgues{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    background: antiquewhite;
+    margin: .6em;
+    border-radius: 1.5em;
+    padding: .5em;
+}
+.card_hamburgues> img{
+    width: 3.8em;
+    border-radius: .5em;
+}
 @media (min-width: 425px) {
     .container{
         border: .2em solid black;
