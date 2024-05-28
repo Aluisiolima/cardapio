@@ -5,3 +5,12 @@
     list-style-type: none;
     text-transform: capitalize;
 }
+
+
+/*Fontes*/
+.open-sans{
+    font-family: "Open Sans", sans-serif;
+}
+.Arial{
+    font-family: Arial, Helvetica, sans-serif;
+}

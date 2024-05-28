@@ -1,4 +1,4 @@
-/*For testing*/
+/*Cores de textos e formatação/centralização de tag*/
 .bg-dark {
     background-color: #343a40 !important;
 }
@@ -35,23 +35,19 @@
     color: #343a40; /* Preto escuro */
 }
 
-.container-fluid {
+/*Style for footer*/
+
+.py-3 {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-}
-
-.py-3 {
     padding-top: 0.75rem !important;
     padding-bottom: 0.75rem !important;
-}
-
-.row::after {
     content: "";
     clear: both;
-    display: table;
+    display: flex;
 }
 
 .col-6 {
@@ -65,11 +61,6 @@
     padding-right: 20px;
 }
 
-.span {
-    width: 70000px;
-    text-decoration: none;
-}
-
 .a{
     text-decoration: none;
     color: #fff;
@@ -77,4 +68,18 @@
 
 .margin-bottom{
     margin-bottom: 4%;
+}
+
+ul li {
+    margin-bottom: 4%;
+}
+
+ul li a span {
+    width: 70000px;
+    text-decoration: none;
+}
+.assinatura{
+    background-color: #333;
+    padding: 20px;
+    text-align: center !important;
 }
