@@ -8,10 +8,10 @@ function cardPizzas() {
         const produtos = document.querySelector(".cardapio_produtos_lanche")
         const div = document.createElement("div");
         div.classList.add("card_pizzas");
-        div.id = `${i}`
+        div.id = `${element.tipo}${i}`
         div.innerHTML = `
        
-        <img src='./img/pizza_padrao.svg' alt="${element.name} >
+        <img src='./img/pizza_padrao.svg' alt="${element.nome}" >
         <p class="detalhes">${element.nome}</p>
         <p class="detalhes">R$ ${element.valor.toFixed(2)}</p>
         <button id="buttonCompra">compra</button>
@@ -30,7 +30,7 @@ function cardBebidas() {
         const produtos = document.querySelector(".cardapio_produtos_acompanhamento")
         const div = document.createElement("div");
         div.classList.add("card_bebida");
-        div.id = `${i}`
+        div.id = `${element.tipo}${i}`
         div.innerHTML = `
        
         <img src='./img/bebida_padrao.svg' alt="${element.nome}">
@@ -52,7 +52,7 @@ function cardHamburgues() {
         const produtos = document.querySelector(".cardapio_produtos_lanche")
         const div = document.createElement("div");
         div.classList.add("card_hamburgues");
-        div.id = `${i}`
+        div.id = `${element.tipo}${i}`
         div.innerHTML = `
        
         <img src='./img/hamburguer_padrao.svg' alt="${element.nome}" >
