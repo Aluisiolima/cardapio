@@ -178,7 +178,7 @@
     z-index: 1;
     width: 60%;
     height: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
