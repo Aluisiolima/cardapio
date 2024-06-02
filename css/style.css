@@ -170,21 +170,15 @@
 .card_hamburgues> img{
     width: 3.8em;
     border-radius: .5em;
+    
 }
-.tamanho,#mais1,#menos1{
-    width: 3em;
-    border-radius: 0.5em;
-    border: 1px solid black;
-    background: beige;
-    margin: .2em;
-}
-     
 .container_detalhais{
     position: fixed;
     overflow: hidden;
-    width: 35%;
+    z-index: 1;
+    width: 60%;
     height: 100%;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -195,7 +189,14 @@
     justify-content: center;
     flex-direction: column;
     background: #DD1010;
-  
+        
+}
+.tamanho,#mais1,#menos1{
+    width: 3em;
+    border-radius: 0.5em;
+    border: 1px solid black;
+    background: beige;
+    margin: .2em;
 }
 .inf_produto{
     display: flex;
