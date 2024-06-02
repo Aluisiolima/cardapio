@@ -2,6 +2,9 @@
 .container{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: black;
 }
 /*cabecario */
 .cabecario{
@@ -167,6 +170,77 @@
 .card_hamburgues> img{
     width: 3.8em;
     border-radius: .5em;
+}
+.tamanho,#mais1,#menos1{
+    width: 3em;
+    border-radius: 0.5em;
+    border: 1px solid black;
+    background: beige;
+    margin: .2em;
+}
+     
+.container_detalhais{
+    position: fixed;
+    overflow: hidden;
+    width: 35%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.janela_detalhe{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #DD1010;
+  
+}
+.inf_produto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.produto_detalhes{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: center;
+    width: 60%;
+    color: white;
+}
+.produto_detalhes> img{
+    width: 100%;
+}
+.quantidade{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+}
+.tamanhos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    width: 32%;
+}
+
+.descricao{
+    background: #c7c7c7;
+    display: flex;
+    width: 40%;
+    padding: .8em;
+}
+.config{
+    width: 100%;
+    display: flex;
+}
+#adicionarCarrinho,#personaliza{
+    width: 50%;
+    height: 2em;
 }
 @media (min-width: 425px) {
     .container{
