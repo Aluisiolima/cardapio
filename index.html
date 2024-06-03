@@ -58,37 +58,7 @@
 
 </div>
 
-<div class="container_detalhais">
-  <div class="janela_detalhe">
-      <div class="inf_produto">
-      <div class="produto_detalhes">  
-      <img src="https://i1.sndcdn.com/artworks-Aoc2orKGaw5vb9fN-NuHcmA-t500x500.jpg" alt="" srcset="">
-      <div class="quantidade">
-      <button id="mais1">+</button>
-      <p>0</p>
-      <button id="menos1">-</button>
-      </div>
-      <div class="tamanhos">
-      <button class="tamanho">gg</button>
-      <button class="tamanho">g</button>
-      <button class="tamanho">m</button>
-      <button class="tamanho">p</button>
-      </div>
-    </div>
-    
 
-    <div class="descricao">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates consequatur sunt officia, nobis quis voluptas vel animi deserunt quas placeat aspernatur dolor perferendis rem, expedita at hic dicta! Quas, nihil.
-    </div>
-    </div>
-        <p id="value">valor =</p>
-    <div class="config">
-        
-        <button id="personaliza">pesonaliza</button>
-        <button id="adicionarCarrinho">add carrinho</button>
-    </div>
-  </div>
-</div>
 
 <footer class="bg-dark text-light open-sans">
     <div class="py-3">
@@ -141,12 +111,45 @@
   
 </footer> 
 </div>
+
+<div class="container_detalhais">
+  <div class="janela_detalhe">
+      <div class="inf_produto">
+        <div class="produto_detalhes">  
+          <img src="./img/pizza_padrao.svg" alt="" srcset="">
+          <div class="quantidade">
+            <button id="mais1">+</button>
+            <p>0</p>
+            <button id="menos1">-</button>
+          </div>
+          <div class="tamanhos">
+            <button class="tamanho">gg</button>
+            <button class="tamanho">g</button>
+            <button class="tamanho">m</button>
+            <button class="tamanho">p</button>
+          </div>
+        </div>
+  
+        <div class="descricao">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates consequatur sunt officia, nobis quis voluptas vel animi deserunt quas placeat aspernatur dolor perferendis rem, expedita at hic dicta! Quas, nihil.
+        </div>
+      </div>
+
+    <p id="value">valor =</p>
+
+    <div class="config">
+        <button id="personaliza">pesonaliza</button>
+        <button id="adicionarCarrinho">add carrinho</button>
+    </div>
+  </div>
+</div>
+
 </body>
 <!--o banco de dados sempre tem que fica em cima-->
 <script src="./js/bancoDeDados.js" defer></script>
 <script src="./js/cabercario.js" defer></script>
 <script src="./js/cardapio.js" defer></script>
-<script src="./js/detalhes.js"></script>
+<script src="./js/detalhes.js" defer></script>
 <!--esse script main tem que se sempre o ultimo para bom funcionamento do site -->
 <script src="./js/main.js" defer></script>
 </html>

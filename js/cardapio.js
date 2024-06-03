@@ -14,7 +14,7 @@ function cardPizzas() {
         <img src='./img/pizza_padrao.svg' alt="${element.nome}" >
         <p class="detalhes">${element.nome}</p>
         <p class="detalhes">R$ ${element.valor.toFixed(2)}</p>
-        <button id="buttonCompra">compra</button>
+        <button onclick="mostraDados()" id="buttonCompra">compra</button>
         
         `
         produtos.appendChild(div);
@@ -36,7 +36,7 @@ function cardBebidas() {
         <img src='./img/bebida_padrao.svg' alt="${element.nome}">
         <p class="detalhes">${element.nome}</p>
         <p class="detalhes">R$ ${element.valor.toFixed(2)}</p>
-        <button id="buttonCompra">compra</button>
+        <button onclick="mostraDados()" id="buttonCompra">compra</button>
         
         `
         produtos.appendChild(div);
@@ -58,7 +58,7 @@ function cardHamburgues() {
         <img src='./img/hamburguer_padrao.svg' alt="${element.nome}" >
         <p class="detalhes">${element.nome}</p>
         <p class="detalhes">R$ ${element.valor.toFixed(2)}</p>
-        <button id="buttonCompra">compra</button>
+        <button onclick="mostraDados()" id="buttonCompra">compra</button>
         
         `
         produtos.appendChild(div);

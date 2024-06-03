@@ -4,7 +4,9 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: black;
+    background: black;  
+    position: relative;
+    overflow: hidden;
 }
 /*cabecario */
 .cabecario{
@@ -173,14 +175,15 @@
     
 }
 .container_detalhais{
-    position: fixed;
-    overflow: hidden;
-    z-index: 1;
-    width: 60%;
     height: 100%;
+    z-index: 2;
     display: none;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9); /* Sombra mais forte */
+    position: fixed;
+    overflow: hidden;
 }
 .janela_detalhe{
     width: 100%;

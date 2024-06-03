@@ -1,7 +1,8 @@
-const botaoCompra = document.getElementById('buttonCompra');
+const botaoCompra = document.querySelector('#buttonCompra');
+const containerDetalhais = document.querySelector(".container_detalhais");
 
-botaoCompra.addEventListener("click", mostraDados);
 
 function mostraDados(){
-    console.log(this.valor)
+  containerDetalhais.style.display = "flex";  
 }
+
