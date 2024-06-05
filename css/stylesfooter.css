@@ -1,3 +1,7 @@
+.open-sans{
+    display: flex;
+    flex-direction: column;
+}
 /*Cores de textos e formatação/centralização de tag*/
 .bg-dark {
     background-color: #343a40 !important;

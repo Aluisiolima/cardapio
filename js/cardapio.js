@@ -11,7 +11,7 @@ function cardPizzas() {
         div.id = `${element.tipo}${i}`
         div.innerHTML = `
        
-        <img src='./img/pizza_padrao.svg' alt="${element.nome}" >
+        <img src='../img/pizza_padrao.svg' alt="${element.nome}" >
         <p class="detalhes">${element.nome}</p>
         <p class="detalhes">R$ ${element.valor.toFixed(2)}</p>
         <button onclick="mostraDados()" id="buttonCompra">compra</button>
@@ -33,7 +33,7 @@ function cardBebidas() {
         div.id = `${element.tipo}${i}`
         div.innerHTML = `
        
-        <img src='./img/bebida_padrao.svg' alt="${element.nome}">
+        <img src='../img/bebida_padrao.svg' alt="${element.nome}">
         <p class="detalhes">${element.nome}</p>
         <p class="detalhes">R$ ${element.valor.toFixed(2)}</p>
         <button onclick="mostraDados()" id="buttonCompra">compra</button>
@@ -55,7 +55,7 @@ function cardHamburgues() {
         div.id = `${element.tipo}${i}`
         div.innerHTML = `
        
-        <img src='./img/hamburguer_padrao.svg' alt="${element.nome}" >
+        <img src='../img/hamburguer_padrao.svg' alt="${element.nome}" >
         <p class="detalhes">${element.nome}</p>
         <p class="detalhes">R$ ${element.valor.toFixed(2)}</p>
         <button onclick="mostraDados()" id="buttonCompra">compra</button>

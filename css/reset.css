@@ -14,3 +14,53 @@
 .Arial{
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/*cabecario */
+.cabecario{
+    background: #DD1010;
+    display: flex;
+}
+.cabecario >.logo{
+    display: flex;
+    width: 40%;
+    padding: 1.25em;
+}
+.cabecario >.logo > p{
+    margin: 0.25em;
+}
+.cabecario >.logo > img{
+    border-radius: 12%;
+}
+
+.operacional{
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+}
+.link-navegacao{
+    display: flex;
+    align-items: flex-start;
+} 
+
+.links{
+    display: flex;
+    margin-left: 1em;
+    align-items: flex-end;
+    cursor: pointer;
+}   
+    .links > p {
+        font-size: larger;
+        font-weight: bold;
+        color: white;
+    }
+.contatos{
+    display: flex;
+    height: min-content;
+    align-items: center;
+    justify-content: flex-end;
+    
+    flex: auto;
+}
+.contatos > ul{
+    display: flex;
+}
