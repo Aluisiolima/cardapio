@@ -1,4 +1,4 @@
 {
-    "liveServer.settings.root": "/",
-    "liveServer.settings.defaultPath": "index.html"
+    "liveServer.settings.open": "index.html",
+    "liveServer.settings.root": "/"
 }
