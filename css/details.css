@@ -1,0 +1,58 @@
+
+.janela_detalhe{
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:30em;
+    padding: 1.3em;
+}
+.inf_produto{
+    display: flex;
+}
+.quantidade{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.quantidade button{
+    margin:0 1em 0 1em;
+    height: 1.5em;
+    width: 2em;
+    background: antiquewhite;
+    border: none;
+    border-radius: .5em;
+    box-shadow: 0 0 0.1px beige;
+}
+.quantidade p{
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.tamanhos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+.tamanhos button{
+    width: 50%;
+    height: 2em;
+    margin-bottom: .5em;
+    background: antiquewhite;
+    border: none;
+    border-radius: .5em;
+    box-shadow: 0 0 0.1px beige;
+}
+.descricao{
+    padding: 1em;
+    background: rgba(38, 40, 41, 0.9);
+    margin-left: .2em;
+}
+.config{
+    margin: .5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
