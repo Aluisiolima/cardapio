@@ -1,0 +1,78 @@
+.container_componestes{ 
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding:2em;
+}
+.container_carinho{
+    width: 80%;
+    margin: 0 auto;
+}
+.title{
+    width: 100%;
+    height: 2em;
+    background: wheat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5pc;
+    font-weight: bolder;
+    border: .1em solid black;
+    margin: .5em 0 .5em 0;
+}
+.card_produtos_carinho{
+    width: 100%;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    margin:1em 0 .5em 0; 
+    border: .1em solid wheat;
+    padding: 2.5em;
+}
+.card_img{
+    width: 20%;
+}
+.card_img img{
+    width: 3em;
+    height: 100%;
+}
+.card_nome{
+    width: 60%;
+
+}
+.card_valor{
+    width: 20%;
+}
+.valor_total{
+    width: 100%;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: .1em solid wheat;
+    padding: 2.5em;
+}
+#mesa, #entrega{
+    display: block;
+    width: 20%;
+    height: 2em;
+    border: none;
+    border-radius: .3em;
+    background: antiquewhite;
+    margin: .2em;
+}
+.config{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.config button{
+    width: 100%;
+    border: none;
+    height: 2em;
+    margin: .3em;
+    background: antiquewhite;
+    border-radius: .3em;
+}
