@@ -75,3 +75,15 @@
     border-radius: .5em;
     
 }
+#button_carinho{
+    background: #3e8e41;
+    width: 5em;
+    height: 5em;
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 1000;
+    right: 30px;
+    bottom: 10px;
+}
+#button_carinho i {font-size: 2pc;}
