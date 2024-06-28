@@ -1,11 +1,11 @@
-.container_componestes{ 
+.container_carinho{ 
     background: black;
     color: white;
     display: flex;
     flex-direction: column;
     padding:2em;
 }
-.container_carinho{
+.container_list_produtos{
     width: 80%;
     margin: 0 auto;
 }
