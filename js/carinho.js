@@ -44,7 +44,12 @@ function tela1(){
       <input type="number" placeholder="numero da casa">
     </div>
     <div class="produtos_escolhidos">
-
+      <details>
+        <summary>
+          produstos <i class="bi bi-caret-down-fill"></i>
+        </summary>
+      
+      </details>
     </div>
     <h4>formas de pagamento</h4>
     <div class="formas_De_Pagamento">
@@ -73,7 +78,12 @@ function tela2(){
       <input type="number" placeholder="numero da mesa">
     </div>
     <div class="produtos_escolhidos">
-
+      <details>
+        <summary>
+          produstos <i class="bi bi-caret-down-fill"></i>
+        </summary>
+      
+      </details>
     </div>
     <h4>formas de pagamento</h4>
     <div class="formas_De_Pagamento">
@@ -93,3 +103,4 @@ function tela2(){
     </div>
     `
 }
+mudarValorDaVariavel();
