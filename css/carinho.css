@@ -119,6 +119,9 @@
 .meios_de_pagamento{
     margin: 0 .5em 1em .5em;
 }
+.meios_de_pagamento img{
+    width: 100%;
+}
 .finaliza_pedido{
     width: 80%;
     display: flex;
