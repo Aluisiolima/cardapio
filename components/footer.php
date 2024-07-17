@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/stylesfooter.css">
 
 <footer class="bg-dark text-light open-sans">
     <div class="py-3">
