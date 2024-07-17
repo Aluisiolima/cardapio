@@ -68,7 +68,7 @@ function tela1(){
         </fieldset>
         <div class="finaliza_pedido">
           <p>valor =</p>
-          <button type="submit">compra</button>
+          <input type="submit" valeu="comprar">
         </div>
       </form>
     `
@@ -107,7 +107,7 @@ function tela2(){
         </fieldset>
         <div class="finaliza_pedido">
           <p>valor =</p>
-          <button type="submit">compra</button>
+          <input type="submit" valeu="comprar">
         </div>
       </form>
     `
