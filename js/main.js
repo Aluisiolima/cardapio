@@ -1,11 +1,23 @@
 
 
-function main(){
-    cardPizzas();
-    cardBebidas();
-    cardHamburgues();
+function carregaCardapio(){
+
+    loadContent('./components/cardapio.php');
+    
+    setTimeout(()=>{
+        cardPizzas();
+        cardBebidas();
+        cardHamburgues();
+    },50);
+
+}
+
+function carregaCarinho() {
+    loadContent('./components/carinho.php');
+    setTimeout(()=>{
+        mudarValorDaVariavel();
+    },200);
 }
     
-document.addEventListener("DOMContentLoaded", main());
 
 

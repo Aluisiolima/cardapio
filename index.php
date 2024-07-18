@@ -8,7 +8,9 @@
     <!--CSS para footer-->
 
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/telaDeDetalhes.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/cardapio.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
 
@@ -22,7 +24,7 @@
 </div>
 
 </body>
-<script>
+    <script>
         function loadContent(page) {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', page, true);
@@ -35,7 +37,11 @@
             };
             xhr.send();
         }
-        loadContent('home.html');
+        loadContent('./components/home.php');
     </script>
-<script src="./js/cardapio.js"></script>
+<script src="./js/cabercario.js" defer></script>
+<script src="./js/carinho.js" defer></script>
+<script src='./js/bancoDeDados.js' defer></script>
+<script src='./js/cardapio.js' defer></script>
+<script src='./js/main.js' defer></script>
 </html>

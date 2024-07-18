@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/details.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body>
 
-  
+
 <div class="container_detalhais">
-  <button onclick="volta()" class="volta"><i class="bi bi-arrow-left"></i></button>
+  <div class="volta">
+    <button onclick="loadContent('./components/cardapio.php')" ><i class="bi bi-arrow-left"></i></button>
+  </div>
   <div class="janela_detalhe">
         <div class="inf_produto">
           <div class="produto_detalhes">  
@@ -39,20 +30,8 @@
   
       <div class="config">
           <button id="personaliza">pesonaliza</button>
-          <button id="adicionarCarrinho" onclick="carinho()">add carrinho</button>
+          <button id="adicionarCarrinho" onclick="carregaCarinho()">add carrinho</button>
       </div>
     </div>
   </div>
  
-
-</body>
-<script>
-    function volta() {
-    window.location.href="/cardapio.html"
-}
-    function carinho(){
-      window.location.href="/carinho.html"
-    }
-</script>
-
-</html>

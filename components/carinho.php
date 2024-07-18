@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/carinho.css">
-</head>
-<body>
- 
+
+    <link rel="stylesheet" href="../css/carinho.css">
 
     <div class="container_carinho">
         <header class="title">carinho</header>
@@ -38,7 +29,6 @@
 
 
 
-</body>
-<script src="./js/carinho.js" defer></script>
 
-</html>
+<script src="./js/carinho.js" ></script>
+
