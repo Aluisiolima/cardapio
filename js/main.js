@@ -2,7 +2,7 @@
 
 function carregaCardapio(){
 
-    loadContent('./components/cardapio.php');
+    loadContent('cardapio');
     
     setTimeout(()=>{
         cardPizzas();
@@ -13,8 +13,16 @@ function carregaCardapio(){
 }
 
 function carregaCarinho() {
-    loadContent('./components/carinho.php');
+    loadContent('carinho');
+    
+    setTimeout(()=>{
+        var script = document.createElement('script');
 
+        script.src = "./js/carinho.js";
+
+        document.body.appendChild(script);
+
+    },50);
 }
     
 

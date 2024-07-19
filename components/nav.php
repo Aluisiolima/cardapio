@@ -9,7 +9,7 @@
     <div class="operacional">
         <div class="link-navegacao">
             <div class="links">
-                <p  id="home" onclick="loadContent('./components/home.php')">home</p>
+                <p  id="home" onclick="loadContent('home')">home</p>
             </div>
             <div class="links" >
                 <p id="cardapio" onclick="carregaCardapio()">cardapio</p>

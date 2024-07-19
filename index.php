@@ -25,19 +25,26 @@
 
 </body>
     <script>
-        function loadContent(page) {
+        function loadContent(content) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', page, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
+            xhr.open('POST', './config/loadContent.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
                     document.getElementById('content-area').innerHTML = xhr.responseText;
-                } else if (xhr.readyState == 4) {
+                } else {
                     document.getElementById('content-area').innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
                 }
             };
-            xhr.send();
+
+            xhr.onerror = function () {
+                document.getElementById('content-area').innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
+            };
+
+            xhr.send('content=' + encodeURIComponent(content));
         }
-        loadContent('./components/home.php');
+        loadContent('home');
     </script>
 <script src="./js/cabercario.js" defer></script>
 <script src="./js/carinho.js" defer></script>
