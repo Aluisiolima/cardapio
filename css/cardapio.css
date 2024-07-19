@@ -32,7 +32,7 @@
     font-weight: bold;
     margin: .2em;
 }
-#buttonCompra{
+#buttoncompra{
     background:  #3e8e41;
     border: none;
     border-radius: .5em;
@@ -86,4 +86,7 @@
     right: 30px;
     bottom: 10px;
 }
-#button_carinho i {font-size: 2pc;}
+#button_carinho i {
+    font-size: 2pc;
+    color: bisque;    
+}

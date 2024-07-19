@@ -85,6 +85,9 @@
     width: 70%;
     border-radius: .4em;
 }
+.container_pagamentos form{
+    width: 90%;
+}
 .dados{
     display: flex;
     flex-direction: column;
@@ -110,17 +113,16 @@
 .produtos_escolhidos i{
     font-size: .74pc;
 }
-.container_pagamentos h4{
-    margin: 1em;
-}
+
 .formas_De_Pagamento{
     display: flex;
+    min-width: 100%;
+    
 }
 .meios_de_pagamento{
+    display: flex;
+    flex-direction: column;
     margin: 0 .5em 1em .5em;
-}
-.meios_de_pagamento img{
-    width: 100%;
 }
 .finaliza_pedido{
     width: 80%;
@@ -128,7 +130,7 @@
     flex-direction: column;
     font-weight: bold;
 }
-.finaliza_pedido button{
+.finaliza_pedido input{
     width: 100%;
     border: none;
     border-radius: .4em;
