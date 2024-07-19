@@ -14,9 +14,7 @@ function carregaCardapio(){
 
 function carregaCarinho() {
     loadContent('./components/carinho.php');
-    setTimeout(()=>{
-        mudarValorDaVariavel();
-    },200);
+
 }
     
 

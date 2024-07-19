@@ -26,9 +26,8 @@
     </div >
     <div class="container_pagamentos">
     </div>
+<script src="../js/carinho.js" defer></script>
 
 
 
-
-<script src="./js/carinho.js" ></script>
 
