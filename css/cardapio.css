@@ -86,4 +86,7 @@
     right: 30px;
     bottom: 10px;
 }
-#button_carinho i {font-size: 2pc;}
+#button_carinho i {
+    font-size: 2pc;
+    color: bisque;    
+}
