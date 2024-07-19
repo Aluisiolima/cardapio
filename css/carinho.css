@@ -124,6 +124,9 @@
     flex-direction: column;
     margin: 0 .5em 1em .5em;
 }
+.meios_de_pagamento img{
+    max-width: 100%;
+}
 .finaliza_pedido{
     width: 80%;
     display: flex;
