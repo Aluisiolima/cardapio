@@ -1,5 +1,5 @@
 var botaoCompra = document.querySelectorAll("#buttonCompra");
-
+/**geral os card de pizza com os dados do banco  */
 function cardPizzas() {
 
     for (let i = 0; i < pizzas.length; i++) {
@@ -21,7 +21,7 @@ function cardPizzas() {
 }
 }
 
-
+/**geral os card de bebida com os dados do banco  */
 function cardBebidas() {
 
     for (let i = 0; i < bebidas.length; i++) {
@@ -43,7 +43,7 @@ function cardBebidas() {
 }
 }
 
-
+/**geral os card de hamburgues com os dados do banco  */
 function cardHamburgues() {
 
     for (let i = 0; i < hamburgues.length; i++) {

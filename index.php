@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cardapio digital</title>
 
-    <!--CSS para footer-->
-
+    <!--CSSs-->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/telaDeDetalhes.css">
     <link rel="stylesheet" href="./css/home.css">
@@ -17,16 +16,17 @@
 </head>
 <body>
 <div class="container">
-    <!--cabecario ,logo e links de acesso rapiodo-->
    <?php include "./components/nav.php"; ?>
    <div id="content-area"></div>
    <?php include "./components/footer.php"; ?>
 </div>
 
 </body>
+    <!--SCRIPTs-->
     <script src="./js/cabercario.js" defer></script>
     <script src="./js/carinho.js" defer></script>
     <script src='./js/bancoDeDados.js' defer></script>
     <script src='./js/cardapio.js' defer></script>
+    <!-- arquivo main.js e responsavel por quase tudo que ocorre no site -->
     <script src='./js/main.js' defer></script>
 </html>
