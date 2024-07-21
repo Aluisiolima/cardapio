@@ -1,19 +1,27 @@
 
-//home do cabecario
+//botao que leva ao cardapio
 const home = document.getElementById('home');
-//cardapio do cabecario
+//botao que leva ao cardapio
 const cardapio = document.getElementById('cardapio');
-//container home
-const home_page = document.querySelector(".container_home");
-//container cardapio
-const cardapio_page = document.querySelector(".container_cardapio");
 
+/**
+ * essa funcao e responsavel por leva para a home da pagina 
+ * ela nao receber parametros mais receber duas variaveis que estam sendo declaradas no cabercario.js 
+ * {'home' , 'cardapio'}
+ */
 function homeAtive(){
-    window.location.href = "/home.html"
+    loadContent('home');
     home.style.textDecoration = "underline";
+    cardapio.style.textDecoration = "none";
 
 }
+/**
+ * essa funcao e responsavel por leva para o cardapio 
+ * ela nao receber parametros mais receber duas variaveis que estam sendo declaradas no cabercario.js 
+ * {'cardapio' , 'home'}
+ */
 function cardapioAtive(){
-    window.location.href = "/cardapio.html"
+    carregaCardapio();
     cardapio.style.textDecoration = "underline";
+    home.style.textDecoration = "none";
 }

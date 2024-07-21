@@ -1,4 +1,4 @@
-
+//variaveis importantes
 var local = true;
 var tela = document.querySelector(".container_pagamentos");
 var telaCarinho = document.querySelector(".container_carinho");
@@ -6,8 +6,12 @@ var mesa = document.getElementById("mesa");
 var entrega = document.getElementById("entrega");
 
 
-
-function mudarValorDaVariavel() {
+/**
+ * function que mudar o estado se vc estar ou nao no estabelecimento
+ * receber a variavel local e que um bool que por padrao e true dizendo que o cliente nao esta no estabelicimento
+ * @returns local
+ */
+function mudarValorDaVariavel(){
   entrega.addEventListener("click", ()=>{
     entrega.style.background = "green";
     mesa.style.background = "antiquewhite";
@@ -22,7 +26,9 @@ function mudarValorDaVariavel() {
   })
   return local;
 }
-
+/**
+ * responsavel por imprimi na tela quais tipos de informacoes sao enterressante que o cliente der para a entrega do produto
+ */
 function telaDeEmtrega(){
   let typeDelivery = local
 
@@ -35,7 +41,9 @@ function telaDeEmtrega(){
         break;
   }
 }
-
+/**
+ * imprimi a tela caso o cliente esteja na sua casa e queira um delivery 
+ */
 function tela1(){
   telaCarinho.style.display = 'none';
 
@@ -76,6 +84,9 @@ function tela1(){
     </form>
   `
 }
+/**
+ * imprimi a tela caso o cliente esteja no estabelicimento  
+ */
 function tela2(){
 telaCarinho.style.display = 'none';
 tela.innerHTML= `
