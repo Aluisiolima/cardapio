@@ -9,10 +9,10 @@
     <div class="operacional">
         <div class="link-navegacao">
             <div class="links">
-                <p  id="home" onclick="loadContent('home')">home</p>
+                <p  id="home" onclick="homeAtive()">home</p>
             </div>
             <div class="links" >
-                <p id="cardapio" onclick="carregaCardapio()">cardapio</p>
+                <p id="cardapio" onclick="cardapioAtive()">cardapio</p>
             </div>
         </div>
 

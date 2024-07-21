@@ -9,11 +9,13 @@ const home_page = document.querySelector(".container_home");
 const cardapio_page = document.querySelector(".container_cardapio");
 
 function homeAtive(){
-    window.location.href = "/home.html"
+    loadContent('home');
     home.style.textDecoration = "underline";
+    cardapio.style.textDecoration = "none";
 
 }
 function cardapioAtive(){
-    window.location.href = "/cardapio.html"
+    carregaCardapio();
     cardapio.style.textDecoration = "underline";
+    home.style.textDecoration = "none";
 }

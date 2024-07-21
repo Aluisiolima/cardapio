@@ -2,7 +2,7 @@
 
 <div class="container_detalhais">
   <div class="volta">
-    <button onclick="loadContent('./components/cardapio.php')" ><i class="bi bi-arrow-left"></i></button>
+    <button onclick="carregaCardapio()" ><i class="bi bi-arrow-left"></i></button>
   </div>
   <div class="janela_detalhe">
         <div class="inf_produto">
