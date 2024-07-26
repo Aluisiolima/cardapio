@@ -1,20 +1,7 @@
 
 
 
-/**
- * essa e funcao responsavel por te levar pra o cardapio e carregar os script dele
- */
-function carregaCardapio(){
 
-    loadContent('cardapio');
-    
-    setTimeout(()=>{
-        cardPizzas();
-        cardBebidas();
-        cardHamburgues();
-    },50);
-
-}
 /**
  * essa e funcao responsavel por te levar pra o carinho e carregar os script dele
  */

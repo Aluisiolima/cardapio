@@ -17,7 +17,9 @@
 <body>
 <div class="container">
    <?php include "./components/nav.php"; ?>
-   <div id="content-area"></div>
+   <div id="content-area">
+    
+   </div>
    <?php include "./components/footer.php"; ?>
 </div>
 
@@ -25,8 +27,6 @@
     <!--SCRIPTs-->
     <script src="./js/cabercario.js" defer></script>
     <script src="./js/carinho.js" defer></script>
-    <script src='./js/bancoDeDados.js' defer></script>
-    <script src='./js/cardapio.js' defer></script>
     <!-- arquivo main.js e responsavel por quase tudo que ocorre no site -->
     <script src='./js/main.js' defer></script>
 </html>

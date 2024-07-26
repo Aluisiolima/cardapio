@@ -21,7 +21,7 @@ function homeAtive(){
  * {'cardapio' , 'home'}
  */
 function cardapioAtive(){
-    carregaCardapio();
+    loadContent('cardapio');
     cardapio.style.textDecoration = "underline";
     home.style.textDecoration = "none";
 }
