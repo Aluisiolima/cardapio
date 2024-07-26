@@ -1,6 +1,7 @@
 <?php
+    include "../ClassePhp/database.php";
     include "../ClassePhp/Cards.php";
-    $card = new Cards($conexão->connect());
+    $card = new Cards($conexao);
 ?>
     <div class="container_cardapio" id="cardapio">
         <div class="cardapio_produtos_lanche">

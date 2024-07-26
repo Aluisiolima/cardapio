@@ -1,6 +1,4 @@
 <?php
-    include "../ClassePhp/Conexao.php";
-    $conexão = new Conexão('roundhouse.proxy.rlwy.net','root','zKDMtRKZOsnoOrTHnqCVCbczOqOkhWMj','railway',19884);
 
     class Cards
     {

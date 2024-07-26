@@ -8,7 +8,7 @@
         private $port;
         private $charset;
 
-        public function __construct(string $servername, string $username, string $password, string $dbname, int $port = null, $charset= 'utf8mb4')
+        public function __construct(string $servername, string $username, string $password, string $dbname, int $port = null, $charset= null)
         {
             $this->servername = $servername;
             $this->username = $username;
