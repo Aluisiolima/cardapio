@@ -1,5 +1,5 @@
 <?php
-    include "./ClassePhp/Cards.php";
+    include "../ClassePhp/Cards.php";
     $card = new Cards($conexão->connect());
 ?>
     <div class="container_cardapio" id="cardapio">

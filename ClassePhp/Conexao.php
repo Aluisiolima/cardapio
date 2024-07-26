@@ -1,5 +1,5 @@
 <?php
-    class Conexão
+    class  Conexão
     {
         private $servername;
         private $username;

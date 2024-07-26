@@ -18,7 +18,7 @@
 <div class="container">
    <?php include "./components/nav.php"; ?>
    <div id="content-area">
-    
+        
    </div>
    <?php include "./components/footer.php"; ?>
 </div>
