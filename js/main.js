@@ -22,6 +22,7 @@ function carregaCarinho() {
  * @param {any} content este parametro e a pagina que vc quer e ir 
  */   
 function loadContent(content) {
+    
     var xhr = new XMLHttpRequest();
     xhr.open('POST', './config/loadContent.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

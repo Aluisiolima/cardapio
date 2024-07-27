@@ -1,12 +1,13 @@
 <?php
-    include "../ClassePhp/database.php";
+    error_reporting(0);
     include "../ClassePhp/Cards.php";
-    $card = new Cards($conexao);
+    include "../Database/database.php";
+   
 ?>
     <div class="container_cardapio" id="cardapio">
         <div class="cardapio_produtos_lanche">
             <?php 
-                
+                $card = new Cards($conn);
                 $card->geraCardPizza();
                 
                 $card->geraCardHamburguer();
