@@ -7,7 +7,7 @@
     <div class="container_cardapio" id="cardapio">
         <div class="cardapio_produtos_lanche">
             <?php 
-                $card = new Cards($conn);
+                $card = new Cards($conexao);
                 $card->geraCardPizza();
                 
                 $card->geraCardHamburguer();

@@ -12,7 +12,7 @@
         public function geraCardPizza()
         {
                     
-            $conexão = $this->conexão->connect();
+            $conexão = $this->conexão;
 
             if ($conexão) 
             {
@@ -36,10 +36,7 @@
                     }
                 }catch(PDOException $e){
                     echo "erro " .$e->getMessage();
-                }finally{
-                    $conexão = null;
                 }
-
             } else {
                 echo "Falha na conexão.";
             }
@@ -47,7 +44,7 @@
         public function geraCardBebida()
         {
                     
-            $conexão = $this->conexão->connect();
+            $conexão = $this->conexão;
 
             if ($conexão) 
             {
@@ -71,8 +68,6 @@
                     }
                 }catch(PDOException $e){
                     echo "erro " .$e->getMessage();
-                }finally{
-                    $conexão = null;
                 }
             } else {
                 echo "Falha na conexão.";
@@ -81,7 +76,7 @@
         public function geraCardHamburguer()
         {
                     
-            $conexão = $this->conexão->connect();
+            $conexão = $this->conexão;
 
             if ($conexão) 
             {
@@ -105,8 +100,6 @@
                     }
                 }catch(PDOException $e){
                     echo "erro " .$e->getMessage();
-                }finally{
-                    $conexão = null;
                 }
             } else {
                 echo "Falha na conexão.";
