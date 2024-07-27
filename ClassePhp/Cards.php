@@ -18,7 +18,7 @@
             {
                 try {
                     // Preparar e executar o SELECT
-                    $sql = "SELECT id,nome,valor FROM produto WHERE tipo = 'Pizza'";
+                    $sql = "SELECT id,nome,valor,img FROM produto WHERE tipo = 'Pizza'";
                     $stmt = $conexão->prepare($sql);
                     $stmt->execute();
 
@@ -27,11 +27,11 @@
 
                     // Exibir os resultados
                     foreach ($produtos as $produto) {
-                        echo "  <div class='card_pizzas' id='{$produto['id']}'>
-                                    <img src='../img/pizza_padrao.svg' alt='imagem' >
+                        echo "  <div class='card_pizzas' >
+                                    <img src='{$produto['img']}' alt='imagem' onerror="."src='./img/pizza_padrao.svg'".">
                                     <p class='detalhes'>{$produto['nome']}</p>
                                     <p class='detalhes'>R$ {$produto['valor']}</p>
-                                    <button onclick="."loadContent('detalhes')"." id='buttoncompra'>compra</button>
+                                    <button onclick="."loadContent('detalhes')"." id='{$produto['id']}' class='buttoncompra'>compra</button>
                                 </div>";
                     }
                 }catch(PDOException $e){
@@ -50,7 +50,7 @@
             {
                 try{
                     // Preparar e executar o SELECT
-                    $sql = "SELECT id,nome,valor FROM produto WHERE tipo = 'Bebida'";
+                    $sql = "SELECT id,nome,valor,img FROM produto WHERE tipo = 'Bebida'";
                     $stmt = $conexão->prepare($sql);
                     $stmt->execute();
 
@@ -59,11 +59,11 @@
 
                     // Exibir os resultados
                     foreach ($produtos as $produto) {
-                        echo "  <div class='card_pizzas' id='{$produto['id']}'>
-                                    <img src='../img/bebida_padrao.svg' alt='imagem' >
+                        echo "  <div class='card_pizzas' >
+                                    <img src='{$produto['img']}' alt='imagem' onerror="."src='./img/bebida_padrao.svg'".">
                                     <p class='detalhes'>{$produto['nome']}</p>
                                     <p class='detalhes'>R$ {$produto['valor']}</p>
-                                    <button onclick="."loadContent('detalhes')"." id='buttoncompra'>compra</button>
+                                    <button onclick="."loadContent('detalhes')"." id='{$produto['id']}' class='buttoncompra'>compra</button>
                                 </div>";
                     }
                 }catch(PDOException $e){
@@ -82,7 +82,7 @@
             {
                 try{
                     // Preparar e executar o SELECT
-                    $sql = "SELECT id,nome,valor FROM produto WHERE tipo = 'Hambúrguer'";
+                    $sql = "SELECT id,nome,valor,img FROM produto WHERE tipo = 'Hambúrguer'";
                     $stmt = $conexão->prepare($sql);
                     $stmt->execute();
 
@@ -91,11 +91,11 @@
 
                     // Exibir os resultados
                     foreach ($produtos as $produto) {
-                        echo "  <div class='card_pizzas' id='{$produto['id']}'>
-                                    <img src='../img/hamburguer_padrao.svg' alt='imagem' >
+                        echo "  <div class='card_pizzas' >
+                                    <img src='{$produto['img']}' alt='imagem' onerror="."src='./img/hamburguer_padrao.svg'".">
                                     <p class='detalhes'>{$produto['nome']}</p>
                                     <p class='detalhes'>R$ {$produto['valor']}</p>
-                                    <button onclick="."loadContent('detalhes')"." id='buttoncompra'>compra</button>
+                                    <button onclick="."loadContent('detalhes')"." id='{$produto['id']}' class='buttoncompra'>compra</button>
                                 </div>";
                     }
                 }catch(PDOException $e){

@@ -22,3 +22,6 @@
        
         <button id="button_carinho" onclick="carregaCarinho()"> <i class="bi bi-cart4"></i></button>
     </div>
+    <div id="contsiner_detalhes" class="container_detalhais">
+    <?php //include "../components/detalheProduto.php";?>
+    </div>

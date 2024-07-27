@@ -17,6 +17,31 @@ function carregaCarinho() {
 
     },50);
 }
+
+
+function getDetalhes() {
+    const id = this.getAttribute('id');
+    
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'process.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = xhr.responseText;
+        } else {
+            console.error('Request failed. Status:', xhr.status);
+            document.getElementById('result').innerHTML = 'Erro na solicitação.';
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Request error.');
+        document.getElementById('result').innerHTML = 'Erro na solicitação.';
+    };
+    xhr.send('id=' + encodeURIComponent(id));
+};
+
+
 /**
  * esta funcao manda para o ./config/loadContent.php que ler o para content e retorna a pagina que vc que vc dever ser direcionado
  * @param {any} content este parametro e a pagina que vc quer e ir 

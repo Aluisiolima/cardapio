@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="../css/nav.css">
+
 
 <nav class="cabecario">
         <div class="logo">
-          <img src="./img/foto-perfilempresa.svg" alt="logo" height="30">  
+          <img src="./img/foto-perfilempresa.svg" alt="logo" height="30" >  
         <h1>  <?php echo $conn ?>  </h1>
         </div>
 

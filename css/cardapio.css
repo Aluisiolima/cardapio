@@ -32,7 +32,7 @@
     font-weight: bold;
     margin: .2em;
 }
-#buttoncompra{
+.buttoncompra{
     background:  #3e8e41;
     border: none;
     border-radius: .5em;

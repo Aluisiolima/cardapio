@@ -8,6 +8,8 @@
 
     <!--CSSs-->
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/stylesfooter.css">
     <link rel="stylesheet" href="./css/telaDeDetalhes.css">
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/cardapio.css">
