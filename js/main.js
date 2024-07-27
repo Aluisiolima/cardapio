@@ -22,21 +22,32 @@ function carregaCarinho() {
  * @param {any} content este parametro e a pagina que vc quer e ir 
  */   
 function loadContent(content) {
+    const content_resposta = document.getElementById('content-area');
+    const content_load = document.getElementById('container_load');
     
+    content_load.style.display = 'flex';
+    content_resposta.style.display = 'none';
+
     var xhr = new XMLHttpRequest();
     xhr.open('POST', './config/loadContent.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
-            document.getElementById('content-area').innerHTML = xhr.responseText;
+            content_resposta.innerHTML = xhr.responseText;
+            content_resposta.style.display = 'block';
+            content_load.style.display = 'none';
         } else {
-            document.getElementById('content-area').innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
+            content_resposta.innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
+            content_resposta.style.display = 'block';
+            content_load.style.display = 'none';
         }
     };
 
     xhr.onerror = function () {
-        document.getElementById('content-area').innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
+        content_resposta.innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
+        content_resposta.style.display = 'block';
+        content_load.style.display = 'none';
     };
 
     xhr.send('content=' + encodeURIComponent(content));
