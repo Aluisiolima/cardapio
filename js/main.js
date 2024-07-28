@@ -19,27 +19,33 @@ function carregaCarinho() {
 }
 
 
-function getDetalhes() {
-    const id = this.getAttribute('id');
-    
+function getDetalhes(id) {
+    const resultDiv = document.getElementById('container_detalhes');
+    const cardapio = document.getElementById('cardapio_page');
+    const content_load = document.getElementById('container_load');
+    cardapio.style.display = 'none';
+    content_load.style.display = 'flex'
+
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'process.php', true);
+    xhr.open('POST', './components/detalheProduto.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
-        if (xhr.status === 200) {
-            const resultDiv = document.getElementById('result');
+        if (xhr.status === 200) { 
             resultDiv.innerHTML = xhr.responseText;
+            resultDiv.style.display = 'flex';
+            content_load.style.display = 'none'
+            
         } else {
             console.error('Request failed. Status:', xhr.status);
-            document.getElementById('result').innerHTML = 'Erro na solicitação.';
+            document.getElementById('container_detalhes').innerHTML = 'Erro na solicitação.';
         }
     };
     xhr.onerror = function() {
         console.error('Request error.');
-        document.getElementById('result').innerHTML = 'Erro na solicitação.';
+        document.getElementById('container_detalhes').innerHTML = 'Erro na solicitação.';
     };
     xhr.send('id=' + encodeURIComponent(id));
-};
+}
 
 
 /**

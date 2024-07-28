@@ -5,7 +5,7 @@
     top: 0;
     bottom: 0;
     right: 0;
-    display: flex;
+    display: none;
     margin: 3em;
     justify-content: center;
     flex-direction: column;
@@ -67,7 +67,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-    width: 32%;
+    align-items: center;
+    width: 50%;
 }
 
 .descricao{

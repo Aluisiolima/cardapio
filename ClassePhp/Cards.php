@@ -31,7 +31,7 @@
                                     <img src='{$produto['img']}' alt='imagem' onerror="."src='./img/pizza_padrao.svg'".">
                                     <p class='detalhes'>{$produto['nome']}</p>
                                     <p class='detalhes'>R$ {$produto['valor']}</p>
-                                    <button onclick="."loadContent('detalhes')"." id='{$produto['id']}' class='buttoncompra'>compra</button>
+                                    <button onclick='getDetalhes({$produto['id']})' class='buttoncompra'>compra</button>
                                 </div>";
                     }
                 }catch(PDOException $e){
@@ -63,7 +63,7 @@
                                     <img src='{$produto['img']}' alt='imagem' onerror="."src='./img/bebida_padrao.svg'".">
                                     <p class='detalhes'>{$produto['nome']}</p>
                                     <p class='detalhes'>R$ {$produto['valor']}</p>
-                                    <button onclick="."loadContent('detalhes')"." id='{$produto['id']}' class='buttoncompra'>compra</button>
+                                    <button onclick='getDetalhes({$produto['id']})' class='buttoncompra'>compra</button>
                                 </div>";
                     }
                 }catch(PDOException $e){
@@ -95,7 +95,7 @@
                                     <img src='{$produto['img']}' alt='imagem' onerror="."src='./img/hamburguer_padrao.svg'".">
                                     <p class='detalhes'>{$produto['nome']}</p>
                                     <p class='detalhes'>R$ {$produto['valor']}</p>
-                                    <button onclick="."loadContent('detalhes')"." id='{$produto['id']}' class='buttoncompra'>compra</button>
+                                    <button onclick='getDetalhes({$produto['id']})' class='buttoncompra'>compra</button>
                                 </div>";
                     }
                 }catch(PDOException $e){
