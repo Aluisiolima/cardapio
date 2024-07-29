@@ -94,4 +94,4 @@ function loadContent(content) {
     xhr.send('content=' + encodeURIComponent(content));
 }
 
-cardapioAtive();
+homeAtive();
