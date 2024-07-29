@@ -20,10 +20,8 @@ function carregaCarinho() {
 
 
 function getDetalhes(id) {
-    const resultDiv = document.getElementById('container_detalhes');
-    const cardapio = document.getElementById('cardapio_page');
+    const detalhes = document.getElementById('container_detalhes');
     const content_load = document.getElementById('container_load');
-    cardapio.style.display = 'none';
     content_load.style.display = 'flex'
 
     const xhr = new XMLHttpRequest();
@@ -31,8 +29,8 @@ function getDetalhes(id) {
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function() {
         if (xhr.status === 200) { 
-            resultDiv.innerHTML = xhr.responseText;
-            resultDiv.style.display = 'flex';
+            detalhes.innerHTML = xhr.responseText;
+            detalhes.style.display = 'flex';
             content_load.style.display = 'none'
             
         } else {
@@ -46,7 +44,19 @@ function getDetalhes(id) {
     };
     xhr.send('id=' + encodeURIComponent(id));
 }
-
+function fechaDetalhes(){
+    const detalhes = document.getElementById('container_detalhes');
+    detalhes.style.display = 'none';
+}
+function addCarinho(){
+    const detalhes = document.getElementById('tela_detalhe');
+    detalhes.classList.add("animate");
+    detalhes.addEventListener("animationend", ()=>{
+        detalhes.classList.remove("animate");
+        detalhes.style.display = "none";
+    })
+    
+}
 
 /**
  * esta funcao manda para o ./config/loadContent.php que ler o para content e retorna a pagina que vc que vc dever ser direcionado
@@ -84,4 +94,4 @@ function loadContent(content) {
     xhr.send('content=' + encodeURIComponent(content));
 }
 
-homeAtive();
+cardapioAtive();

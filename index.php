@@ -25,7 +25,7 @@
     <div class="load"></div>
     <p>carregando...</p>
    </div>
-   <div id="content-area">
+   <div id="content-area" >
         
    </div>
    <?php include "./components/footer.php"; ?>
