@@ -4,8 +4,33 @@ var tela = document.querySelector(".container_pagamentos");
 var telaCarinho = document.querySelector(".container_carinho");
 var mesa = document.getElementById("mesa");
 var entrega = document.getElementById("entrega");
+var produtos_escolhidos = [];
+var cardProduto = document.getElementById("produtos_carinho");
 
+function geraCardsProduct(){
+  
+  for (let i = 0; i < produtos_escolhidos.length; i++) {
+    var nome = produtos_escolhidos[i][0];
+    var valor = produtos_escolhidos[i][1];
+    var img = produtos_escolhidos[i][2];
+    
+    
+    var div = document.createElement("div");
+    div.innerHTML = `
+                <div class="card_img">
+                    <img src="${img}" alt="pizza_padrao">
+                </div>
+                <div class="card_nome"><p>${nome}</p></div>
+                <div class="card_valor"><p>valor = ${valor}</p></div>
+    `
 
+    cardProduto.appendChild(div);
+
+  }
+
+}
+
+geraCardsProduct();
 /**
  * function que mudar o estado se vc estar ou nao no estabelecimento
  * receber a variavel local e que um bool que por padrao e true dizendo que o cliente nao esta no estabelicimento
@@ -60,7 +85,7 @@ function tela1(){
           <summary>
             produstos <i class="bi bi-caret-down-fill"></i>
           </summary>
-        
+
         </details>
       <fieldset class="formas_De_Pagamento">
         <legend>formas de pagamento</legend>

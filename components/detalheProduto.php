@@ -2,7 +2,7 @@
 error_reporting(0);
 include "../Database/Conexao.php";
 include "../Database/database.php";
-$img = "";
+$imgERROR = "";
  $conexao = $conn->connect();
 
 if (isset($_POST['id'])) {
@@ -17,15 +17,21 @@ if (isset($_POST['id'])) {
   
   if ($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              $img = "{$row['img']}";
+              $nome = "{$row['nome']}";
+              $valor = "{$row['valor']}";
+
               if($row['tipo'] == 'Pizza'){
-                $img = "./img/pizza_padrao.svg";
+                $imgERROR = "./img/pizza_padrao.svg";
               }elseif($row['tipo'] == 'Bebida'){
-                $img = "./img/bebida_padrao.svg";
+                $imgERROR = "./img/bebida_padrao.svg";
               }elseif($row['tipo'] == 'Hambúrguer'){
-                $img = "./img/hamburguer_padrao.svg";
+                $imgERROR = "./img/hamburguer_padrao.svg";
               }else{
-                $img = "./img/pizza_padrao.svg";
+                $imgERROR = "./img/pizza_padrao.svg";
               }
+
+              
               
               echo "
                 
@@ -36,7 +42,7 @@ if (isset($_POST['id'])) {
                   <div class='detalhe'>
                     <div class='inf_produto'>
                       <div class='produto_detalhes'>  
-                          <img src=' {$row['img']}' alt='' width='200px' onerror="."src='$img'".">
+                          <img src='$img' id='imgProduct' alt='' width='200px' onerror="."src='$imgERROR'".">
                         <div class='quantidade'>
                           <button id='mais1'>+</button>
                           <p>1</p>
@@ -51,11 +57,11 @@ if (isset($_POST['id'])) {
                       </div>
                     
                       <div class='descricao'>
-                        <p> {$row['nome']}</p>
+                        <p id='nameProduct'> $nome</p>
                       </div>
                     </div>
                   
-                    <p id='value'>valor = {$row['valor']}</p>
+                    <p >valor = <span id='value'>$valor</span> </p>
                   
                     <div class='config'>
                         <button id='personaliza'>pesonaliza</button>

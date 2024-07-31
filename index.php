@@ -22,8 +22,8 @@
 <div class="container">
    <?php include "./components/nav.php"; ?>
    <div id="container_load">
-    <div class="load"></div>
-    <p>carregando...</p>
+        <div class="load"></div>
+        <p>carregando...</p>
    </div>
    <div id="content-area" >
         

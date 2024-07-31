@@ -14,8 +14,8 @@ function carregaCarinho() {
         script.src = "./js/carinho.js";
 
         document.body.appendChild(script);
-
-    },50);
+        
+    },100);
 }
 
 
@@ -49,13 +49,22 @@ function fechaDetalhes(){
     detalhes.style.display = 'none';
 }
 function addCarinho(){
+    //alteracoes de tela [ animacoes ]
     const detalhes = document.getElementById('tela_detalhe');
     detalhes.classList.add("animate");
     detalhes.addEventListener("animationend", ()=>{
         detalhes.classList.remove("animate");
         detalhes.style.display = "none";
     })
-    
+
+    var nomeProduto = document.getElementById("nameProduct").textContent;
+    var imgProduto = document.getElementById("imgProduct").src;
+    var valorProduto = document.getElementById("value").textContent;
+
+    // logica de implementa o produto no carrinho
+    var listProduto = [String(nomeProduto),String(valorProduto),String(imgProduto)]
+    produtos_escolhidos.push(listProduto);
+    console.log(produtos_escolhidos);
 }
 
 /**
