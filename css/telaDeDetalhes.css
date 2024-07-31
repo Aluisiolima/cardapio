@@ -27,8 +27,8 @@
     width: 80%;
     left: 50%;
     top: 50%;
-    transition: opacity 1s; 
-    transition: translate 1s;
+    transition: opacity 0.5s; 
+    transition: translate 0.5s;
         
 }
 .detalhe{
@@ -85,7 +85,7 @@
     width: 40%;
     padding: .8em;
 }
-#value{color: #c7c7c7;}
+.value{color: #c7c7c7;}
 .config{
     width: 100%;
     display: flex;
@@ -112,7 +112,7 @@
 }
 
 .animate {
-    animation: moveAndShrink 1s linear ;
+    animation: moveAndShrink 0.5s linear ;
 }
 @media (min-width: 800px) {
     .janela_detalhe{

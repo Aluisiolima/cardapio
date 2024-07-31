@@ -33,6 +33,7 @@
 
 </body>
     <!--SCRIPTs-->
+    <script src="./js/produtos.js" defer></script>
     <script src="./js/cabercario.js" defer></script>
     <script src="./js/carinho.js" defer></script>
     <!-- arquivo main.js e responsavel por quase tudo que ocorre no site -->

@@ -58,13 +58,13 @@ function addCarinho(){
     })
 
     var nomeProduto = document.getElementById("nameProduct").textContent;
+    var quantidade = document.getElementById("quantidade").textContent;
     var imgProduto = document.getElementById("imgProduct").src;
     var valorProduto = document.getElementById("value").textContent;
 
     // logica de implementa o produto no carrinho
-    var listProduto = [String(nomeProduto),String(valorProduto),String(imgProduto)]
+    var listProduto = [String(nomeProduto),String(valorProduto),String(quantidade),String(imgProduto)]
     produtos_escolhidos.push(listProduto);
-    console.log(produtos_escolhidos);
 }
 
 /**

@@ -1,0 +1,1 @@
+var produtos_escolhidos = [];

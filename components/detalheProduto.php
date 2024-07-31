@@ -44,9 +44,9 @@ if (isset($_POST['id'])) {
                       <div class='produto_detalhes'>  
                           <img src='$img' id='imgProduct' alt='' width='200px' onerror="."src='$imgERROR'".">
                         <div class='quantidade'>
-                          <button id='mais1'>+</button>
-                          <p>1</p>
-                          <button id='menos1'>-</button>
+                          <button id='mais1' onclick='mais1()'>+</button>
+                          <p id='quantidade'>1</p>
+                          <button id='menos1' onclick='menos1()'>-</button>
                         </div>
                         <div class='tamanhos'>
                           <button class='tamanho'>gg</button>
@@ -61,7 +61,7 @@ if (isset($_POST['id'])) {
                       </div>
                     </div>
                   
-                    <p >valor = <span id='value'>$valor</span> </p>
+                    <p class='value'> valor = <span id='value' product-value=$valor>$valor</span> </p>
                   
                     <div class='config'>
                         <button id='personaliza'>pesonaliza</button>

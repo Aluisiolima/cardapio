@@ -4,33 +4,77 @@ var tela = document.querySelector(".container_pagamentos");
 var telaCarinho = document.querySelector(".container_carinho");
 var mesa = document.getElementById("mesa");
 var entrega = document.getElementById("entrega");
-var produtos_escolhidos = [];
 var cardProduto = document.getElementById("produtos_carinho");
+var addProduto = document.getElementById("mais1");
+var removeProduto = document.getElementById("menos1");
 
 function geraCardsProduct(){
   
   for (let i = 0; i < produtos_escolhidos.length; i++) {
     var nome = produtos_escolhidos[i][0];
     var valor = produtos_escolhidos[i][1];
-    var img = produtos_escolhidos[i][2];
+    var quantidade = produtos_escolhidos[i][2];
+    var img = produtos_escolhidos[i][3];
     
-    
-    var div = document.createElement("div");
-    div.innerHTML = `
+   
+  
+    cardProduto.innerHTML += `
+              <div class="card_produto">
                 <div class="card_img">
                     <img src="${img}" alt="pizza_padrao">
                 </div>
-                <div class="card_nome"><p>${nome}</p></div>
-                <div class="card_valor"><p>valor = ${valor}</p></div>
+                <div class="card_nome">${nome}</div>
+                <div class="card_quantidade">quantidade ${quantidade}</div>
+                <div class="card_valor">valor = R$${valor}</div>
+              </div>  
     `
 
-    cardProduto.appendChild(div);
+    
 
   }
-
+  valorTotal();
 }
 
-geraCardsProduct();
+function valorTotal() {
+  var valor_total = 0;
+
+  for (let i = 0; i < produtos_escolhidos.length; i++) {
+    valor_total += parseFloat(produtos_escolhidos[i][1]);
+  }
+  document.getElementById("valortotal").textContent = valor_total.toFixed(2);
+}
+
+function mais1(){
+
+  var quantidade = document.getElementById("quantidade");
+  var valorProduto = document.getElementById("value");
+  var quantidadeValor = parseInt(quantidade.textContent);
+  var valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
+
+  if(quantidadeValor>=0){
+    quantidadeValor += 1;
+    quantidade.textContent = quantidadeValor;
+    valorProduto.textContent = (valor_produto_sem_alteracoes*quantidadeValor).toFixed(2);
+}
+
+}
+function menos1(){
+  var quantidade = document.getElementById("quantidade");
+  var valorProduto = document.getElementById("value");
+  var valorAtual = valorProduto.textContent ;
+  var quantidadeValor = parseInt(quantidade.textContent);
+  var valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
+
+  if(quantidadeValor <= 1){
+    quantidade.textContent = quantidadeValor;
+  }else if(quantidadeValor >=1){
+    quantidadeValor -= 1;
+    quantidade.textContent = quantidadeValor;
+    valorProduto.textContent = (valorAtual - valor_produto_sem_alteracoes).toFixed(2);
+  }
+}
+
+
 /**
  * function que mudar o estado se vc estar ou nao no estabelecimento
  * receber a variavel local e que um bool que por padrao e true dizendo que o cliente nao esta no estabelicimento
@@ -152,5 +196,6 @@ tela.innerHTML= `
   `
 }
 mudarValorDaVariavel();
+geraCardsProduct();
 
    
