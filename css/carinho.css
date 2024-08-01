@@ -6,7 +6,7 @@
     padding:2em;
 }
 .container_list_produtos{
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
 }
 .title{
@@ -29,7 +29,6 @@
     align-items: center;
     margin:1em 0 .5em 0; 
     border: .1em solid wheat;
-    padding: 2.5em;
 }
 .card_produto{
     width: 100%;
@@ -37,6 +36,7 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    padding: .5em;
 }
 .card_img{
     width: 20%;
@@ -46,11 +46,12 @@
     height: 100%;
 }
 .card_nome{
-    width: auto;
+    width: 30%;
+    text-align: center;
 
 }
 .card_valor{
-    width: 20%;
+    width: auto;
 }
 .card_quantidade{
     width:auto;

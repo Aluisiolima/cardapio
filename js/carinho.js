@@ -24,15 +24,27 @@ function geraCardsProduct(){
                     <img src="${img}" alt="pizza_padrao">
                 </div>
                 <div class="card_nome">${nome}</div>
-                <div class="card_quantidade">quantidade ${quantidade}</div>
-                <div class="card_valor">valor = R$${valor}</div>
+                <div class="card_quantidade">${quantidade}</div>
+                <div class="card_valor">R$${valor}</div>
               </div>  
     `
 
-    
+   var produtos = "";
+
+   produtos += `<div class="card_produto">
+                <div class="card_img">
+                    <img src="${img}" alt="pizza_padrao">
+                </div>
+                <div class="card_nome">${nome}</div>
+                <div class="card_quantidade">${quantidade}</div>
+                <div class="card_valor">R$${valor}</div>
+              </div>`  ;
 
   }
+  
   valorTotal();
+
+  return produtos;
 }
 
 function valorTotal() {
@@ -42,6 +54,8 @@ function valorTotal() {
     valor_total += parseFloat(produtos_escolhidos[i][1]);
   }
   document.getElementById("valortotal").textContent = valor_total.toFixed(2);
+
+  return valor_total.toFixed(2);
 }
 
 function mais1(){
@@ -117,19 +131,19 @@ function tela1(){
   telaCarinho.style.display = 'none';
 
   tela.innerHTML= `
-<form action="#">
+<form action="./Database/pedido.php" method="post">
       <fieldset class="dados">
         <legend>dados</legend>
-        <input type="text" placeholder="nome">
-        <input type="text" placeholder="bairro">
-        <input type="text" placeholder="rua">
-        <input type="number" placeholder="numero da casa">
+        <input type="text" placeholder="nome" name="nome">
+        <input type="text" placeholder="bairro" name="bairro">
+        <input type="text" placeholder="rua" name="rua">
+        <input type="number" placeholder="numero da casa" name="Ncasa">
       </fieldset>
         <details class="produtos_escolhidos">
           <summary>
             produstos <i class="bi bi-caret-down-fill"></i>
           </summary>
-
+          ${geraCardsProduct()}
         </details>
       <fieldset class="formas_De_Pagamento">
         <legend>formas de pagamento</legend>
@@ -147,7 +161,7 @@ function tela1(){
         </label>
       </fieldset>
       <div class="finaliza_pedido">
-        <p>valor =</p>
+        <p>valor = ${valorTotal()}</p>
         <input type="submit" valeu="comprar">
       </div>
     </form>
@@ -159,18 +173,19 @@ function tela1(){
 function tela2(){
 telaCarinho.style.display = 'none';
 tela.innerHTML= `
-  <form action="#">
+  <form action="./Database/pedido.php" method="post">
       <fieldset class="dados">
         <legend>dados entrega</legend>
-        <input type="text" placeholder="nome">
-        <input type="text" placeholder="mesa">
-        <input type="number" placeholder="numero da mesa">
+        <input type="text" placeholder="nome" name="nome">
+        <input type="text" placeholder="mesa" name="mesa">
+        <input type="number" placeholder="numero da mesa" name="Nmesa">
       </fieldset>
       
       <details class="produtos_escolhidos">
         <summary>
           produstos <i class="bi bi-caret-down-fill"></i>
         </summary>
+        ${geraCardsProduct()}
       </details>
     
       <fieldset class="formas_De_Pagamento">
@@ -189,7 +204,7 @@ tela.innerHTML= `
         </label>
       </fieldset>
       <div class="finaliza_pedido">
-        <p>valor =</p>
+        <p>valor =${valorTotal()}</p>
         <input type="submit" valeu="comprar">
       </div>
     </form>
