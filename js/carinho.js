@@ -9,7 +9,7 @@ var addProduto = document.getElementById("mais1");
 var removeProduto = document.getElementById("menos1");
 
 function geraCardsProduct(){
-  
+  var produtos = "";
   for (let i = 0; i < produtos_escolhidos.length; i++) {
     var nome = produtos_escolhidos[i][0];
     var valor = produtos_escolhidos[i][1];
@@ -29,9 +29,9 @@ function geraCardsProduct(){
               </div>  
     `
 
-   var produtos = "";
+  
 
-   produtos += `<div class="card_produto">
+   produtos +=  `<div class="card_produto">
                 <div class="card_img">
                     <img src="${img}" alt="pizza_padrao">
                 </div>
