@@ -18,15 +18,10 @@
             $this->charset = $charset;
 
         }
-        public function conectarMysql()
-        {
-            return $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname ,$this->port);
-        }
         public function __toString()
         {
             return $this->dbname;
         }
-
         public function connect() {
             $dsn = "mysql:host={$this->servername};port={$this->port};dbname={$this->dbname};charset={$this->charset}";
             $options = [

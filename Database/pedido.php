@@ -1,6 +1,8 @@
 
 <?php
-error_reporting(0);
+    error_reporting(0);
+    include "../Database/Conexao.php";
+    include "../Database/database.php";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $nome = htmlspecialchars($_POST["nome"]);
@@ -16,11 +18,82 @@ error_reporting(0);
         
 
     }
+    function Data()
+    {
+        date_default_timezone_set('America/Sao_Paulo'); // Ajuste conforme sua região
+
+        // Obtém a data e hora atual em formato separado
+        $dia = date('d');     // Dia do mês
+        $mes = date('m');     // Mês
+        $ano = date('Y');     // Ano
+        $hora = date('H');    // Hora
+        $minuto = date('i');  // Minuto
+        
+        return "$dia/$mes/$ano $hora:$minuto";
+    }
+try {
+
+    // Prepara a consulta SQL
+    $sql = "INSERT INTO pedido (nome, valor, produtos, type_pagamento, bairro, rua, entrega, numero_casa, mesa, numero_mesa, data)
+            VALUES (:nome, :valor, :produtos, :type_pagamento, :bairro, :rua, :entrega, :Ncasa, :mesa, :Nmesa, :data)";
+
+    // Prepara a instrução
+    $stmt = $conexao->prepare($sql);
+
+    // Bind dos parâmetros
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':valor', $valor);
+    $stmt->bindParam(':produtos', listProduto($produtos));
+    $stmt->bindParam(':type_pagamento', $type_pagamento);
+    $stmt->bindParam(':bairro', $bairro);
+    $stmt->bindParam(':rua', $rua);
+    $stmt->bindParam(':entrega', $entrega);
+    $stmt->bindParam(':Ncasa', $Ncasa);
+    $stmt->bindParam(':mesa', $mesa);
+    $stmt->bindParam(':Nmesa', $Nmesa);
+    $stmt->bindParam(':data', Data());
+
+
+    // Executa a consulta
+    $stmt->execute();
+
+    echo "Novo registro inserido com sucesso!";
+} catch (PDOException $e) {
+    echo "Erro: " . $e->getMessage();
+}finally{
+    // Fecha a conexão
+    $conexao = null;
+}
+
+function educacao()
+{
+    $hora = date('H');
+
+    if ($hora >= 6) {
+        return "bom dia";
+    }else if ($hora >= 12) {
+        return "boa tarde";
+    }else {
+        return "boa noite";
+    }
+}
+
     function listProduto($produtos)
     {
         $lista = "";
+        $count = 0;
+        $virgula = "";
+
         foreach($produtos as $p){
-            $lista  .= " $p ";
+            if ($count > 0 && $count == 2) {
+                $virgula = ', ';
+                $count = 0;
+            }else{
+                $virgula = "";
+                $count++;
+            }
+            $lista  .= " $p$virgula ";
+            
         }
         return $lista;
     }
@@ -35,7 +108,7 @@ error_reporting(0);
         
     }
 
-   $menssagem = "ola boa noite! meu nome e {$nome} e gostaria compra os produtos:".listProduto($produtos)." no valor de : {$valor} irei pagar em : {$type_pagamento}  ".localDePedido($mesa,$entrega,$Nmesa,$bairro, $rua,$Ncasa)."
+   $menssagem = "ola ".educacao()."! meu nome e {$nome} e gostaria compra os produtos:".listProduto($produtos)." no valor de : {$valor} irei pagar em : {$type_pagamento}  ".localDePedido($mesa,$entrega,$Nmesa,$bairro, $rua,$Ncasa)."
 
    ";
    $NumeroCll = "5586981132378";
