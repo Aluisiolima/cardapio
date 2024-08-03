@@ -90,13 +90,13 @@
     width: 100%;
     display: flex;
 }
-#adicionarCarrinho,#personaliza{
-    width: 50%;
+#adicionarCarrinho{
+    width: 80%;
     height: 2em;
     background-color: #3e8e41;
     border: none;
     border-radius: .3em;
-    margin: .1em;
+    margin: 0 auto;
 }
 @keyframes moveAndShrink {
     0% {

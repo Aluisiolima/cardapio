@@ -64,7 +64,6 @@ if (isset($_POST['id'])) {
                     <p class='value'> valor = <span id='value' product-value=$valor>$valor</span> </p>
                   
                     <div class='config'>
-                        <button id='personaliza'>pesonaliza</button>
                         <button id='adicionarCarrinho' onclick='addCarinho()'>add carrinho</button>
                     </div>
                   </div>

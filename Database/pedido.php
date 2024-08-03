@@ -41,13 +41,13 @@ error_reporting(0);
    $NumeroCll = "5586981132378";
     $texto = urldecode($menssagem);
    $whatsapp = "https://wa.me/{$NumeroCll}?text={$texto}";
-   $tempo_aguardar = 5;
+   $tempo_aguardar = 2;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="<?php // echo $tempo_aguardar; ?>;url=<?php //echo $whatsapp; ?>">
+    <meta http-equiv="refresh" content="<?php echo $tempo_aguardar; ?>;url=<?php echo $whatsapp; ?>">
     <title>pedido finalizado</title>
     <link rel="stylesheet" href="../css/final.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
