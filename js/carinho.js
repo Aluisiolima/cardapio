@@ -11,9 +11,9 @@ var removeProduto = document.getElementById("menos1");
 function geraCardsProduct(){
   var produtos = "";
   for (let i = 0; i < produtos_escolhidos.length; i++) {
-    var nome = produtos_escolhidos[i][0];
-    var valor = produtos_escolhidos[i][1];
-    var quantidade = produtos_escolhidos[i][2];
+    var nome = produtos_escolhidos[i][1];
+    var valor = produtos_escolhidos[i][2];
+    var quantidade = produtos_escolhidos[i][0];
     var img = produtos_escolhidos[i][3];
     
    
@@ -51,7 +51,7 @@ function valorTotal() {
   var valor_total = 0;
 
   for (let i = 0; i < produtos_escolhidos.length; i++) {
-    valor_total += parseFloat(produtos_escolhidos[i][1]);
+    valor_total += parseFloat(produtos_escolhidos[i][2]);
   }
   document.getElementById("valortotal").textContent = valor_total.toFixed(2);
 
@@ -87,7 +87,12 @@ function menos1(){
     valorProduto.textContent = (valorAtual - valor_produto_sem_alteracoes).toFixed(2);
   }
 }
-
+function retirarImgsListaProdutos() {
+  for (let i = 0; i < produtos_escolhidos.length; i++) {
+    produtos_escolhidos[i].pop();
+  }
+  return produtos_escolhidos;
+}
 
 /**
  * function que mudar o estado se vc estar ou nao no estabelecimento
@@ -114,15 +119,19 @@ function mudarValorDaVariavel(){
  */
 function telaDeEmtrega(){
   let typeDelivery = local
-
-  switch(typeDelivery){
+  if(parseFloat(valorTotal()) >= 0){
+    switch(typeDelivery){
       case true: 
         tela1(); 
         break;
       case false:
         tela2();
         break;
+    }
+  }else{
+    alert("por favor faça um pedido!!")
   }
+  
 }
 /**
  * imprimi a tela caso o cliente esteja na sua casa e queira um delivery 
@@ -134,10 +143,11 @@ function tela1(){
 <form action="./Database/pedido.php" method="post">
       <fieldset class="dados">
         <legend>dados</legend>
-        <input type="text" placeholder="nome" name="nome">
-        <input type="text" placeholder="bairro" name="bairro">
-        <input type="text" placeholder="rua" name="rua">
-        <input type="number" placeholder="numero da casa" name="Ncasa">
+        <input type="text" placeholder="nome" name="nome" required>
+        <input type="text" placeholder="bairro" name="bairro" required>
+        <input type="text" placeholder="rua" name="rua" required>
+        <input type="number" placeholder="numero da casa" name="Ncasa" required>
+        <input type="text"  name="entrega" value="entrega" hidden>
       </fieldset>
         <details class="produtos_escolhidos">
           <summary>
@@ -149,20 +159,22 @@ function tela1(){
         <legend>formas de pagamento</legend>
         <label class="meios_de_pagamento">
           <img src="./img/pix.svg" alt="pix" height="50">
-          <input type="radio" name="type_pagamento" id="dinheiro" value="pix">
+          <input type="radio" name="type_pagamento" id="dinheiro" value="pix" required>
         </label>
         <label class="meios_de_pagamento">
           <img src="./img/cartao.svg" alt="cartao" height="50">
-          <input type="radio" name="type_pagamento" id="dinheiro" value="cartao">
+          <input type="radio" name="type_pagamento" id="dinheiro" value="cartao" required>
         </label>
         <label class="meios_de_pagamento">
           <img src="./img/dinheiro.svg" alt="dinheiro" height="50">
-          <input type="radio" name="type_pagamento" id="dinheiro" value="dinheiro">
+          <input type="radio" name="type_pagamento" id="dinheiro" value="dinheiro" required>
         </label>
       </fieldset>
       <div class="finaliza_pedido">
+        <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
+        <input type="text" name="valor" value="${valorTotal()}" hidden>
         <p>valor = ${valorTotal()}</p>
-        <input type="submit" valeu="comprar">
+        <input type="submit" valeu="comprar" >
       </div>
     </form>
   `
@@ -176,9 +188,9 @@ tela.innerHTML= `
   <form action="./Database/pedido.php" method="post">
       <fieldset class="dados">
         <legend>dados entrega</legend>
-        <input type="text" placeholder="nome" name="nome">
-        <input type="text" placeholder="mesa" name="mesa">
-        <input type="number" placeholder="numero da mesa" name="Nmesa">
+        <input type="text" placeholder="nome" name="nome" required>
+        <input type="text"  name="mesa" value="mesa" hidden>
+        <input type="number" placeholder="numero da mesa" name="Nmesa" required>
       </fieldset>
       
       <details class="produtos_escolhidos">
@@ -192,25 +204,28 @@ tela.innerHTML= `
         <legend>formas de pagamento</legend>
         <label class="meios_de_pagamento">
           <img src="./img/pix.svg" alt="pix" height="50">
-          <input type="radio" name="type_pagamento" id="dinheiro" value="pix">
+          <input type="radio" name="type_pagamento" id="dinheiro" value="pix" required>
         </label>
         <label class="meios_de_pagamento">
           <img src="./img/cartao.svg" alt="cartao" height="50">
-          <input type="radio" name="type_pagamento" id="dinheiro" value="cartao">
+          <input type="radio" name="type_pagamento" id="dinheiro" value="cartao" required>
         </label>
         <label class="meios_de_pagamento">
           <img src="./img/dinheiro.svg" alt="dinheiro" height="50">
-          <input type="radio" name="type_pagamento" id="dinheiro" value="dinheiro">
+          <input type="radio" name="type_pagamento" id="dinheiro" value="dinheiro" required>
         </label>
       </fieldset>
       <div class="finaliza_pedido">
+        <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
+        <input type="text" name="valor" value="${valorTotal()}" hidden>
         <p>valor =${valorTotal()}</p>
         <input type="submit" valeu="comprar">
       </div>
     </form>
   `
 }
+
 mudarValorDaVariavel();
 geraCardsProduct();
 
-   
+  

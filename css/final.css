@@ -1,0 +1,17 @@
+body{
+    background: rgb(57, 162, 57);
+    color: white;
+}
+.ok{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ok i{
+    font-size: 25pc;
+    
+}
+p{font-size: 2.5pc;}

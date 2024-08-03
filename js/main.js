@@ -63,7 +63,7 @@ function addCarinho(){
     var valorProduto = document.getElementById("value").textContent;
 
     // logica de implementa o produto no carrinho
-    var listProduto = [String(nomeProduto),String(valorProduto),String(quantidade),String(imgProduto)]
+    var listProduto = [String(quantidade),String(nomeProduto),String(valorProduto),String(imgProduto)]
     produtos_escolhidos.push(listProduto);
 }
 

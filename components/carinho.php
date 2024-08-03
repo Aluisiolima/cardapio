@@ -15,7 +15,7 @@
             <button id="mesa">mesa</button>
 
             <div class="config">
-            <button>add mais </button>
+            <button onclick="cardapioAtive()">add mais </button>
             <button onclick="telaDeEmtrega()">finaliza</button>
             </div>
         </div>
@@ -23,8 +23,6 @@
     <div class="container_pagamentos">
 
     </div>
-
-
 
 
 
