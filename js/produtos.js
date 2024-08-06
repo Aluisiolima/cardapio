@@ -1,1 +1,1 @@
-var produtos_escolhidos = [];
+const produtos_escolhidos = [];

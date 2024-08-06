@@ -56,8 +56,7 @@ try {
 
     // Executa a consulta
     $stmt->execute();
-
-    echo "Novo registro inserido com sucesso!";
+    
 } catch (PDOException $e) {
     echo "Erro: " . $e->getMessage();
 }finally{

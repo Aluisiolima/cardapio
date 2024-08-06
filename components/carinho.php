@@ -16,7 +16,7 @@
 
             <div class="config">
             <button onclick="cardapioAtive()">add mais </button>
-            <button onclick="telaDeEmtrega()">finaliza</button>
+            <button onclick="telaDeEmtrega(mudarValorDaVariavel())">finaliza</button>
             </div>
         </div>
     </div >

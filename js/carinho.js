@@ -1,20 +1,17 @@
-//variaveis importantes
-var local = true;
-var tela = document.querySelector(".container_pagamentos");
-var telaCarinho = document.querySelector(".container_carinho");
-var mesa = document.getElementById("mesa");
-var entrega = document.getElementById("entrega");
-var cardProduto = document.getElementById("produtos_carinho");
-var addProduto = document.getElementById("mais1");
-var removeProduto = document.getElementById("menos1");
+
 
 function geraCardsProduct(){
-  var produtos = "";
+  const cardProduto = document.getElementById("produtos_carinho");
+  let produtos = "";
+  let nome;
+  let valor;
+  let quantidade;
+  let img;
   for (let i = 0; i < produtos_escolhidos.length; i++) {
-    var nome = produtos_escolhidos[i][1];
-    var valor = produtos_escolhidos[i][2];
-    var quantidade = produtos_escolhidos[i][0];
-    var img = produtos_escolhidos[i][3];
+    nome = produtos_escolhidos[i][1];
+    valor = produtos_escolhidos[i][2];
+    quantidade = produtos_escolhidos[i][0];
+    img = produtos_escolhidos[i][3];
     
    
   
@@ -48,7 +45,7 @@ function geraCardsProduct(){
 }
 
 function valorTotal() {
-  var valor_total = 0;
+  let valor_total = 0;
 
   for (let i = 0; i < produtos_escolhidos.length; i++) {
     valor_total += parseFloat(produtos_escolhidos[i][2]);
@@ -59,11 +56,10 @@ function valorTotal() {
 }
 
 function mais1(){
-
-  var quantidade = document.getElementById("quantidade");
-  var valorProduto = document.getElementById("value");
-  var quantidadeValor = parseInt(quantidade.textContent);
-  var valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
+  const quantidade = document.getElementById("quantidade");
+  const valorProduto = document.getElementById("value");
+  let quantidadeValor = parseInt(quantidade.textContent);
+  const valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
 
   if(quantidadeValor>=0){
     quantidadeValor += 1;
@@ -73,11 +69,11 @@ function mais1(){
 
 }
 function menos1(){
-  var quantidade = document.getElementById("quantidade");
-  var valorProduto = document.getElementById("value");
-  var valorAtual = valorProduto.textContent ;
-  var quantidadeValor = parseInt(quantidade.textContent);
-  var valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
+  const quantidade = document.getElementById("quantidade");
+  const valorProduto = document.getElementById("value");
+  const valorAtual = valorProduto.textContent ;
+  let quantidadeValor = parseInt(quantidade.textContent);
+  const valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
 
   if(quantidadeValor <= 1){
     quantidade.textContent = quantidadeValor;
@@ -100,6 +96,10 @@ function retirarImgsListaProdutos() {
  * @returns local
  */
 function mudarValorDaVariavel(){
+  let local = true;
+  const mesa = document.getElementById("mesa");
+  const entrega = document.getElementById("entrega");
+
   entrega.addEventListener("click", ()=>{
     entrega.style.background = "green";
     mesa.style.background = "antiquewhite";
@@ -117,15 +117,17 @@ function mudarValorDaVariavel(){
 /**
  * responsavel por imprimi na tela quais tipos de informacoes sao enterressante que o cliente der para a entrega do produto
  */
-function telaDeEmtrega(){
-  let typeDelivery = local
+function telaDeEmtrega(local){
+  let typeDelivery = local;
+  const tela = document.querySelector(".container_pagamentos");
+  const telaCarinho = document.querySelector(".container_carinho");
   if(parseFloat(valorTotal()) >= 0){
     switch(typeDelivery){
       case true: 
-        tela1(); 
+        tela1(telaCarinho,tela); 
         break;
       case false:
-        tela2();
+        tela2(telaCarinho,tela);
         break;
     }
   }else{
@@ -136,7 +138,8 @@ function telaDeEmtrega(){
 /**
  * imprimi a tela caso o cliente esteja na sua casa e queira um delivery 
  */
-function tela1(){
+function tela1(telaCarinho,tela){
+  
   telaCarinho.style.display = 'none';
 
   tela.innerHTML= `
@@ -182,7 +185,7 @@ function tela1(){
 /**
  * imprimi a tela caso o cliente esteja no estabelicimento  
  */
-function tela2(){
+function tela2(telaCarinho,tela){
 telaCarinho.style.display = 'none';
 tela.innerHTML= `
   <form action="./Database/pedido.php" method="post">

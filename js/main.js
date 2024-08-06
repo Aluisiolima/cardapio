@@ -1,7 +1,4 @@
 
-
-
-
 /**
  * essa e funcao responsavel por te levar pra o carinho e carregar os script dele
  */
@@ -9,7 +6,7 @@ function carregaCarinho() {
     loadContent('carinho');
     
     setTimeout(()=>{
-        var script = document.createElement('script');
+        const script = document.createElement('script');
 
         script.src = "./js/carinho.js";
 
@@ -57,13 +54,13 @@ function addCarinho(){
         detalhes.style.display = "none";
     })
 
-    var nomeProduto = document.getElementById("nameProduct").textContent;
-    var quantidade = document.getElementById("quantidade").textContent;
-    var imgProduto = document.getElementById("imgProduct").src;
-    var valorProduto = document.getElementById("value").textContent;
+    const nomeProduto = document.getElementById("nameProduct").textContent;
+    const quantidade = document.getElementById("quantidade").textContent;
+    const imgProduto = document.getElementById("imgProduct").src;
+    const valorProduto = document.getElementById("value").textContent;
 
     // logica de implementa o produto no carrinho
-    var listProduto = [String(quantidade),String(nomeProduto),String(valorProduto),String(imgProduto)]
+    const listProduto = [String(quantidade),String(nomeProduto),String(valorProduto),String(imgProduto)]
     produtos_escolhidos.push(listProduto);
 }
 
@@ -78,7 +75,7 @@ function loadContent(content) {
     content_load.style.display = 'flex';
     content_resposta.style.display = 'none';
 
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.open('POST', './config/loadContent.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
