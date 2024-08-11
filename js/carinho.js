@@ -96,7 +96,7 @@ function retirarImgsListaProdutos() {
  * @returns local
  */
 function mudarValorDaVariavel(){
-  let local = true;
+ 
   const mesa = document.getElementById("mesa");
   const entrega = document.getElementById("entrega");
 
@@ -121,7 +121,7 @@ function telaDeEmtrega(local){
   let typeDelivery = local;
   const tela = document.querySelector(".container_pagamentos");
   const telaCarinho = document.querySelector(".container_carinho");
-  if(parseFloat(valorTotal()) >= 0){
+  if(parseFloat(valorTotal()) > 0){
     switch(typeDelivery){
       case true: 
         tela1(telaCarinho,tela); 

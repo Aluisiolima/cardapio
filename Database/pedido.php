@@ -69,12 +69,13 @@ function educacao()
     $hora = date('H');
 
     if ($hora >= 6) {
-        return "bom dia";
+        $bom = "bom dia";
     }else if ($hora >= 12) {
-        return "boa tarde";
-    }else {
-        return "boa noite";
+        $bom = "boa tarde";
+    }else if($hora >= 18 || $hora < 6){
+        $bom = "boa noite";
     }
+    return $bom;
 }
 
     function listProduto($produtos)
