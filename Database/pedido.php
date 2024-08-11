@@ -66,16 +66,18 @@ try {
 
 function educacao()
 {
+    date_default_timezone_set('America/Sao_Paulo');
+
     $hora = date('H');
 
-    if ($hora >= 6) {
-        $bom = "bom dia";
-    }else if ($hora >= 12) {
-        $bom = "boa tarde";
+    if ($hora >= 6 && $hora < 12) {
+        return "bom dia";
+    }else if ($hora >= 12 && $hora < 18) {
+        return "boa tarde";
     }else if($hora >= 18 || $hora < 6){
-        $bom = "boa noite";
+        return "boa noite";
     }
-    return $bom;
+ 
 }
 
     function listProduto($produtos)
