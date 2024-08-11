@@ -1,8 +1,8 @@
 
 <?php
-    error_reporting(0);
-    include "../Database/Conexao.php";
-    include "../Database/database.php";
+    include("../config.php");
+
+    include(ROOT."/Database/database.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $nome = htmlspecialchars($_POST["nome"]);
@@ -33,6 +33,9 @@
     }
 try {
 
+    $listProduto = listProduto($produtos);
+    $horario = Data();
+
     // Prepara a consulta SQL
     $sql = "INSERT INTO pedido (nome, valor, produtos, type_pagamento, bairro, rua, entrega, numero_casa, mesa, numero_mesa, data)
             VALUES (:nome, :valor, :produtos, :type_pagamento, :bairro, :rua, :entrega, :Ncasa, :mesa, :Nmesa, :data)";
@@ -43,7 +46,7 @@ try {
     // Bind dos parâmetros
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':valor', $valor);
-    $stmt->bindParam(':produtos', listProduto($produtos));
+    $stmt->bindParam(':produtos', $listProduto);
     $stmt->bindParam(':type_pagamento', $type_pagamento);
     $stmt->bindParam(':bairro', $bairro);
     $stmt->bindParam(':rua', $rua);
@@ -51,7 +54,7 @@ try {
     $stmt->bindParam(':Ncasa', $Ncasa);
     $stmt->bindParam(':mesa', $mesa);
     $stmt->bindParam(':Nmesa', $Nmesa);
-    $stmt->bindParam(':data', Data());
+    $stmt->bindParam(':data', $horario);
 
 
     // Executa a consulta

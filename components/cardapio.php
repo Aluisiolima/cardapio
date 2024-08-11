@@ -1,7 +1,7 @@
 <?php
-    error_reporting(0);
-    include "../ClassePhp/Cards.php";
-    include "../Database/database.php";
+
+    include (ROOT."/ClassePhp/Cards.php");
+    include (ROOT."/Database/database.php");
    
 ?>
     <div class="container_cardapio" id="cardapio_page">

@@ -1,7 +1,7 @@
 <?php 
-error_reporting(0);
-include "../Database/Conexao.php";
-include "../Database/database.php";
+include("../config.php");
+
+include(ROOT."/Database/database.php");
 $imgERROR = "";
  $conexao = $conn->connect();
 

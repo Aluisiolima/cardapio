@@ -1,5 +1,5 @@
 <?php
-    include "../Database/Conexao.php";
+
     class Cards
     {
         private $conexão;

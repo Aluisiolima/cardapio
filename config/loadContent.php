@@ -1,15 +1,16 @@
 <?php
+include('../config.php');
 if (isset($_POST['content'])) {
     $content = $_POST['content'];
 
     if ($content === 'home') {
-        include "../components/home.php"; 
+        include(ROOT."/components/home.php"); 
     } elseif ($content == 'cardapio') {
-        include "../components/cardapio.php"; 
+        include(ROOT."/components/cardapio.php"); 
     } elseif ($content == 'detalhes') {
-        include "../components/detalheProduto.php"; 
+        include(ROOT."/components/detalheProduto.php"); 
     } elseif ($content == 'carinho') {
-        include "../components/carinho.php"; 
+        include(ROOT."/components/carinho.php"); 
     } else {
         echo '<p>Conteúdo não encontrado.</p>';
     }

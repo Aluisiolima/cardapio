@@ -1,4 +1,7 @@
-<?php include "./Database/database.php"; ?>
+<?php 
+    include('config.php'); 
+    include (ROOT."/Database/database.php"); 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

@@ -1,5 +1,6 @@
 <?php
-    include "./Database/Conexao.php";
+
+    include (ROOT."/Database/Conexao.php");
 
     $servername = 'roundhouse.proxy.rlwy.net' ;
     $username = 'root';
