@@ -1,6 +1,6 @@
 <?php
 
-    include (ROOT."/ClassePhp/Cards.php");
+    include (ROOT."/Class/Cards.php");
     include (ROOT."/Database/database.php");
    
 ?>
