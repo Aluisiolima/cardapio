@@ -176,6 +176,7 @@ function tela1(telaCarinho,tela){
       <div class="finaliza_pedido">
         <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
         <input type="text" name="valor" value="${valorTotal()}" hidden>
+        <input type="text" name="ids" value="${ids}" hidden>
         <p>valor = ${valorTotal()}</p>
         <input type="submit" valeu="comprar" >
       </div>
@@ -221,6 +222,7 @@ tela.innerHTML= `
       <div class="finaliza_pedido">
         <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
         <input type="text" name="valor" value="${valorTotal()}" hidden>
+        <input type="text" name="ids" value="${ids}" hidden>
         <p>valor =${valorTotal()}</p>
         <input type="submit" valeu="comprar">
       </div>

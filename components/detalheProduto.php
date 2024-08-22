@@ -10,7 +10,7 @@ if (isset($_POST['id'])) {
 
   $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $sql = "SELECT nome,valor,img,tipo FROM produto WHERE id = :id ";
+  $sql = "SELECT id,nome,valor,img,tipo FROM produto WHERE id = :id ";
   $stmt = $conexao->prepare($sql);
   $stmt->bindParam(":id", $id, PDO::PARAM_INT); // "i" para integer
   $stmt->execute();
@@ -20,7 +20,7 @@ if (isset($_POST['id'])) {
               $img = "{$row['img']}";
               $nome = "{$row['nome']}";
               $valor = "{$row['valor']}";
-
+              $id = "{$row['id']}";
               if($row['tipo'] == 'Pizza'){
                 $imgERROR = "./img/pizza_padrao.svg";
               }elseif($row['tipo'] == 'Bebida'){
@@ -42,7 +42,7 @@ if (isset($_POST['id'])) {
                   <div class='detalhe'>
                     <div class='inf_produto'>
                       <div class='produto_detalhes'>  
-                          <img src='$img' id='imgProduct' alt='' width='200px' onerror="."src='$imgERROR'".">
+                          <img src='$img' id='imgProduct' alt='$id' width='200px' onerror="."src='$imgERROR'".">
                         <div class='quantidade'>
                           <button id='mais1' onclick='mais1()'>+</button>
                           <p id='quantidade'>1</p>

@@ -12,3 +12,4 @@
 
     $conn = new Conexão( $servername, $username, $password, $dbname , $port , $charset);
     $conexao = $conn->connect();
+    

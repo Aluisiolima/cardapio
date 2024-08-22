@@ -54,6 +54,7 @@ function addCarinho(){
         detalhes.style.display = "none";
     })
 
+    const id = document.getElementById("imgProduct").alt;
     const nomeProduto = document.getElementById("nameProduct").textContent;
     const quantidade = document.getElementById("quantidade").textContent;
     const imgProduto = document.getElementById("imgProduct").src;
@@ -62,6 +63,7 @@ function addCarinho(){
     // logica de implementa o produto no carrinho
     const listProduto = [String(quantidade),String(nomeProduto),String(valorProduto),String(imgProduto)]
     produtos_escolhidos.push(listProduto);
+    ids.push(String(id));
 }
 
 /**
