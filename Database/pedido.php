@@ -65,14 +65,20 @@ try {
     //pegando o id do produto
     $pedidoId = $conexao->lastInsertId();
 
-    foreach($ids as $i){
+    $quantidades = [];
+    foreach ($produtos as $indice => $produto) {
+        if ($indice % 3 == 0) {
+            $quantidades[] = $produto;
+        }
+    }
+    foreach($ids as $indice => $i){
         //inserindo os dados na venda
         $sqlVenda = "INSERT INTO venda (id_produto, quantidade, id_pedido) VALUES (:id_produto, :quantidade, :id_pedido)";
 
         $stmt = $conexao->prepare($sqlVenda);
-        
+
         $stmt->bindParam(':id_produto', $i);
-        $stmt->bindParam(':quantidade', $produtos[0]);
+        $stmt->bindParam(':quantidade', $quantidades[$indice]);
         $stmt->bindParam(':id_pedido', $pedidoId);
 
 
@@ -146,7 +152,7 @@ function educacao()
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="<?php //echo $tempo_aguardar; ?>;url=<?php //echo $whatsapp; ?>">
+    <meta http-equiv="refresh" content="<?php echo $tempo_aguardar; ?>;url=<?php echo $whatsapp; ?>">
     <title>pedido finalizado</title>
     <link rel="stylesheet" href="../css/final.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
