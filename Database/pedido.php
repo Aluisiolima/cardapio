@@ -140,7 +140,7 @@ function educacao()
         
     }
 
-   $menssagem = "ola ".educacao()."! meu nome e {$nome} e gostaria compra os produtos:".listProduto($produtos)." no valor total de : {$valor} irei pagar em : {$type_pagamento}  ".localDePedido($mesa,$entrega,$Nmesa,$bairro, $rua,$Ncasa)."
+   $menssagem = "ola ".educacao()."! meu nome e {$nome} e gostaria compra os produtos:".listProduto($produtos). " no valor total de : {$valor} irei pagar em : {$type_pagamento}  ".localDePedido($mesa,$entrega,$Nmesa,$bairro, $rua,$Ncasa)."
 
    ";
    $NumeroCll = "5586981132378";
