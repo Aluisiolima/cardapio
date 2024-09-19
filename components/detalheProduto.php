@@ -76,4 +76,4 @@ if (isset($_POST['id'])) {
 } else {
   echo "ID not set.";
 }
-  
+?>

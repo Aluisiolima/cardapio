@@ -17,3 +17,4 @@ if (isset($_POST['content'])) {
 } else {
     echo '<p>Parâmetro não especificado.</p>';
 }
+?>
