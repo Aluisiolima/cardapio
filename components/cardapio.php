@@ -7,17 +7,11 @@
     <div class="container_cardapio" id="cardapio_page">
         <div class="cardapio_produtos_lanche">
             <?php 
-                $card = new Cards($conexao);
-                $card->geraCardPizza();
-                
-                $card->geraCardHamburguer();
+                $card = new Cards($conexao);                
+                $card->geraCards($card->verOsTipos());
             ?>
         </div>
-        <div class="cardapio_produtos_acompanhamento">
-            <?php
-                $card->geraCardBebida();
-            ?>
-        </div>
+        
       
        
         <button id="button_carinho" onclick="carregaCarinho()"> <i class="bi bi-cart4"></i></button>

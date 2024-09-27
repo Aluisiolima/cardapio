@@ -9,8 +9,7 @@
 }
 .cardapio_produtos_lanche{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 75%;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .card_pizzas{
     display: flex;
