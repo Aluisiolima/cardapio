@@ -2,11 +2,11 @@
 
     include (ROOT."/Database/Conexao.php");
 
-    $servername = 'roundhouse.proxy.rlwy.net' ;
+    $servername = 'localhost' ;
     $username = 'root';
-    $password = 'zKDMtRKZOsnoOrTHnqCVCbczOqOkhWMj';
-    $dbname = 'railway';
-    $port = 19884;
+    $password = '';
+    $dbname = 'cardapio';
+    $port = 3306;
     $charset = 'utf8mb4';
 
 
