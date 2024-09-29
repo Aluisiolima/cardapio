@@ -8,7 +8,7 @@
     {
         $nome = htmlspecialchars($_POST["nome"]);
         $valor = htmlspecialchars($_POST["valor"]);
-        $ids = explode(",", htmlspecialchars($_POST["ids"]));
+        $ids = json_decode($_POST["ids"], true);
         $produtos = explode(",", htmlspecialchars($_POST["produtos"]));
         $type_pagamento = htmlspecialchars($_POST["type_pagamento"]);
         $bairro = isset($_POST["bairro"]) ? htmlspecialchars($_POST["bairro"]) : null;
@@ -18,7 +18,6 @@
         $mesa =  isset($_POST["mesa"]) ? htmlspecialchars($_POST["mesa"])  : null;
         $Nmesa = isset($_POST["Nmesa"]) ? htmlspecialchars($_POST["Nmesa"] ) : null;
         
-        echo json_encode($ids);
     }
 
     function Data()
@@ -63,14 +62,13 @@ try {
     //pegando o id do produto
     $pedidoId = $conexao->lastInsertId();
 
-   
+    $produtoDate = [$ids,$pedidoId];
+
+    include ROOT."/Database/venda.php";
 
 } catch (PDOException $e) {
     echo "Erro: " . $e->getMessage();
 
-}finally{
-    // Fecha a conexão
-    $conexao = null;
 }
 
 function educacao()

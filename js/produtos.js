@@ -3,13 +3,8 @@ let local = true;
 const ids = [];
 
 function enviarDadosProdutos() {
-    // Cria um array de objetos
-    const objetos = [
-        { id: 1, valor: "1" },
-        { id: 2, valor: "13" }
-    ];
-    // Converte o array de objetos em uma string JSON
-    const jsonString = JSON.stringify(objetos);
+    
+    const jsonString = JSON.stringify(ids);
     document.getElementById('ids').value = jsonString;
 
     // Verifica o valor antes do envio
