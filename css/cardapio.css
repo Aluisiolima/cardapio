@@ -10,6 +10,7 @@
 .cardapio_produtos_lanche{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
 }
 .card_pizzas{
     display: flex;
@@ -88,4 +89,8 @@
 #button_carinho i {
     font-size: 2pc;
     color: bisque;    
+}
+.title_tipo{
+    grid-column: 1 / -1;
+    color: antiquewhite;
 }

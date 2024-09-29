@@ -17,7 +17,7 @@
             if ($conexão) 
             {
                 foreach ($tipos as $t) {
-                    
+                    echo "<div class='title_tipo'><h3>{$t}:</h3></div>";
                     try{
                         // Preparar e executar o SELECT
                         $sql = "SELECT  id_produto,nome_produto,valor,img_produto  FROM produtos WHERE tipo = :tipo";
