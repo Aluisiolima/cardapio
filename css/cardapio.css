@@ -12,7 +12,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
 }
-.card_pizzas{
+.card{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -22,7 +22,7 @@
     border-radius: 1.5em;
     padding: .5em;
 }
-.card_pizzas> img{
+.card > img{ 
     width: 3.8em;
     border-radius: .5em;
 }
@@ -45,36 +45,8 @@
     width: 25%;
 }
 
-.card_bebida{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
-    background: antiquewhite;
-    margin: .6em;
-    border-radius: 1.5em;
-    padding: .5em;
-}
-.card_bebida> img{
-    width: 3.8em;
-    border-radius: .5em;
-}
 
-.card_hamburgues{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: center;
-    background: antiquewhite;
-    margin: .6em;
-    border-radius: 1.5em;
-    padding: .5em;
-}
-.card_hamburgues> img{
-    width: 3.8em;
-    border-radius: .5em;
-    
-}
+
 #button_carinho{
     background: #3e8e41;
     width: 5em;

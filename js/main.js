@@ -41,10 +41,12 @@ function getDetalhes(id) {
     };
     xhr.send('id=' + encodeURIComponent(id));
 }
+
 function fechaDetalhes(){
     const detalhes = document.getElementById('container_detalhes');
     detalhes.style.display = 'none';
 }
+
 function addCarinho(){
     //alteracoes de tela [ animacoes ]
     const detalhes = document.getElementById('tela_detalhe');
@@ -63,7 +65,7 @@ function addCarinho(){
     // logica de implementa o produto no carrinho
     const listProduto = [String(quantidade),String(nomeProduto),String(valorProduto),String(imgProduto)]
     produtos_escolhidos.push(listProduto);
-    ids.push(String(id));
+    ids.push(Number(id));
 }
 
 /**

@@ -10,17 +10,18 @@ if (isset($_POST['id'])) {
 
   $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $sql = "SELECT id,nome,valor,img,tipo FROM produto WHERE id = :id ";
+  $sql = "SELECT id_produto,nome_produto,valor,img_produto,tipo FROM produtos WHERE id_produto = :id ";
   $stmt = $conexao->prepare($sql);
   $stmt->bindParam(":id", $id, PDO::PARAM_INT); // "i" para integer
   $stmt->execute();
   
   if ($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-              $img = "{$row['img']}";
-              $nome = "{$row['nome']}";
+              $img = "{$row['img_produto']}";
+              $nome = "{$row['nome_produto']}";
               $valor = "{$row['valor']}";
-              $id = "{$row['id']}";
+              $id = "{$row['id_produto']}";
+
               if($row['tipo'] == 'Pizza'){
                 $imgERROR = "./img/pizza_padrao.svg";
               }elseif($row['tipo'] == 'Bebida'){

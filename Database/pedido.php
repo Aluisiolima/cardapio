@@ -18,7 +18,7 @@
         $mesa =  isset($_POST["mesa"]) ? htmlspecialchars($_POST["mesa"])  : null;
         $Nmesa = isset($_POST["Nmesa"]) ? htmlspecialchars($_POST["Nmesa"] ) : null;
         
-
+        echo json_encode($ids);
     }
 
     function Data()
@@ -36,13 +36,11 @@
     }
 
 try {
-    $conexao->beginTransaction();
 
-    $listProduto = listProduto($produtos);
     $horario = Data();
 
     // Prepara a consulta SQL
-    $sql = "INSERT INTO pedido (nome, type_pagamento, bairro, rua, entrega, numero_casa, mesa, numero_mesa, data)
+    $sql = "INSERT INTO pedido (nome_cliente, tipo_pagamento, entrega, bairro, rua, numero_casa, mesa, numero_mesa, data_pedido)
             VALUES (:nome, :type_pagamento, :bairro, :rua, :entrega, :Ncasa, :mesa, :Nmesa, :data)";
 
     // Prepara a instrução
@@ -85,7 +83,6 @@ try {
         $stmt->execute();
     }
 
-    $conexao->commit();
 } catch (PDOException $e) {
     echo "Erro: " . $e->getMessage();
 
@@ -152,7 +149,7 @@ function educacao()
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="<?php echo $tempo_aguardar; ?>;url=<?php echo $whatsapp; ?>">
+    <meta http-equiv="refresh" content="<?php //echo $tempo_aguardar; ?>;url=<?php //echo $whatsapp; ?>">
     <title>pedido finalizado</title>
     <link rel="stylesheet" href="../css/final.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">

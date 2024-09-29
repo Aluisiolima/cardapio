@@ -30,7 +30,7 @@
 
                         // Exibir os resultados
                         foreach ($produtos as $produto) {
-                            echo "  <div class='card_pizzas' >
+                            echo "  <div class='card' >
                                         <img src='{$produto['img_produto']}' alt='imagem' onerror=".$this->pegaImgs($t).">
                                         <p class='detalhes'>{$produto['nome_produto']}</p>
                                         <p class='detalhes'>R$ {$produto['valor']}</p>
