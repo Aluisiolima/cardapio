@@ -1,25 +1,51 @@
 <?php
-    $date = $produtoDate[0];
-    
-    try{
+class Venda
+{
+    private $conexao;
+    private $id_produtos; // Supondo que seja um array de produtos com 'id' e 'quantidade'
+    private $id_pedido;
+    private $id_empresa;
 
-        foreach($date as $date){
-            //inserindo os dados na venda
-            $sqlVenda = "INSERT INTO venda (id_produto, quantidade, id_pedido) VALUES (:id_produto, :quantidade, :id_pedido)";
-    
-            $stmt = $conexao->prepare($sqlVenda);
-    
-            $stmt->bindParam(':id_produto', $date['id']);
-            $stmt->bindParam(':quantidade', $date['quantidade']);
-            $stmt->bindParam(':id_pedido', $produtoDate[1]);
-    
-    
-            $stmt->execute();
-        }
-        
-       
-    }catch (PDOException $e){
-        echo "Erro: " . $e->getMessage();
+    public function __construct($conexao, $id_produtos, $id_pedido, $id_empresa)
+    {
+        $this->conexao = $conexao;
+        $this->id_produtos = $id_produtos;
+        $this->id_pedido = $id_pedido;
+        $this->id_empresa = $id_empresa;
     }
-    
+
+    public function InsertVenda()
+    {
+        try {
+            // Verifica se $this->id_produtos é um array
+            if (!is_array($this->id_produtos)) {
+                throw new Exception('id_produtos deve ser um array.');
+            }
+
+            foreach ($this->id_produtos as $produto) {
+                // Inserindo os dados na venda
+                $sqlVenda = "INSERT INTO venda (id_produto, quantidade, id_pedido) VALUES (:id_produto, :quantidade, :id_pedido)";
+                
+                $stmt = $this->conexao->prepare($sqlVenda);
+                
+                // Usando bindValue para valores diretos
+                $stmt->bindValue(':id_produto', $produto['id']);
+                $stmt->bindValue(':quantidade', $produto['quantidade']);
+                $stmt->bindValue(':id_pedido', $this->id_pedido);
+                
+                // Executa a consulta
+                $stmt->execute();
+            }
+
+            return true; // Retorna verdadeiro se todas as inserções foram bem-sucedidas
+            
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            return false; // Retorna falso em caso de erro
+        } catch (Exception $e) {
+            echo "Erro: " . $e->getMessage();
+            return false; // Retorna falso em caso de erro
+        }
+    }
+}
 ?>

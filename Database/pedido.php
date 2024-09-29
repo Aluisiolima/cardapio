@@ -1,152 +1,81 @@
 
 <?php
-    include("../config.php");
-
-    include(ROOT."/Database/database.php");
-
-    if($_SERVER["REQUEST_METHOD"] == "POST")
+    Class Pedido
     {
-        $nome = htmlspecialchars($_POST["nome"]);
-        $valor = htmlspecialchars($_POST["valor"]);
-        $ids = json_decode($_POST["ids"], true);
-        $produtos = explode(",", htmlspecialchars($_POST["produtos"]));
-        $type_pagamento = htmlspecialchars($_POST["type_pagamento"]);
-        $bairro = isset($_POST["bairro"]) ? htmlspecialchars($_POST["bairro"]) : null;
-        $rua = isset($_POST["rua"]) ? htmlspecialchars($_POST["rua"]) : null;
-        $entrega =  isset($_POST["entrega"]) ? htmlspecialchars($_POST["entrega"])  : null;
-        $Ncasa =  isset($_POST["Ncasa"]) ? htmlspecialchars($_POST["Ncasa"]) : null;
-        $mesa =  isset($_POST["mesa"]) ? htmlspecialchars($_POST["mesa"])  : null;
-        $Nmesa = isset($_POST["Nmesa"]) ? htmlspecialchars($_POST["Nmesa"] ) : null;
+        private $conexao;
+        private $nome_cliente;
+        private $tipo_pagamento;
+        private $entrega;
+        private $bairro;
+        private $rua;
+        private $numero_casa;
+        private $mesa;
+        private $numero_mesa;
+        private $data_pedido;
         
-    }
-
-    function Data()
-    {
-        date_default_timezone_set('America/Sao_Paulo'); // Ajuste conforme sua região
-
-        // Obtém a data e hora atual em formato separado
-        $dia = date('d');     // Dia do mês
-        $mes = date('m');     // Mês
-        $ano = date('Y');     // Ano
-        $hora = date('H');    // Hora
-        $minuto = date('i');  // Minuto
-        
-        return "$dia/$mes/$ano $hora:$minuto";
-    }
-
-try {
-
-    $horario = Data();
-
-    // Prepara a consulta SQL
-    $sql = "INSERT INTO pedido (nome_cliente, tipo_pagamento, entrega, bairro, rua, numero_casa, mesa, numero_mesa, data_pedido)
-            VALUES (:nome, :type_pagamento, :bairro, :rua, :entrega, :Ncasa, :mesa, :Nmesa, :data)";
-
-    // Prepara a instrução
-    $stmt = $conexao->prepare($sql);
-
-    // Bind dos parâmetros
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':type_pagamento', $type_pagamento);
-    $stmt->bindParam(':bairro', $bairro);
-    $stmt->bindParam(':rua', $rua);
-    $stmt->bindParam(':entrega', $entrega);
-    $stmt->bindParam(':Ncasa', $Ncasa);
-    $stmt->bindParam(':mesa', $mesa);
-    $stmt->bindParam(':Nmesa', $Nmesa);
-    $stmt->bindParam(':data', $horario);
-
-
-    // Executa a consulta
-    $stmt->execute();
-    //pegando o id do produto
-    $pedidoId = $conexao->lastInsertId();
-
-    $produtoDate = [$ids,$pedidoId];
-
-    include ROOT."/Database/venda.php";
-
-} catch (PDOException $e) {
-    echo "Erro: " . $e->getMessage();
-
-}
-
-function educacao()
-{
-    date_default_timezone_set('America/Sao_Paulo');
-
-    $hora = date('H');
-
-    if ($hora >= 6 && $hora < 12) {
-        return "bom dia";
-    }else if ($hora >= 12 && $hora < 18) {
-        return "boa tarde";
-    }else if($hora >= 18 || $hora < 6){
-        return "boa noite";
-    }
- 
-}
-
-    function listProduto($produtos)
-    {
-        $lista = "";
-        $count = 0;
-        $virgula = "";
-
-        foreach($produtos as $p){
-            if ($count > 0 && $count == 2) {
-                $virgula = ', ';
-                $count = 0;
-            }else{
-                $virgula = "";
-                $count++;
-            }
-            $lista  .= " $p$virgula ";
-            
-        }
-        return $lista;
-    }
-    function localDePedido($mesa,$entrega,$Nmesa,$bairro, $rua,$Ncasa)
-    {
-        if($mesa != null and $entrega == null){
-            return "desejo receber o pedido em minha mesa de numero : {$Nmesa}";
-        }if ($mesa == null and $entrega != null) 
+        public function __construct($conexao, $nome_cliente, $tipo_pagamento, $entrega = null,$bairro = null, $rua = null, $numero_casa = null, $mesa = null, $numero_mesa = null)
         {
-            return "desejo receber o pedido em minha casa de endereço: bairro: {$bairro} rua: {$rua} numero da casa: {$Ncasa}";
+            $this->conexao = $conexao;
+            $this->nome_cliente = $nome_cliente;
+            $this->tipo_pagamento = $tipo_pagamento;
+            $this->entrega = $entrega;
+            $this->bairro = $bairro;
+            $this->rua = $rua;
+            $this->numero_casa = $numero_casa;
+            $this->mesa = $mesa;
+            $this->numero_mesa = $numero_mesa;
+            $this->data_pedido = $this->Data(); 
         }
-        
-    }
 
-   $menssagem = "ola ".educacao()."! meu nome e {$nome} e gostaria compra os produtos:".listProduto($produtos). " no valor total de : {$valor} irei pagar em : {$type_pagamento}  ".localDePedido($mesa,$entrega,$Nmesa,$bairro, $rua,$Ncasa)."
 
-   ";
-   $NumeroCll = "5586981132378";
-    $texto = urldecode($menssagem);
-   $whatsapp = "https://wa.me/{$NumeroCll}?text={$texto}";
-   $tempo_aguardar = 2;
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="<?php //echo $tempo_aguardar; ?>;url=<?php //echo $whatsapp; ?>">
-    <title>pedido finalizado</title>
-    <link rel="stylesheet" href="../css/final.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body>
+        private function Data(){
+            date_default_timezone_set('America/Sao_Paulo'); // Ajuste conforme sua região
+
+            // Obtém a data e hora atual em formato separado
+            $dia = date('d');     // Dia do mês
+            $mes = date('m');     // Mês
+            $ano = date('Y');     // Ano
+            $hora = date('H');    // Hora
+            $minuto = date('i');  // Minuto
+            
+            return "$dia/$mes/$ano $hora:$minuto";
+        }
     
-    <div class="ok">
-        <i class="bi bi-check2-circle"></i>
-        <P>aguarde mais so mais um pouquinho</P>
-    </div>
-   
-</body>
-<Script>
-    function compraDenovo(){
-        window.location.href = "../index.php"
-    }
-</Script>
-</html>
+
+        public function InsertPedido(){
+            try {
+                // Prepara a consulta SQL
+                $sql = "INSERT INTO pedido (nome_cliente, tipo_pagamento, entrega, bairro, rua, numero_casa, mesa, numero_mesa, data_pedido)
+                        VALUES (:nome, :tipo_pagamento, :entrega, :bairro, :rua, :numero_casa, :mesa, :numero_mesa, :data_pedido)";
+            
+                // Prepara a instrução
+                $stmt = $this->conexao->prepare($sql);
+            
+                // Bind dos parâmetros
+                $stmt->bindParam(':nome', $this->nome_cliente);
+                $stmt->bindParam(':tipo_pagamento', $this->tipo_pagamento);
+                $stmt->bindParam(':entrega', $this->entrega);
+                $stmt->bindParam(':bairro', $this->bairro);
+                $stmt->bindParam(':rua', $this->rua);
+                $stmt->bindParam(':numero_casa', $this->numero_casa);
+                $stmt->bindParam(':mesa', $this->mesa);
+                $stmt->bindParam(':numero_mesa', $this->numero_mesa);
+                $stmt->bindParam(':data_pedido', $this->data_pedido);
+            
+                // Executa a consulta
+                $stmt->execute();
+            
+                // Pegando o id do pedido
+                $pedidoId = $this->conexao->lastInsertId();
+            
+                return $pedidoId;
+            
+            } catch (PDOException $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+}
+    
+
    
     
