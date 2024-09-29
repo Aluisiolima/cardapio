@@ -65,7 +65,9 @@ function addCarinho(){
     // logica de implementa o produto no carrinho
     const listProduto = [String(quantidade),String(nomeProduto),String(valorProduto),String(imgProduto)]
     produtos_escolhidos.push(listProduto);
-    ids.push(Number(id));
+    const dir = {id : id, quantidade : quantidade};
+    ids.push(dir);
+    console.log(ids);
 }
 
 /**

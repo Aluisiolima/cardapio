@@ -143,7 +143,7 @@ function tela1(telaCarinho,tela){
   telaCarinho.style.display = 'none';
 
   tela.innerHTML= `
-<form action="./Database/pedido.php" method="post">
+<form action="./Database/pedido.php" method="post" onsubmit="return enviarDadosProdutos();">
       <fieldset class="dados">
         <legend>dados</legend>
         <input type="text" placeholder="nome" name="nome" required>
@@ -176,7 +176,7 @@ function tela1(telaCarinho,tela){
       <div class="finaliza_pedido">
         <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
         <input type="text" name="valor" value="${valorTotal()}" hidden>
-        <input type="text" name="ids" value="${ids}" hidden>
+        <input type="text" name="ids"  id="ids" value="" hidden>
         <p>valor = ${valorTotal()}</p>
         <input type="submit" valeu="comprar" >
       </div>
@@ -189,7 +189,7 @@ function tela1(telaCarinho,tela){
 function tela2(telaCarinho,tela){
 telaCarinho.style.display = 'none';
 tela.innerHTML= `
-  <form action="./Database/pedido.php" method="post">
+  <form action="./Database/pedido.php" method="post" onsubmit="return enviarDadosProdutos();">
       <fieldset class="dados">
         <legend>dados entrega</legend>
         <input type="text" placeholder="nome" name="nome" required>
@@ -222,7 +222,7 @@ tela.innerHTML= `
       <div class="finaliza_pedido">
         <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
         <input type="text" name="valor" value="${valorTotal()}" hidden>
-        <input type="text" name="ids" value="${ids}" hidden>
+        <input type="text" name="ids" id="ids" value="" hidden>
         <p>valor =${valorTotal()}</p>
         <input type="submit" valeu="comprar">
       </div>
