@@ -20,10 +20,14 @@
         $valor = htmlspecialchars($_POST["valor"]);
         
     }
+
     $pedido = new Pedido($conexao,$nome,$type_pagamento,$entrega,$bairro,$rua,$Ncasa,$mesa,$Nmesa);
     $venda = new Venda($conexao,$ids,$pedido->InsertPedido(),null);
 
     if($venda->InsertVenda()){
         include(ROOT."/Database/Whatsapp.php");
+    }else{
+        echo '<h1>ERRO CONTATE O SURPOTE</h1>';
     }
+    
 ?>

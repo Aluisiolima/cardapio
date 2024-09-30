@@ -3,7 +3,7 @@
 <nav class="cabecario">
         <div class="logo">
           <img src="./img/foto-perfilempresa.svg" alt="logo" height="30" >  
-        <h1>  <?php echo $conn ?>  </h1>
+        <h1> <?php echo $dados_cardapio['nome_empressa'] ?> </h1>
         </div>
 
     <div class="operacional">

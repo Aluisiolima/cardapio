@@ -1,7 +1,8 @@
 <?php
 
     include (ROOT."/Database/Conexao.php");
-
+    include (ROOT."/Class/Cardapio.php"); 
+    
     $servername = 'localhost' ;
     $username = 'root';
     $password = '';
@@ -12,4 +13,10 @@
 
     $conn = new Conexão( $servername, $username, $password, $dbname , $port , $charset);
     $conexao = $conn->connect();
+
+
+    $cardapio = new Cardapio($conexao,$_GET['cardapio']);
+
+    $dados_cardapio = $cardapio->SelecionarEmpresa();
+    
 ?>   

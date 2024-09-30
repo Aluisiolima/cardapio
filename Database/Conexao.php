@@ -18,10 +18,7 @@
             $this->charset = $charset;
 
         }
-        public function __toString()
-        {
-            return $this->dbname;
-        }
+        
         public function connect() {
             $dsn = "mysql:host={$this->servername};port={$this->port};dbname={$this->dbname};charset={$this->charset}";
             $options = [

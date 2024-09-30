@@ -1,13 +1,14 @@
 <?php 
     include('config.php'); 
-    include (ROOT."/Database/database.php"); 
+    require (ROOT."/Database/database.php");
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $conn ?></title>
+    <title><?php echo $dados_cardapio['nome_empressa']  ?></title>
 
     <!--CSSs-->
     <link rel="stylesheet" href="./css/reset.css">
