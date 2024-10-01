@@ -67,6 +67,7 @@ function addCarinho(){
     produtos_escolhidos.push(listProduto);
     const dir = {id : id, quantidade : quantidade};
     ids.push(dir);
+    updateCarrinho()
 }
 
 /**

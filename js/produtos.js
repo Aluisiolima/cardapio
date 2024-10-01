@@ -12,3 +12,14 @@ function enviarDadosProdutos() {
 
     return true; // Permite o envio do formulário
 }
+
+function updateCarrinho(){
+    if(produtos_escolhidos == 0){
+        return;
+    }
+    
+    const numerador = document.getElementById('Ncompras');
+    numerador.style.background = "#66c13f";
+    let numero = produtos_escolhidos.length;
+    numerador.innerText = numero;
+}

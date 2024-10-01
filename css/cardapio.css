@@ -58,9 +58,23 @@
     right: 30px;
     bottom: 10px;
 }
+
 #button_carinho i {
     font-size: 2pc;
     color: bisque;    
+}
+.numerador{
+    text-align: center;
+    color: white;
+    width: 1.5em;
+    height: 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 1001;
+    right: 75px;
+    bottom: 55px;
 }
 .title_tipo{
     grid-column: 1 / -1;

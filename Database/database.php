@@ -13,10 +13,5 @@
 
     $conn = new Conexão( $servername, $username, $password, $dbname , $port , $charset);
     $conexao = $conn->connect();
-
-
-    $cardapio = new Cardapio($conexao,$_GET['cardapio']);
-
-    $dados_cardapio = $cardapio->SelecionarEmpresa();
     
 ?>   
