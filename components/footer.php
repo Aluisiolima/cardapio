@@ -14,31 +14,31 @@
         <div class="col-6 direitaF">
           <ul>
             <li>
-              <a href="https://wa.me/0000000000000" class="a">
+              <a href="https://wa.me/<?php echo $dados_cardapio['whatsapp'] ?>" class="a">
                 <span>
                 <i class="bi bi-whatsapp text-success"></i>
-                (86) 98199-9999 </span>
+                Whatsapp</span>
               </a>
             </li>
             <li>
-              <a href="#" class="a">
+              <a href="https://www.instagram.com/<?php echo $dados_cardapio['instagram'] ?>/" class="a">
                 <span>
                 <i class="bi bi-instagram text-danger"></i>
                 Instagram</span>
               </a>
             </li>
             <li class="margin-bottom">
-              <a href="mailto:exemplo@gmail.com" class="a">
-                <span>
+              <span>
                 <i class="bi bi-envelope"></i>
-                Email</span>
-              </a>
+                Email: <?php echo $dados_cardapio['email'] ?>
+              </span>
+              
             </li>
             <li class="margin-bottom">
               <a href="#" class="a" >
                 <span>
                   <i class="bi bi-map"></i>
-                   Av. Luíz Eugênio, 65, Alto Longá - PÍ</span>
+                  <?php echo $dados_cardapio['endereco'] ?></span>
               </a>
             </li>
           </ul>
