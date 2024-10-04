@@ -1,5 +1,7 @@
 
 .container_detalhais{ 
+    position: absolute;
+    z-index: 9999;
     width: 100%;
     height: 100vh;
     display: none;
@@ -21,6 +23,7 @@
     height: 2rem;
 
 }
+
 .janela_detalhe{
     position: fixed;
     transform: translate(-50%, -50%); /* Centraliza o card */
@@ -78,7 +81,11 @@
     width: 40%;
     padding: .8em;
 }
-.value{color: #c7c7c7;}
+
+.value{
+    color: #c7c7c7;
+}
+
 .config{
     width: 100%;
     display: flex;
@@ -107,6 +114,7 @@
 .animate {
     animation: moveAndShrink 0.5s linear ;
 }
+
 @media (min-width: 800px) {
     .janela_detalhe{
         width: 50%;

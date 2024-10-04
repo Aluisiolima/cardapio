@@ -1,9 +1,12 @@
 <?php 
     include('config.php'); 
     require (ROOT."/Database/database.php");
-    $cardapio = new Cardapio($conexao,$_GET['cardapio']);
-    $dados_cardapio = $cardapio->SelecionarEmpresa();
     
+    $empressa = $_GET['cardapio'];
+    $_SESSION['empresa'] = $empressa;
+    $cardapio = new Cardapio($conexao,$empressa);
+    $dados_cardapio = $cardapio->SelecionarEmpresa();
+    $_SESSION['dados'] = $dados_cardapio;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

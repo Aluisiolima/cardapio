@@ -18,12 +18,24 @@
 
         <div class="contatos">
             <ul>
-                <li><i class="bi bi-whatsapp" style="font-size: 1.5em;"></i></li>
-                <li><i class="bi bi-instagram" style="font-size: 1.5em;margin-left: .5em;"></i></li>
-                <li><i class="bi bi-facebook" style="font-size: 1.5em;margin-left: .5em;"></i></li>
+                <li>
+                    <a href="https://wa.me/<?php echo $dados_cardapio['whatsapp'] ?>">
+                        <i class="bi bi-whatsapp" style="font-size: 1.5em;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/<?php echo $dados_cardapio['instagram'] ?>/">
+                        <i class="bi bi-instagram" style="font-size: 1.5em;margin-left: .5em;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/<?php echo $dados_cardapio['facebook'] ?>">
+                        <i class="bi bi-facebook" style="font-size: 1.5em;margin-left: .5em;"></i>
+                    </a>
+                </li>
             </ul>
         
-            <i class="bi bi-list" style="font-size:2em;margin-left: .5em;"></i>
+            
         </div>
     </div>
 </nav> 

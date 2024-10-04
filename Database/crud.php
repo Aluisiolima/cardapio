@@ -5,6 +5,7 @@
     require_once(ROOT.'/Database/pedido.php');
     require_once(ROOT.'/Database/venda.php');
 
+
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $nome = htmlspecialchars($_POST["nome"]);
@@ -22,10 +23,11 @@
     }
 
     $pedido = new Pedido($conexao,$nome,$type_pagamento,$entrega,$bairro,$rua,$Ncasa,$mesa,$Nmesa);
-    $venda = new Venda($conexao,$ids,$pedido->InsertPedido(),null);
+    $venda = new Venda($conexao,$ids,$pedido->InsertPedido(),$_SESSION['empresa']);
 
     if($venda->InsertVenda()){
         include(ROOT."/Database/Whatsapp.php");
+        session_destroy();
     }else{
         echo '<h1>ERRO CONTATE O SURPOTE</h1>';
     }

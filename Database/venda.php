@@ -24,7 +24,7 @@ class Venda
 
             foreach ($this->id_produtos as $produto) {
                 // Inserindo os dados na venda
-                $sqlVenda = "INSERT INTO venda (id_produto, quantidade, id_pedido) VALUES (:id_produto, :quantidade, :id_pedido)";
+                $sqlVenda = "INSERT INTO venda (id_produto, quantidade, id_pedido, id_empressa) VALUES (:id_produto, :quantidade, :id_pedido, :id_empressa)";
                 
                 $stmt = $this->conexao->prepare($sqlVenda);
                 
@@ -32,6 +32,7 @@ class Venda
                 $stmt->bindValue(':id_produto', $produto['id']);
                 $stmt->bindValue(':quantidade', $produto['quantidade']);
                 $stmt->bindValue(':id_pedido', $this->id_pedido);
+                $stmt->bindValue(':id_empressa', $this->id_empresa);
                 
                 // Executa a consulta
                 $stmt->execute();
@@ -40,9 +41,6 @@ class Venda
             return true; // Retorna verdadeiro se todas as inserções foram bem-sucedidas
             
         } catch (PDOException $e) {
-            echo "Erro: " . $e->getMessage();
-            return false; // Retorna falso em caso de erro
-        } catch (Exception $e) {
             echo "Erro: " . $e->getMessage();
             return false; // Retorna falso em caso de erro
         }

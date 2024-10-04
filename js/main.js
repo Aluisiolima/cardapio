@@ -28,7 +28,8 @@ function getDetalhes(id) {
         if (xhr.status === 200) { 
             detalhes.innerHTML = xhr.responseText;
             detalhes.style.display = 'flex';
-            content_load.style.display = 'none'
+            content_load.style.display = 'none';
+            document.body.style.overflow = 'hidden';
             
         } else {
             console.error('Request failed. Status:', xhr.status);
@@ -45,16 +46,22 @@ function getDetalhes(id) {
 function fechaDetalhes(){
     const detalhes = document.getElementById('container_detalhes');
     detalhes.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
 function addCarinho(){
     //alteracoes de tela [ animacoes ]
+    const tela_detalhes = document.getElementById('container_detalhes');
     const detalhes = document.getElementById('tela_detalhe');
     detalhes.classList.add("animate");
     detalhes.addEventListener("animationend", ()=>{
         detalhes.classList.remove("animate");
         detalhes.style.display = "none";
+        tela_detalhes.style.display = "none";
+        document.body.style.overflow = 'auto';
     })
+
+    
 
     const id = document.getElementById("imgProduct").alt;
     const nomeProduto = document.getElementById("nameProduct").textContent;
@@ -67,7 +74,7 @@ function addCarinho(){
     produtos_escolhidos.push(listProduto);
     const dir = {id : id, quantidade : quantidade};
     ids.push(dir);
-    updateCarrinho()
+    
 }
 
 /**
@@ -106,4 +113,5 @@ function loadContent(content) {
     xhr.send('content=' + encodeURIComponent(content));
 }
 
+setInterval(updateCarrinho, 1000);
 homeAtive();

@@ -25,7 +25,7 @@ if (isset($_POST['id'])) {
               if($row['tipo'] == 'Pizza'){
                 $imgERROR = "./img/Pizza_padrao.svg";
               }elseif($row['tipo'] == 'Bebida'){
-                $imgERROR = "./img/Pebida_padrao.svg";
+                $imgERROR = "./img/Bebida_padrao.svg";
               }elseif($row['tipo'] == 'Hambúrguer'){
                 $imgERROR = "./img/Hambúrguer_padrao.svg";
               }else{
@@ -36,33 +36,35 @@ if (isset($_POST['id'])) {
               
               echo "
                 
-                <div class='janela_detalhe' id='tela_detalhe'>
-                  <div class='volta'>
-                    <button onclick='fechaDetalhes()' ><i class='bi bi-x-lg'></i></i></button>
-                  </div>
-                  <div class='detalhe'>
-                    <div class='inf_produto'>
-                      <div class='produto_detalhes'>  
-                          <img src='$img' id='imgProduct' alt='$id' width='200px' onerror="."src='$imgERROR'".">
-                        <div class='quantidade'>
-                          <button id='mais1' onclick='mais1()'>+</button>
-                          <p id='quantidade'>1</p>
-                          <button id='menos1' onclick='menos1()'>-</button>
+                  <div class='janela_detalhe' id='tela_detalhe'>
+                    <div class='volta'>
+                      <button onclick='fechaDetalhes()' ><i class='bi bi-x-lg'></i></i></button>
+                    </div>
+                    <div class='detalhe'>
+                      <div class='inf_produto'>
+                        <div class='produto_detalhes'>  
+                            <img src='$img' id='imgProduct' alt='$id' width='200px' onerror="."src='$imgERROR'".">
+                          <div class='quantidade'>
+                            <button id='mais1' onclick='mais1()'>+</button>
+                            <p id='quantidade'>1</p>
+                            <button id='menos1' onclick='menos1()'>-</button>
+                          </div>
+                        </div>
+                      
+                        <div class='descricao'>
+                          <p id='nameProduct'> $nome</p>
                         </div>
                       </div>
                     
-                      <div class='descricao'>
-                        <p id='nameProduct'> $nome</p>
+                      <p class='value'> valor = <span id='value' product-value=$valor>$valor</span> </p>
+                    
+                      <div class='config'>
+                          <button id='adicionarCarrinho' onclick='addCarinho()'>add carrinho</button>
                       </div>
                     </div>
-                  
-                    <p class='value'> valor = <span id='value' product-value=$valor>$valor</span> </p>
-                  
-                    <div class='config'>
-                        <button id='adicionarCarrinho' onclick='addCarinho()'>add carrinho</button>
-                    </div>
-                  </div>
-                </div> ";
+                  </div> 
+                
+                ";
             
             }
   } else {

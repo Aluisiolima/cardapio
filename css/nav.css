@@ -47,3 +47,6 @@
 .contatos > ul{
     display: flex;
 }
+.contatos > ul > li > a{
+    color: black;
+}
