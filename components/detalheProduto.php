@@ -23,13 +23,13 @@ if (isset($_POST['id'])) {
               $id = "{$row['id_produto']}";
 
               if($row['tipo'] == 'Pizza'){
-                $imgERROR = "./img/pizza_padrao.svg";
+                $imgERROR = "./img/Pizza_padrao.svg";
               }elseif($row['tipo'] == 'Bebida'){
-                $imgERROR = "./img/bebida_padrao.svg";
+                $imgERROR = "./img/Pebida_padrao.svg";
               }elseif($row['tipo'] == 'Hambúrguer'){
-                $imgERROR = "./img/hamburguer_padrao.svg";
+                $imgERROR = "./img/Hambúrguer_padrao.svg";
               }else{
-                $imgERROR = "./img/pizza_padrao.svg";
+                $imgERROR = "./img/Pizza_padrao.svg";
               }
 
               
@@ -48,12 +48,6 @@ if (isset($_POST['id'])) {
                           <button id='mais1' onclick='mais1()'>+</button>
                           <p id='quantidade'>1</p>
                           <button id='menos1' onclick='menos1()'>-</button>
-                        </div>
-                        <div class='tamanhos'>
-                          <button class='tamanho'>gg</button>
-                          <button class='tamanho'>g</button>
-                          <button class='tamanho'>m</button>
-                          <button class='tamanho'>p</button>
                         </div>
                       </div>
                     
