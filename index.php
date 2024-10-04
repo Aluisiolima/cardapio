@@ -42,10 +42,10 @@
 
 </body>
     <!--SCRIPTs-->
-    <script src="./js/produtos.js" defer></script>
-    <script src="./js/cabercario.js" defer></script>
-    <script src="./js/carinho.js" defer></script>
+    <script src="./js/produtos.js" ></script>
+    <script src="./js/cabercario.js" ></script>
+    <script src="./js/carinho.js" ></script>
     <!-- arquivo main.js e responsavel por quase tudo que ocorre no site -->
-    <script src='./js/main.js' defer></script>
+    <script src='./js/main.js' ></script>
    
 </html>

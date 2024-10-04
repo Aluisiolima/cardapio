@@ -1,13 +1,13 @@
 
 
-function geraCardsProduct(){
+function geraCardsProduct(product){
   const cardProduto = document.getElementById("produtos_carinho");
   let produtos = "";
   let nome;
   let valor;
   let quantidade;
   let img;
-  for (let i = 0; i < produtos_escolhidos.length; i++) {
+  for (let i = 0; i < product.length; i++) {
     nome = produtos_escolhidos[i][1];
     valor = produtos_escolhidos[i][2];
     quantidade = produtos_escolhidos[i][0];
@@ -86,6 +86,7 @@ function menos1(){
 function retirarImgsListaProdutos() {
   for (let i = 0; i < produtos_escolhidos.length; i++) {
     produtos_escolhidos[i].pop();
+  
   }
   return produtos_escolhidos;
 }
@@ -121,13 +122,16 @@ function telaDeEmtrega(local){
   let typeDelivery = local;
   const tela = document.querySelector(".container_pagamentos");
   const telaCarinho = document.querySelector(".container_carinho");
+  const navegacao = document.getElementById("navegacao");
   if(parseFloat(valorTotal()) > 0){
     switch(typeDelivery){
       case true: 
         tela1(telaCarinho,tela); 
+        navegacao.style.display ="none";
         break;
       case false:
         tela2(telaCarinho,tela);
+        navegacao.style.display ="none";
         break;
     }
   }else{
@@ -156,7 +160,7 @@ function tela1(telaCarinho,tela){
           <summary>
             produstos <i class="bi bi-caret-down-fill"></i>
           </summary>
-          ${geraCardsProduct()}
+          ${geraCardsProduct(produtos_escolhidos)}
         </details>
       <fieldset class="formas_De_Pagamento">
         <legend>formas de pagamento</legend>
@@ -201,7 +205,7 @@ tela.innerHTML= `
         <summary>
           produstos <i class="bi bi-caret-down-fill"></i>
         </summary>
-        ${geraCardsProduct()}
+        ${geraCardsProduct(produtos_escolhidos)}
       </details>
     
       <fieldset class="formas_De_Pagamento">
@@ -231,6 +235,6 @@ tela.innerHTML= `
 }
 
 mudarValorDaVariavel();
-geraCardsProduct();
+geraCardsProduct(produtos_escolhidos);
 
   

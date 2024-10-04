@@ -96,10 +96,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: antiquewhite;  
-    margin:  0 auto;
-    width: 70%;
+    justify-content: center;
+    background: antiquewhite;
+    margin: 0 auto;
+    width: 90%;
     border-radius: .4em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .container_pagamentos form{
     width: 90%;

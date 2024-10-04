@@ -7,7 +7,7 @@
         </div>
 
     <div class="operacional">
-        <div class="link-navegacao">
+        <div class="link-navegacao" id="navegacao">
             <div class="links">
                 <p  id="home" onclick="homeAtive()">home</p>
             </div>
