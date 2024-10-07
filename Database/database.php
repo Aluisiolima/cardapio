@@ -2,6 +2,8 @@
 
     include (ROOT."/Database/Conexao.php");
     include (ROOT."/Class/Cardapio.php"); 
+    require_once(ROOT.'/Database/pedido.php');
+    require_once(ROOT.'/Database/venda.php');
     
     $servername = 'localhost' ;
     $username = 'root';

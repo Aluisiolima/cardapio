@@ -1,9 +1,6 @@
 <?php
     include("../config.php");
-
     require_once(ROOT.'/Database/database.php');
-    require_once(ROOT.'/Database/pedido.php');
-    require_once(ROOT.'/Database/venda.php');
 
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
