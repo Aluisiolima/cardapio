@@ -1,0 +1,14 @@
+#navid{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eee;
+}
+#navid > i{
+    font-size: 35px;
+    font-weight:bolder ;
+}
+#navid > h1{
+    margin: .5em;
+}

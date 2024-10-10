@@ -12,6 +12,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="keywords" content="cardapio,hamburgueria,lanche">
+    <meta name="description" content="um cardapio de laches,lanche e delicias, alto longa,piaui">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $dados_cardapio['nome_empressa']  ?></title>
 

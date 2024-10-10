@@ -3,8 +3,8 @@
 if (isset($_POST['content'])) {
     $content = $_POST['content'];
 
-    if ($content === 'nav') {
-        include("./components/nav.php"); 
+    if ($content === 'navAdmin') {
+        include("./components/navAdmin.php"); 
     } else {
         echo '<p>Conteúdo não encontrado.</p>';
     }

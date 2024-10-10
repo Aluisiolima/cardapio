@@ -1,3 +1,3 @@
 const pages = {
-    'nav' : document.getElementById('navid')
+    'navAdmin' : document.getElementById('navid')
 }
