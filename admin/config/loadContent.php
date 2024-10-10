@@ -8,5 +8,7 @@ if (isset($_POST['content'])) {
     } else {
         echo '<p>Conteúdo não encontrado.</p>';
     }
-} 
+}else {
+    echo "<p>Deu algum erro da requisicao do componente</p>";
+}
 ?>
