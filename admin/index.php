@@ -1,6 +1,6 @@
 <?php 
     include '../config.php';
-    include  ROOT.'Database/database.php';
+    include  ROOT.'/Database/database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +10,6 @@
     <title>admin</title>
 </head>
 <body>
-    
+    hello word
 </body>
 </html>
