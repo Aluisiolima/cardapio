@@ -1,5 +1,5 @@
 
-    <link rel="stylesheet" href="../css/carinho.css">
+
 
     <div class="container_carinho">
         <header class="title">carinho</header>
