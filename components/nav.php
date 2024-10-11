@@ -3,7 +3,7 @@
 <nav class="cabecario">
         <div class="logo">
           <img src="./img/foto-perfilempresa.svg" alt="logo" height="30" >  
-        <h1> <?php echo $dados_cardapio['nome_empressa'] ?> </h1>
+        <h1> <?php echo $dados_empressa['nome_empressa'] ?> </h1>
         </div>
 
     <div class="operacional">
@@ -19,17 +19,17 @@
         <div class="contatos">
             <ul>
                 <li>
-                    <a href="https://wa.me/<?php echo $dados_cardapio['whatsapp'] ?>">
+                    <a href="https://wa.me/<?php echo $dados_empressa['whatsapp'] ?>">
                         <i class="bi bi-whatsapp" style="font-size: 1.5em;"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/<?php echo $dados_cardapio['instagram'] ?>/">
+                    <a href="https://www.instagram.com/<?php echo $dados_empressa['instagram'] ?>/">
                         <i class="bi bi-instagram" style="font-size: 1.5em;margin-left: .5em;"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/<?php echo $dados_cardapio['facebook'] ?>">
+                    <a href="https://www.facebook.com/<?php echo $dados_empressa['facebook'] ?>">
                         <i class="bi bi-facebook" style="font-size: 1.5em;margin-left: .5em;"></i>
                     </a>
                 </li>

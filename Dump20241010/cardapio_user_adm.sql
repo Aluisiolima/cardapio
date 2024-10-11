@@ -16,34 +16,23 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `empressa`
+-- Table structure for table `user_adm`
 --
 
-DROP TABLE IF EXISTS `empressa`;
+DROP TABLE IF EXISTS `user_adm`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `empressa` (
-  `id_empressa` int NOT NULL AUTO_INCREMENT,
-  `nome_empressa` varchar(100) NOT NULL,
-  `whatsapp` varchar(20) NOT NULL,
-  `instagram` varchar(50) DEFAULT NULL,
-  `facebook` varchar(50) DEFAULT NULL,
-  `endereco` varchar(100) NOT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `logo_img` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id_empressa`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `user_adm` (
+  `id_adm` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `cargo` varchar(50) NOT NULL,
+  `codigo` varchar(20) NOT NULL,
+  `senha` varchar(20) NOT NULL,
+  `id_empressa` int DEFAULT NULL,
+  PRIMARY KEY (`id_adm`),
+  KEY `id_empressa` (`id_empressa`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `empressa`
---
-
-LOCK TABLES `empressa` WRITE;
-/*!40000 ALTER TABLE `empressa` DISABLE KEYS */;
-INSERT INTO `empressa` VALUES (1,'padrao','+5586981132378','@aluiz_nt',NULL,'marinopolis','aaluisio309@gmail.com','img/foto-perfilempresa.svg');
-/*!40000 ALTER TABLE `empressa` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -54,4 +43,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-29 21:25:02
+-- Dump completed on 2024-10-10 18:58:28

@@ -14,14 +14,14 @@
         <div class="col-6 direitaF">
           <ul>
             <li>
-              <a href="https://wa.me/<?php echo $dados_cardapio['whatsapp'] ?>" class="a">
+              <a href="https://wa.me/<?php echo $dados_empressa['whatsapp'] ?>" class="a">
                 <span>
                 <i class="bi bi-whatsapp text-success"></i>
                 Whatsapp</span>
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/<?php echo $dados_cardapio['instagram'] ?>/" class="a">
+              <a href="https://www.instagram.com/<?php echo $dados_empressa['instagram'] ?>/" class="a">
                 <span>
                 <i class="bi bi-instagram text-danger"></i>
                 Instagram</span>
@@ -30,7 +30,7 @@
             <li class="margin-bottom">
               <span>
                 <i class="bi bi-envelope"></i>
-                Email: <?php echo $dados_cardapio['email'] ?>
+                Email: <?php echo $dados_empressa['email'] ?>
               </span>
               
             </li>
@@ -38,7 +38,7 @@
               <a href="#" class="a" >
                 <span>
                   <i class="bi bi-map"></i>
-                  <?php echo $dados_cardapio['endereco'] ?></span>
+                  <?php echo $dados_empressa['endereco'] ?></span>
               </a>
             </li>
           </ul>

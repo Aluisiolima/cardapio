@@ -6,7 +6,9 @@
     $_SESSION['empresa'] = $empressa;
     $cardapio = new Cardapio($conexao,$empressa);
     $dados_cardapio = $cardapio->SelecionarEmpresa();
-    $_SESSION['dados'] = $dados_cardapio;
+    $dados_empressa = $dados_cardapio[0];
+    $_SESSION['dados'] = $dados_empressa;
+   
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,7 +17,7 @@
     <meta name="keywords" content="cardapio,hamburgueria,lanche">
     <meta name="description" content="um cardapio de laches,lanche e delicias, alto longa,piaui">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $dados_cardapio['nome_empressa']  ?></title>
+    <title><?php echo $dados_empressa['nome_empressa']  ?></title>
 
     <!--CSSs-->
     <link rel="stylesheet" href="./css/reset.css">
@@ -38,7 +40,14 @@
         <p>carregando...</p>
    </div>
    <div id="content-area" >
-        
+   
+   </div>
+   <div id="homeCont">
+        <div class="container_home">
+            <div class="produtos pizzas">pizzas</div>
+            <div class="produtos hamburguer">hamburguer</div>
+            <div class="produtos bebidas">bebidas</div>
+        </div>
    </div>
    <?php include "./components/footer.php"; ?>
 </div>

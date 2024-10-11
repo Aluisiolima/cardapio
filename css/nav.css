@@ -6,7 +6,7 @@
 .cabecario >.logo{
     display: flex;
     width: 40%;
-    padding: 1.25em;
+    padding: 1em;
 }
 .cabecario >.logo > p{
     margin: 0.25em;
@@ -28,6 +28,7 @@
 .links{
     display: flex;
     margin-left: 1em;
+    margin-top: 1em;
     align-items: flex-end;
     cursor: pointer;
 }   
@@ -41,6 +42,8 @@
     height: min-content;
     align-items: center;
     justify-content: flex-end;
+    padding: .5em;
+   
     
     flex: auto;
 }
@@ -49,4 +52,5 @@
 }
 .contatos > ul > li > a{
     color: black;
+    
 }

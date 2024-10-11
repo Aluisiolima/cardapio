@@ -18,7 +18,23 @@
                 $stmt->bindParam(':id', $this->id_empresa);
                 $stmt->execute();
     
-                $resultado = $stmt->fetch();
+                $dados_empressa = $stmt->fetch();
+                $produtosEmMaiorQuantidade = $this->protudosEmMaioQuantidade();
+                $resultado = [$dados_empressa,$produtosEmMaiorQuantidade];
+                return  $resultado;
+            }catch (PDOException $e){
+                return  'deu error'. $e->getMessage();
+            }
+        }
+        private function protudosEmMaioQuantidade(){
+           try{
+                $sql = "SELECT tipo FROM produtos WHERE id_empressa = :id_empresa GROUP BY tipo ORDER BY  count(*) desc limit 3;";
+                $stmt = $this->conexao->prepare($sql);
+                $stmt->bindParam(':id_empresa', $this->id_empresa);
+                $stmt->execute();
+    
+                $resultado = $stmt->fetchAll();
+
                 return  $resultado;
             }catch (PDOException $e){
                 return  'deu error'. $e->getMessage();

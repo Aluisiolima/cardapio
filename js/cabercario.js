@@ -1,6 +1,7 @@
 
 //botao que leva ao cardapio
 const home = document.getElementById('home');
+const homec = document.getElementById('homeCont');
 //botao que leva ao cardapio
 const cardapio = document.getElementById('cardapio');
 
@@ -10,7 +11,8 @@ const cardapio = document.getElementById('cardapio');
  * {'home' , 'cardapio'}
  */
 function homeAtive(){
-    loadContent('home');
+    const content_resposta = document.getElementById('content-area').style.display = 'none';
+    homec.style.display = 'flex';
     home.style.textDecoration = "underline";
     cardapio.style.textDecoration = "none";
 
@@ -21,6 +23,7 @@ function homeAtive(){
  * {'cardapio' , 'home'}
  */
 function cardapioAtive(){
+    homec.style.display = 'none';
     loadContent('cardapio');
     cardapio.style.textDecoration = "underline";
     home.style.textDecoration = "none";

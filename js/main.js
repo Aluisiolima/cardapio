@@ -82,6 +82,7 @@ function addCarinho(){
  * @param {any} content este parametro e a pagina que vc quer e ir 
  */   
 function loadContent(content) {
+    
     const content_resposta = document.getElementById('content-area');
     const content_load = document.getElementById('container_load');
     

@@ -16,32 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_adm`
+-- Table structure for table `pedido`
 --
 
-DROP TABLE IF EXISTS `user_adm`;
+DROP TABLE IF EXISTS `pedido`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_adm` (
-  `id_adm` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `cargo` varchar(50) NOT NULL,
-  `codigo` varchar(20) NOT NULL,
-  `senha` varchar(20) NOT NULL,
-  `id_empressa` int DEFAULT NULL,
-  PRIMARY KEY (`id_adm`),
-  KEY `id_empressa` (`id_empressa`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `pedido` (
+  `id_pedido` int NOT NULL AUTO_INCREMENT,
+  `nome_cliente` varchar(100) NOT NULL,
+  `tipo_pagamento` varchar(20) NOT NULL,
+  `entrega` varchar(10) DEFAULT NULL,
+  `bairro` varchar(100) DEFAULT NULL,
+  `rua` varchar(100) DEFAULT NULL,
+  `numero_casa` int DEFAULT NULL,
+  `mesa` varchar(10) DEFAULT NULL,
+  `numero_mesa` int DEFAULT NULL,
+  `data_pedido` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_pedido`)
+) ENGINE=MyISAM AUTO_INCREMENT=182 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_adm`
---
-
-LOCK TABLES `user_adm` WRITE;
-/*!40000 ALTER TABLE `user_adm` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_adm` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -52,4 +46,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-29 21:25:02
+-- Dump completed on 2024-10-10 18:58:28

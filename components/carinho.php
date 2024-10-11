@@ -1,6 +1,4 @@
 
-
-
     <div class="container_carinho">
         <header class="title">carinho</header>
         <div class="container_list_produtos">
@@ -19,11 +17,7 @@
             <button onclick="telaDeEmtrega(mudarValorDaVariavel())">finaliza</button>
             </div>
         </div>
-    </div >
+    </div>
     <div class="container_pagamentos">
 
     </div>
-
-    
-
-
