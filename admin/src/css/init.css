@@ -1,0 +1,32 @@
+.init-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+}
+.img_logo{
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 15em;
+    height: 15em;
+    border-radius: 10em;
+    border: 1px solid black;
+   
+}
+.img_logo > img{
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+}
+ul{
+    
+    text-align: center;
+    list-style: none;
+}
+li{
+    margin-top: .5em;
+    font-size: medium;
+    font-weight: bolder;
+}

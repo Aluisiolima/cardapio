@@ -11,6 +11,7 @@
     <title>admin</title>
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/navAdmin.css">
+    <link rel="stylesheet" href="./src/css/init.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
