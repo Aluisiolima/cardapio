@@ -1,7 +1,7 @@
 <?php
 
     include (ROOT."/Database/Conexao.php");
-    include (ROOT."/Class/Cardapio.php"); 
+    include (ROOT."/Database/Empresa.php"); 
     require_once(ROOT.'/Database/pedido.php');
     require_once(ROOT.'/Database/venda.php');
     

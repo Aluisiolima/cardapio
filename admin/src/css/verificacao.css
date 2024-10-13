@@ -1,0 +1,54 @@
+.login{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dbe5e1;
+}
+form{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+    width: 80%;
+    text-align: center;
+    border: .2em solid black;
+}
+input{
+    height: 10%;
+    width: 80%;
+    border: 1px solid black;
+    margin: .3em;
+    text-align: center;
+    cursor: pointer;
+}
+select {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
+button{
+    position: absolute;
+    bottom: 0;
+    margin: .2em;
+    background-color: green;
+    color: aliceblue;
+    border: none;
+    height: 10%;
+    width: 50%;
+}
+
+@media (min-width : 768px) {
+    form{
+        width: 50%;
+    }
+}

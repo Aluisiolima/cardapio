@@ -12,7 +12,10 @@
         $codigo = $_POST['codigo'];
         $empressa= $_POST['empressa'];
 
-        $sql = "SELECT * from user_adm WHERE codigo = :codigo AND senha = :senha AND id_empressa = :id_empressa";
+        $sql = "SELECT e.nome_empressa, e.logo_img, u.id_adm, u.nome, u.cargo, u.codigo, u.senha, u.id_empressa 
+                FROM user_adm u
+                JOIN empressa e ON e.id_empressa = u.id_empressa
+                WHERE u.codigo = :codigo AND u.senha = :senha AND u.id_empressa = :id_empressa";
 
         $stmt = $conexao->prepare($sql);
 
@@ -23,9 +26,12 @@
        
         $stmt->execute();
 
-        if(!$stmt->fetchAll() == 0){
-            header("Location: ../pages/admin_tela.php");
+        $resultado = $stmt->fetch();
 
+        if (!empty($resultado)){
+            session_start();
+            $_SESSION['date_user'] = $resultado;
+            header("Location: ../pages/admin_tela.php");
             exit(); 
         }
         echo "nao tem esse usuario";

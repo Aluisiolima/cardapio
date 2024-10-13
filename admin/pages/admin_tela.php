@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    
+    if (empty($_SESSION['date_user'])) {
+        header("Location: ../index.php");
+        exit();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,9 +20,15 @@
 
 </head>
 <body>
-    <nav id="navid"></nav>
-    <div id="view"></div>
     
+    <nav id="navid">
+        <?php include('../components/navAdmin.php') ?>
+    </nav>
+
+    <div id="init">
+        <?php include('../components/init.php') ?>
+    </div>
+
 </body>
 
 <script src="../src/js/pages.js" defer></script>

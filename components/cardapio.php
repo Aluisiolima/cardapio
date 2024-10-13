@@ -7,7 +7,7 @@
     <div class="container_cardapio" id="cardapio_page">
         <div class="cardapio_produtos_lanche">
             <?php 
-                $card = new Cards($conexao);                
+                $card = new Cards($conexao,$_SESSION['dados']['id_empressa']);                
                 $card->geraCards($card->verOsTipos());
             ?>
         </div>

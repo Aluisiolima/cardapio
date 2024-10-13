@@ -1,10 +1,10 @@
 <?php
-    Class Cardapio
+    Class Empresa
     {
         private $conexao;
         private $id_empresa;
 
-        public function __construct($conexao,$id_empresa)
+        public function __construct($conexao, $id_empresa = null)
         {
             $this->conexao = $conexao;
             $this->id_empresa = $id_empresa;
@@ -13,7 +13,7 @@
         public function SelecionarEmpresa()
         {   
             try{
-                $sql = "SELECT nome_empressa,whatsapp,instagram,facebook,endereco,email,logo_img FROM empressa WHERE id_empressa = :id;";
+                $sql = "SELECT id_empressa,nome_empressa,whatsapp,instagram,facebook,endereco,email,logo_img FROM empressa WHERE id_empressa = :id;";
                 $stmt = $this->conexao->prepare($sql);
                 $stmt->bindParam(':id', $this->id_empresa);
                 $stmt->execute();
@@ -40,6 +40,19 @@
                 return  'deu error'. $e->getMessage();
             }
         }
+        public function empresasCadastrada(){
+            try{
+                 $sql = "SELECT id_empressa,nome_empressa FROM empressa;";
+                 $stmt = $this->conexao->prepare($sql);
+                 $stmt->execute();
+     
+                 $resultado = $stmt->fetchAll();
+ 
+                 return  $resultado;
+             }catch (PDOException $e){
+                 return  'deu error'. $e->getMessage();
+             }
+         }
     }
 
 ?>

@@ -24,6 +24,7 @@
 
     if($venda->InsertVenda()){
         include(ROOT."/Database/Whatsapp.php");
+        session_unset();
         session_destroy();
     }else{
         echo '<h1>ERRO CONTATE O SURPOTE</h1>';

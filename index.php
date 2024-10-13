@@ -4,7 +4,7 @@
     
     $empressa = $_GET['cardapio'];
     $_SESSION['empresa'] = $empressa;
-    $cardapio = new Cardapio($conexao,$empressa);
+    $cardapio = new Empresa($conexao,$empressa);
     $dados_cardapio = $cardapio->SelecionarEmpresa();
     $dados_empressa = $dados_cardapio[0];
     $_SESSION['dados'] = $dados_empressa;
