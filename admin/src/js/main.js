@@ -2,7 +2,7 @@ function loadContent(content,area) {
     const content_resposta = area;
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', './config/loadContent.php', true);
+    xhr.open('POST', '../config/loadContent.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function () {
