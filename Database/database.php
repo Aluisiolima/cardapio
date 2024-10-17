@@ -4,6 +4,7 @@
     include (ROOT."/Database/Empresa.php"); 
     require_once(ROOT.'/Database/pedido.php');
     require_once(ROOT.'/Database/venda.php');
+    require_once(ROOT.'/Database/produtos.php');
     
     $servername = 'localhost' ;
     $username = 'root';

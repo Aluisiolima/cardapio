@@ -1,8 +1,8 @@
 <div class="menu-opt">
     <ul>
-        <li>home</li>
-        <li>produtos</li>
-        <li>funcionario</li>
-        <li>historico de vendas</li>
+        <li onclick="trocarCompainer('init')">home</li>
+        <li onclick="trocarCompainer('produtos')">produtos</li>
+        <li onclick="trocarCompainer('funcionario')">funcionario</li>
+        <li onclick="trocarCompainer('vendas_historico')">historico de vendas</li>
     </ul>
 </div>

@@ -1,0 +1,68 @@
+.produtos{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    height: 10em;
+    max-height: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+}
+.container > img{
+    max-width: 100%;
+    max-height: 80%;
+}
+.infs_produto{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.detalhes{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.inf{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: .5em;
+}
+.btn_produto{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.edit{
+    margin: .5em;
+    width: 20%;
+    height: 20%;
+    border: none;
+    background-color: green;
+    color: white;
+}
+.delete{
+    margin: .5em;
+    width: 20%;
+    height: 20%;
+    border: none;
+    background-color: red;
+    color: white;
+}
+.type{
+    color: #777;
+}

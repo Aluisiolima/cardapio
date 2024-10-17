@@ -8,6 +8,7 @@ function verificarTamanhoTela() {
     componente.style.display = 'none'; // Oculta o componente
   }
 }
+
 function menu() {
   const menu = document.getElementById('menu');
   const display = menu.style.display;
@@ -20,7 +21,21 @@ function menu() {
   }
 }
 
+function trocarCompainer(componente){
+  const componentes = ['init','produtos','funcionario','vendas_historico'];
+  for (let i = 0; i < componentes.length; i++) {
+    const element = componentes[i];
+    const container = document.getElementById(element);
 
+    if(componente == element){
+      container.style.display = 'flex';
+    }else{
+      container.style.display = 'none';
+    }
+  }
+}
+
+trocarCompainer('produtos');
 // // Executa a função ao carregar a página
 // verificarTamanhoTela();
 
