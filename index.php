@@ -20,15 +20,15 @@
     <title><?php echo $dados_empressa['nome_empressa']  ?></title>
 
     <!--CSSs-->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/stylesfooter.css">
-    <link rel="stylesheet" href="./css/telaDeDetalhes.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/cardapio.css">
-    <link rel="stylesheet" href="./css/carinho.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/nav.css">
+    <link rel="stylesheet" href="./src/css/stylesfooter.css">
+    <link rel="stylesheet" href="./src/css/telaDeDetalhes.css">
+    <link rel="stylesheet" href="./src/css/home.css">
+    <link rel="stylesheet" href="./src/css/cardapio.css">
+    <link rel="stylesheet" href="./src/css/carinho.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="./css/load.css">
+    <link rel="stylesheet" href="./src/css/load.css">
     
 
 </head>
@@ -54,10 +54,10 @@
 
 </body>
     <!--SCRIPTs-->
-    <script src="./js/produtos.js" ></script>
-    <script src="./js/cabercario.js" ></script>
-    <script src="./js/carinho.js" ></script>
+    <script src="./src/js/produtos.js" defer></script>
+    <script src="./src/js/cabercario.js" defer></script>
+    <script src="./src/js/carinho.js" defer></script>
     <!-- arquivo main.js e responsavel por quase tudo que ocorre no site -->
-    <script src='./js/main.js' ></script>
+    <script src='./src/js/main.js' defer></script>
    
 </html>

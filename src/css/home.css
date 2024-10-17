@@ -23,19 +23,19 @@
     text-shadow: 2px 2px 4px #000000;
 }
 .pizzas{
-    background-image: url("../img/pizzas.svg");
+    background-image: url("../../img/pizzas.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .hamburguer{
-    background-image: url("../img/hamburguer.svg");
+    background-image: url("../../img/hamburguer.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .bebidas{
-    background-image: url("../img/bebidas.svg");
+    background-image: url("../../img/bebidas.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

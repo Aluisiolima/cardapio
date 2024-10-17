@@ -8,6 +8,18 @@ function verificarTamanhoTela() {
     componente.style.display = 'none'; // Oculta o componente
   }
 }
+function menu() {
+  const menu = document.getElementById('menu');
+  const display = menu.style.display;
+
+  // Toggle the display property
+  if (display === "none" || display === "") {
+    menu.style.display = 'flex';
+  } else {
+    menu.style.display = 'none';
+  }
+}
+
 
 // // Executa a função ao carregar a página
 // verificarTamanhoTela();

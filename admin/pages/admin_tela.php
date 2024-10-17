@@ -24,7 +24,9 @@
     <nav id="navid">
         <?php include('../components/navAdmin.php') ?>
     </nav>
-
+    <div class="menu" id="menu">
+        <?php include('../components/menu.php') ?>
+    </div>
     <div id="init">
         <?php include('../components/init.php') ?>
     </div>

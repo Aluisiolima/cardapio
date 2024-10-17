@@ -60,7 +60,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="<?php echo $tempo_aguardar; ?>;url=<?php echo $whatsapp; ?>">
     <title>pedido finalizado</title>
-    <link rel="stylesheet" href="../css/final.css">
+    <link rel="stylesheet" href="../src/css/final.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>

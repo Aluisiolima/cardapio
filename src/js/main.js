@@ -8,7 +8,7 @@ function carregaCarinho() {
     setTimeout(()=>{
         const script = document.createElement('script');
 
-        script.src = "./js/carinho.js";
+        script.src = "./src/js/carinho.js";
 
         document.body.appendChild(script);
         
