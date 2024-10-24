@@ -36,7 +36,10 @@
     </div>
 
     <div class="produtos" id="produtos" style="display:none;">
-        <?php include('../components/produtos.php') ?>
+        <?php 
+            include('../components/produtos.php');
+            produtos($conexao);
+        ?>
     </div>
 
     <div class="funcionario" id="funcionario" style="display:none;">

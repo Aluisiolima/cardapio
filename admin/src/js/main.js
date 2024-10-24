@@ -1,7 +1,7 @@
 
-const componente = document.querySelector('.componente');
 
 function verificarTamanhoTela() {
+  const componente = document.querySelector('.componente');
   if (window.innerWidth > 768) {
     componente.style.display = 'block'; // Mostra o componente
   } else {
@@ -29,15 +29,72 @@ function trocarCompainer(componente){
 
     if(componente == element){
       container.style.display = 'flex';
+
     }else{
       container.style.display = 'none';
+    
     }
   }
 }
 
-trocarCompainer('produtos');
-// // Executa a função ao carregar a página
-// verificarTamanhoTela();
+async function pegarProdutoUnico(id,action) {
+  const params = new URLSearchParams();
+  params.append('operacao', 'pegar'); 
+  params.append('id',id); 
+  params.append('action',action); 
 
-// // Adiciona um listener para redimensionamento da tela
-// window.addEventListener('resize', verificarTamanhoTela);
+  await fetch('../components/produtos.php', {
+      method: 'POST',
+      body: params,
+  })
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById('operacoes').innerHTML = data;
+  })
+  .catch(error => console.error('Error:', error));
+}
+
+async function edit(id) {
+  await pegarProdutoUnico(id,'edit');
+  operacao();
+  telaOpen();
+}
+
+async function del(id){
+  await pegarProdutoUnico(id,'del');
+  operacao();
+  telaOpen();
+}
+
+function operacao() {
+  const form = document.getElementById('form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    const formData = new FormData(this);
+
+    fetch('../components/produtos.php', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('mensagem').innerText = data;
+    })
+    .catch(error => console.error('Erro:', error));
+  });
+
+}
+
+function telaOpen() {
+  const tel = document.getElementById('operacoes');
+
+  if(tel.style.display == 'none' || tel.style.display == ''){
+    tel.style.display = 'flex';
+  }else{
+    tel.style.display = 'none';
+  }
+}
+
+trocarCompainer('produtos');
+

@@ -20,7 +20,39 @@ class Produtos
 
         return $produtos;
     }
+
     
+    static public function editProdutos($conexao,$id_produto,$nome,$valor,$tipo,$img){
+        $sql = "UPDATE produtos SET nome_produto = :nome, valor = :valor, tipo = :tipo, img_produto = :img  WHERE id_produto = :id_produto";
+
+        
+        $stmt = $conexao->prepare($sql);
+        
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':valor', $valor);
+        $stmt->bindParam(':tipo', $tipo);
+        $stmt->bindParam(':img', $img);
+        $stmt->bindParam(':id_produto', $id_produto);
+
+        $stmt->execute();
+
+        $produtos = $stmt->fetchAll();
+
+        return $produtos;
+    }
+    static public function pegarUnicoProduto($conexao,$id_produto){
+        $sql = "SELECT * FROM produtos WHERE id_produto = :id_produto";
+
+        $stmt = $conexao->prepare($sql);
+        
+        $stmt->bindParam(':id_produto', $id_produto);
+
+        $stmt->execute();
+
+        $produtos = $stmt->fetch();
+
+        return $produtos;
+    }
 }
 
 ?>

@@ -32,13 +32,18 @@
     justify-content: space-between;
     align-items: center;
 }
+.detalhes > p{
+    width: inherit;
+    display: flex;
+}
+
 .inf{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: .5em;
 }
 .btn_produto{
@@ -47,22 +52,41 @@
     width: 100%;
     height: 100%;
 }
-.edit{
+.btn{
     margin: .5em;
     width: 20%;
-    height: 20%;
+    height: 50%;
     border: none;
-    background-color: green;
     color: white;
 }
-.delete{
-    margin: .5em;
-    width: 20%;
-    height: 20%;
-    border: none;
-    background-color: red;
-    color: white;
-}
+
+.edita {background-color: green;}
+.delete { background-color: red;}
 .type{
     color: #777;
+}
+#operacoes{
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top: 0;
+    background: none;
+    position: fixed;
+}
+.form_op{
+    width: 60%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn_close{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    background: none;
 }
