@@ -7,7 +7,7 @@
         $pizzaPadrao ="../../img/Pizza_padrao.svg";
         if(file_exists($imgPadrao)){
             return "src='$imgPadrao'";
-            break;
+            
         }
         return "src='$pizzaPadrao'";
     }
@@ -47,9 +47,15 @@
             $action = $_POST['action'];
         
             if ($_POST['operacao'] == 'edit') {
-                echo 'edita';
+                $nome = $_POST['nome_produto'];
+                $valor = $_POST['valor'];
+                $img = $_POST['img'];
+                $tipo = $_POST['tipo'];
+
+                echo edit_product($conexao,$id,$nome,$tipo,$valor,$img);
+
             }elseif ($_POST['operacao'] == 'del'){
-                echo 'deleta';
+                echo excluir_product($conexao,$id);
             }else{
                 echo geraFormProduct($conexao,$id,$action);
             }
@@ -62,58 +68,90 @@
     function  geraFormProduct($conexao,$id,$action){
         $result = Produtos::pegarUnicoProduto($conexao,$id);
         
-        if ($action == 'edit') {
-            return "
-                <div class='form_op'>
-                    <div class='btn_close'>
-                        <button onclick='telaOpen()'>
-                            <i class='bi bi-x-square'></i>
-                        </button>
+        if($result > 0){
+            if ($action == 'edit') {
+                return "
+                    <div class='form_op'>
+                        <div class='btn_close'>
+                            <button onclick='telaOpen()'>
+                                <i class='bi bi-x-square'></i>
+                            </button>
+                        </div>
+    
+                        <form method='post' id='form' class='edita'>
+                            <fieldset class='dados'>
+                                <legend>dados entrega</legend>
+                                <input name='operacao' value='edit' hidden>
+                                <input name='id' value='{$result['id_produto']}' hidden>
+                                <input name='action' value='edit' hidden>
+                                <input name='nome_produto' value='{$result['nome_produto']}' >
+                                <input name='valor' value='{$result['valor']}' >
+                                <input name='tipo' value='{$result['tipo']}' >
+                                <input name='img' value='{$result['img_produto']}'>
+                    
+                            </fieldset>
+                            <input type='submit' value='enviar'>
+                        </form>
+                        <div id='mensagem'>
+                    
+                        </div>
                     </div>
-
-                    <form method='post' id='form' class='edita'>
-                        <fieldset class='dados'>
-                            <legend>dados entrega</legend>
-                            <input name='operacao' value='edit' hidden>
-                            <input name='id' value='{$result['id_produto']}' hidden>
-                            <input name='action' value='edit' hidden>
-                
-                        </fieldset>
-                        <input type='submit' value='enviar'>
-                    </form>
-                    <div id='mensagem'>
-                
+                ";
+            }elseif ($action == 'del'){
+                return "
+                    <div class='form_op'>
+                        <div class='btn_close'>
+                            <button onclick='telaOpen()'>
+                                <i class='bi bi-x-square'></i>
+                            </button>
+                        </div>
+    
+                        <form method='post' id='form' class='delete'>
+                            <fieldset class='dados'>
+                                <legend>dados entrega</legend>
+                                <input name='operacao' value='del' hidden>
+                                <input name='id' value='{$result['id_produto']}' hidden>
+                                <input name='action' value='del' hidden>
+                                <input name='nome_produto' value='{$result['nome_produto']}' >
+                                <input name='valor' value='{$result['valor']}' >
+                                <input name='tipo' value='{$result['tipo']}' >
+                                <input name='img' value='{$result['img_produto']}'>
+    
+                            </fieldset>
+                            <input type='submit' value='deleta'>
+                        </form>
+    
+                        <div id='mensagem'>
+                    
+                        </div>
                     </div>
-                </div>
-            ";
-        }elseif ($action == 'del'){
-            return "
-                <div class='form_op'>
-                    <div class='btn_close'>
-                        <button onclick='telaOpen()'>
-                            <i class='bi bi-x-square'></i>
-                        </button>
-                    </div>
-
-                    <form method='post' id='form' class='delete'>
-                        <fieldset class='dados'>
-                            <legend>dados entrega</legend>
-                            <input name='operacao' value='del' hidden>
-                            <input name='id' value='{$result['id_produto']}' hidden>
-                            <input name='action' value='del' hidden>
-                
-                        </fieldset>
-                        <input type='submit' value='enviar'>
-                    </form>
-
-                    <div id='mensagem'>
-                
-                    </div>
-                </div>
-            ";
+                ";
+            }
+        }else{
+            return '<h1>este produto nao existe!!</h1>';
         }
 
+    }
+    function edit_product($conexao,$id,$nome,$tipo,$valor,$img){
+        try{
+            if(Produtos::pegarUnicoProduto($conexao,$id) > 0){
+                return Produtos::editProdutos($conexao,$id,$nome,$valor,$tipo,$img);
+            }
 
+        }catch (PDOException $e){
+            echo $e."error";
+        }
+        
+    }
+    function excluir_product($conexao,$id){
+        try{
+            if(Produtos::pegarUnicoProduto($conexao,$id) > 0){
+                return Produtos::excluirProduto($conexao,$id);
+            }
 
+        }catch (PDOException $e){
+            echo $e."error";
+        }
+        
     }
 ?>

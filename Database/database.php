@@ -8,7 +8,7 @@
     
     $servername = 'localhost' ;
     $username = 'root';
-    $password = ' ';
+    $password = '';
     $dbname = 'cardapio';
     $port = 3306;
     $charset = 'utf8mb4';

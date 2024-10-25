@@ -22,7 +22,7 @@
                     echo "<div class='title_tipo'><h3>{$t}:</h3></div>";
                     try{
                         // Preparar e executar o SELECT
-                        $sql = "SELECT  id_produto,nome_produto,valor,img_produto  FROM produtos WHERE tipo = :tipo AND id_empressa = :id_empressa";
+                        $sql = "SELECT  id_produto,nome_produto,valor,img_produto  FROM produtos WHERE tipo = :tipo AND id_empressa = :id_empressa AND status = 'ativo'";
                         $stmt = $conexão->prepare($sql);
                         $stmt->bindParam(':tipo', $t);
                         $stmt->bindParam(':id_empressa', $this->empresa);
