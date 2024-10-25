@@ -11,7 +11,7 @@ class Produtos
     }
 
     public function pegaProdutos(){
-        $sql = "SELECT * FROM produtos WHERE id_empressa = :id_empressa;";
+        $sql = "SELECT * FROM produtos WHERE id_empressa = :id_empressa AND status = 'ativo';";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindParam(':id_empressa', $this->id_empressa);
         $stmt->execute();
@@ -39,16 +39,17 @@ class Produtos
         return "produto {$id_produto} foi alterado com sucesso!!";
     }
 
-    static public function excluirProduto($conexao,$id_produto){
-        $sql = "DELETE FROM produtos WHERE id_produto = :id_produto";
+    static public function excluirProduto($conexao,$id_produto,$status = "desativado"){
+        $sql = "UPDATE  produtos SET status = :status  WHERE id_produto = :id_produto";
 
         $stmt = $conexao->prepare($sql);
         
+        $stmt->bindParam(':status', $status);
         $stmt->bindParam(':id_produto', $id_produto);
 
         $stmt->execute();
 
-        return "O produto { $id_produto} foi deletado com sucesso!!!";
+        return "O produto {$id_produto} foi deletado com sucesso!!!";
     }
 
     static public function pegarUnicoProduto($conexao,$id_produto){
