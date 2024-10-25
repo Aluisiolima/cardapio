@@ -52,12 +52,12 @@
 
         public function pegaImgs($tipo)
         {
-            $imgPadrao =ROOT."/img/{$tipo}_padrao.svg";
+            $imgPadrao =ROOT."/img/default/{$tipo}_padrao.svg";
             if(file_exists($imgPadrao)){
-                return "src='./img/{$tipo}_padrao.svg'";
+                return "src='./img/default/{$tipo}_padrao.svg'";
             }
            
-            return "src='./img/Pizza_padrao.svg'";
+            return "src='./img/default/Pizza_padrao.svg'";
         }
         
         public function verOsTipos()

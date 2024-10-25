@@ -23,13 +23,13 @@ if (isset($_POST['id'])) {
               $id = "{$row['id_produto']}";
 
               if($row['tipo'] == 'Pizza'){
-                $imgERROR = "./img/Pizza_padrao.svg";
+                $imgERROR = "./img/default/Pizza_padrao.svg";
               }elseif($row['tipo'] == 'Bebida'){
-                $imgERROR = "./img/Bebida_padrao.svg";
+                $imgERROR = "./img/default/Bebida_padrao.svg";
               }elseif($row['tipo'] == 'Hambúrguer'){
-                $imgERROR = "./img/Hambúrguer_padrao.svg";
+                $imgERROR = "./img/default/Hambúrguer_padrao.svg";
               }else{
-                $imgERROR = "./img/Pizza_padrao.svg";
+                $imgERROR = "./img/default/Pizza_padrao.svg";
               }
 
               

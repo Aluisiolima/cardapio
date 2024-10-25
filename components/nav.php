@@ -2,7 +2,7 @@
 
 <nav class="cabecario">
         <div class="logo">
-          <img src="./img/foto-perfilempresa.svg" alt="logo" height="30" >  
+          <img src="./<?php echo $dados_empressa['logo_img'] ?>" alt="logo" height="30" >  
         <h1> <?php echo $dados_empressa['nome_empressa'] ?> </h1>
         </div>
 

@@ -165,15 +165,15 @@ function tela1(telaCarinho,tela){
       <fieldset class="formas_De_Pagamento">
         <legend>formas de pagamento</legend>
         <label class="meios_de_pagamento">
-          <img src="./img/pix.svg" alt="pix" height="50">
+          <img src="./img/form_pagamento/pix.svg" alt="pix" height="50">
           <input type="radio" name="type_pagamento" id="dinheiro" value="pix" required>
         </label>
         <label class="meios_de_pagamento">
-          <img src="./img/cartao.svg" alt="cartao" height="50">
+          <img src="./img/form_pagamento/cartao.svg" alt="cartao" height="50">
           <input type="radio" name="type_pagamento" id="dinheiro" value="cartao" required>
         </label>
         <label class="meios_de_pagamento">
-          <img src="./img/dinheiro.svg" alt="dinheiro" height="50">
+          <img src="./img/form_pagamento/dinheiro.svg" alt="dinheiro" height="50">
           <input type="radio" name="type_pagamento" id="dinheiro" value="dinheiro" required>
         </label>
       </fieldset>
@@ -211,15 +211,15 @@ tela.innerHTML= `
       <fieldset class="formas_De_Pagamento">
         <legend>formas de pagamento</legend>
         <label class="meios_de_pagamento">
-          <img src="./img/pix.svg" alt="pix" height="50">
+          <img src="./img/form_pagamento/pix.svg" alt="pix" height="50">
           <input type="radio" name="type_pagamento" id="dinheiro" value="pix" required>
         </label>
         <label class="meios_de_pagamento">
-          <img src="./img/cartao.svg" alt="cartao" height="50">
+          <img src="./img/form_pagamento/cartao.svg" alt="cartao" height="50">
           <input type="radio" name="type_pagamento" id="dinheiro" value="cartao" required>
         </label>
         <label class="meios_de_pagamento">
-          <img src="./img/dinheiro.svg" alt="dinheiro" height="50">
+          <img src="./img/form_pagamento/dinheiro.svg" alt="dinheiro" height="50">
           <input type="radio" name="type_pagamento" id="dinheiro" value="dinheiro" required>
         </label>
       </fieldset>
