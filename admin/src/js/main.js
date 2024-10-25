@@ -80,9 +80,12 @@ function operacao() {
     .then(response => response.text())
     .then(data => {
         document.getElementById('mensagem').innerText = data;
+        setTimeout(telaOpen, 1000);
     })
     .catch(error => console.error('Erro:', error));
   });
+
+ 
 
 }
 
@@ -98,3 +101,33 @@ function telaOpen() {
 
 trocarCompainer('produtos');
 
+function addProduct() {
+  document.getElementById('operacoes').innerHTML = `<div class='form_op'>
+                        <div class='btn_close'>
+                            <button onclick='telaOpen()'>
+                                <i class='bi bi-x-square'></i>
+                            </button>
+                        </div>
+    
+                        <form method='post' id='form' class='edita'>
+                            <fieldset class='dados'>
+                                <legend>dados entrega</legend>
+                                <input name='operacao' value='add' hidden>
+                                <input name='action' value='del' hidden>
+                                <input name='nome_produto' type='text'  placeholder="nome" required>
+                                <input name='valor' type='number'  placeholder="valor" required>
+                                <input name='tipo' type='text'  placeholder="tipo" required>
+                                <input name='img' type='text'  placeholder="imagem" required>
+    
+                            </fieldset>
+                            <input type='submit' value='adicionar'>
+                        </form>
+    
+                        <div id='mensagem'>
+                    
+                        </div>
+                    </div>`;
+
+  telaOpen();
+  operacao();
+}

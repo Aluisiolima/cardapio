@@ -37,7 +37,7 @@
 
     <div class="produtos" id="produtos" style="display:none;">
         <?php 
-            include('../components/produtos.php');
+            include('../components/tela_produtos.php');
             produtos($conexao);
         ?>
     </div>

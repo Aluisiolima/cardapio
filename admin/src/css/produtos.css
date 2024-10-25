@@ -104,3 +104,21 @@
     width: 100%;
     padding: 1em
 }
+#add{
+    justify-content: center;
+    width: 4em;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    background-color: green;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    
+}
+#add > i{
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}

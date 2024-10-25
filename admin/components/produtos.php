@@ -1,52 +1,13 @@
-<?php 
-   
-
-    function pegaImgs($tipo)
-    {
-        $imgPadrao ="../../img/{$tipo}_padrao.svg";
-        $pizzaPadrao ="../../img/Pizza_padrao.svg";
-        if(file_exists($imgPadrao)){
-            return "src='$imgPadrao'";
-            
-        }
-        return "src='$pizzaPadrao'";
-    }
-
-    function produtos($conexao)
-    {
-
-        $produtos = new Produtos($conexao,$_SESSION['date_user']['id_empressa']);
-        foreach ($produtos->pegaProdutos() as $produto) {
-            
-            echo "  <div class='container'>
-                        <img src='".ROOT."/".$produto['img_produto']."' onerror=".pegaImgs($produto['tipo']).">
-                        <div class='infs_produto'>
-                            <div class='detalhes'>
-                                <div class='inf'>
-                                    <p>{$produto['nome_produto']}</p>
-                                    <p class='type'> {$produto['tipo']}</p>
-                                </div>
-                                <p>R$ {$produto['valor']}</p>
-                            </div> 
-                            <div class='btn_produto'>
-                                <button onclick='edit({$produto['id_produto']})' class='btn edita'><i class='bi bi-pencil-square'></i></button>
-                                <button onclick='del({$produto['id_produto']})' class='btn delete'><i class='bi bi-x-square'></i></button>
-                            </div>  
-                        </div>
-                        
-                    </div>";
-        }
-                echo "<div id='operacoes' ></div>";
-    }
+<?php
+    include "../../config.php";
+    require "../../Database/database.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        include "../../config.php";
-        require "../../Database/database.php";
+        
         if (isset($_POST['operacao'])) {
-            $id = $_POST['id'];
-            $action = $_POST['action'];
         
             if ($_POST['operacao'] == 'edit') {
+                $id = $_POST['id'];
                 $nome = $_POST['nome_produto'];
                 $valor = $_POST['valor'];
                 $img = $_POST['img'];
@@ -55,8 +16,20 @@
                 echo edit_product($conexao,$id,$nome,$tipo,$valor,$img);
 
             }elseif ($_POST['operacao'] == 'del'){
+                $id = $_POST['id'];
                 echo excluir_product($conexao,$id);
+
+            }elseif ($_POST['operacao'] == 'add'){
+                $nome = $_POST['nome_produto'];
+                $valor = $_POST['valor'];
+                $img = $_POST['img'];
+                $tipo = $_POST['tipo'];
+
+                echo add_product($conexao,$nome,$tipo,$valor,$img);
             }else{
+                $action = $_POST['action'];
+                $id = $_POST['id'];
+
                 echo geraFormProduct($conexao,$id,$action);
             }
 
@@ -112,10 +85,10 @@
                                 <input name='operacao' value='del' hidden>
                                 <input name='id' value='{$result['id_produto']}' hidden>
                                 <input name='action' value='del' hidden>
-                                <input name='nome_produto' value='{$result['nome_produto']}' >
-                                <input name='valor' value='{$result['valor']}' >
-                                <input name='tipo' value='{$result['tipo']}' >
-                                <input name='img' value='{$result['img_produto']}'>
+                                <input name='nome_produto' value='{$result['nome_produto']}' readonly>
+                                <input name='valor' value='{$result['valor']}' readonly>
+                                <input name='tipo' value='{$result['tipo']}' readonly>
+                                <input name='img' value='{$result['img_produto']}' readonly>
     
                             </fieldset>
                             <input type='submit' value='deleta'>
@@ -132,7 +105,8 @@
         }
 
     }
-    function edit_product($conexao,$id,$nome,$tipo,$valor,$img){
+    function edit_product($conexao,$id,$nome,$tipo,$valor,$img)
+    {
         try{
             if(Produtos::pegarUnicoProduto($conexao,$id) > 0){
                 return Produtos::editProdutos($conexao,$id,$nome,$valor,$tipo,$img);
@@ -143,11 +117,29 @@
         }
         
     }
-    function excluir_product($conexao,$id){
+    function excluir_product($conexao,$id)
+    {
         try{
-            if(Produtos::pegarUnicoProduto($conexao,$id) > 0){
-                return Produtos::excluirProduto($conexao,$id);
+            if(Produtos::pegarUnicoProduto($conexao,$id)['status'] == 'ativo'){
+                return Produtos::desativaProduto($conexao,$id);
+            }else{
+                return 'este produto ja esta desativado!!!';
             }
+
+        }catch (PDOException $e){
+            echo $e."error";
+        }
+        
+    }
+    function add_product($conexao,$nome,$tipo,$valor,$img)
+    {
+
+        try{
+            $id_empressa = $_SESSION['date_user']['id_empressa'];
+
+            
+            return Produtos::addProduto($conexao,$id_empressa,$nome,$tipo,$valor,$img);
+            
 
         }catch (PDOException $e){
             echo $e."error";
