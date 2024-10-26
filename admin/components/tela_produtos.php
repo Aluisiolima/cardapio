@@ -3,8 +3,8 @@
 
     function pegaImgs($tipo)
     {
-        $imgPadrao ="../../img/{$tipo}_padrao.svg";
-        $pizzaPadrao ="../../img/Pizza_padrao.svg";
+        $imgPadrao ="../../img/default/{$tipo}_padrao.svg";
+        $pizzaPadrao ="../../img/default/Pizza_padrao.svg";
         if(file_exists($imgPadrao)){
             return "src='$imgPadrao'";
             

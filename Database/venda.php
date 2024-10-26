@@ -16,7 +16,13 @@ class Venda
 
     public function InsertVenda()
     {
+
         try {
+
+            $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $this->conexao->beginTransaction();
+
             // Verifica se $this->id_produtos é um array
             if (!is_array($this->id_produtos)) {
                 throw new Exception('id_produtos deve ser um array.');
@@ -38,10 +44,13 @@ class Venda
                 // Executa a consulta
                 $stmt->execute();
             }
+        
+            $this->conexao->commit();
 
             return true; // Retorna verdadeiro se todas as inserções foram bem-sucedidas
             
         } catch (PDOException $e) {
+            $this->conexao->rollBack();
             echo "Erro: " . $e->getMessage();
             return false; // Retorna falso em caso de erro
         }

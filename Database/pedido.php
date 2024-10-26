@@ -44,6 +44,9 @@
 
         public function InsertPedido(){
             try {
+                $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $this->conexao->beginTransaction();
                 // Prepara a consulta SQL
                 $sql = "INSERT INTO pedido (nome_cliente, tipo_pagamento, entrega, bairro, rua, numero_casa, mesa, numero_mesa, data_pedido)
                         VALUES (:nome, :tipo_pagamento, :entrega, :bairro, :rua, :numero_casa, :mesa, :numero_mesa, :data_pedido)";
@@ -68,9 +71,11 @@
                 // Pegando o id do pedido
                 $pedidoId = $this->conexao->lastInsertId();
             
+                $this->conexao->commit();
                 return $pedidoId;
             
             } catch (PDOException $e) {
+                $this->conexao->rollBack();
                 echo "Erro: " . $e->getMessage();
             }
         }
