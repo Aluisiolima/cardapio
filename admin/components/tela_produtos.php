@@ -18,7 +18,7 @@
         foreach ($produtos as $produto) {
             
             echo "  <div class='container'>
-                        <img src='".ROOT."/".$produto['img_produto']."' onerror=".pegaImgs($produto['tipo']).">
+                        <img src='../../".$produto['img_produto']."' onerror=".pegaImgs($produto['tipo']).">
                         <div class='infs_produto'>
                             <div class='detalhes'>
                                 <div class='inf'>

@@ -58,12 +58,16 @@ async function edit(id) {
   await pegarProdutoUnico(id,'edit');
   operacao();
   telaOpen();
+  const select = document.getElementById('imagem');
+  mostrarImagem(select)
 }
 
 async function del(id){
   await pegarProdutoUnico(id,'del');
   operacao();
   telaOpen();
+  const select = document.getElementById('imagem');
+  mostrarImagem(select)
 }
 
 function operacao() {
@@ -101,33 +105,23 @@ function telaOpen() {
 
 trocarCompainer('produtos');
 
-function addProduct() {
-  document.getElementById('operacoes').innerHTML = `<div class='form_op'>
-                        <div class='btn_close'>
-                            <button onclick='telaOpen()'>
-                                <i class='bi bi-x-square'></i>
-                            </button>
-                        </div>
-    
-                        <form method='post' id='form' class='edita'>
-                            <fieldset class='dados'>
-                                <legend>dados entrega</legend>
-                                <input name='operacao' value='add' hidden>
-                                <input name='action' value='del' hidden>
-                                <input name='nome_produto' type='text'  placeholder="nome" required>
-                                <input name='valor' type='number'  placeholder="valor" required>
-                                <input name='tipo' type='text'  placeholder="tipo" required>
-                                <input name='img' type='text'  placeholder="imagem" required>
-    
-                            </fieldset>
-                            <input type='submit' value='adicionar'>
-                        </form>
-    
-                        <div id='mensagem'>
-                    
-                        </div>
-                    </div>`;
+async function addProduct() {
+  await pegarProdutoUnico(null,'add');
 
   telaOpen();
   operacao();
+  const select = document.getElementById('imagem');
+  mostrarImagem(select)
+}
+
+function mostrarImagem(select) {
+    var caminhoImagem = select.value;
+    var imgElement = document.getElementById('imagemSelecionada');
+
+    if (caminhoImagem) {
+        imgElement.src = `../../${caminhoImagem}`; // Define o src da imagem
+        imgElement.style.display = 'block'; // Torna a imagem visível
+    } else {
+        imgElement.style.display = 'none'; // Esconde a imagem se não houver seleção
+    }
 }

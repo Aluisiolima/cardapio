@@ -28,9 +28,14 @@
                 echo add_product($conexao,$nome,$tipo,$valor,$img);
             }else{
                 $action = $_POST['action'];
-                $id = $_POST['id'];
 
-                echo geraFormProduct($conexao,$id,$action);
+                if($action == "add"){
+                    echo geraFormProduct($conexao,null,$action);
+                }else{
+                    $id = $_POST['id'];
+                    echo geraFormProduct($conexao,$id,$action);
+                }
+                
             }
 
         } else {
@@ -39,9 +44,9 @@
     } 
     
     function  geraFormProduct($conexao,$id,$action){
-        $result = Produtos::pegarUnicoProduto($conexao,$id);
+        $result = $id ? Produtos::pegarUnicoProduto($conexao,$id) : null;
         
-        if($result > 0){
+        if($result || $action == 'add'){
             if ($action == 'edit') {
                 return "
                     <div class='form_op'>
@@ -60,7 +65,12 @@
                                 <input name='nome_produto' value='{$result['nome_produto']}' >
                                 <input name='valor' value='{$result['valor']}' >
                                 <input name='tipo' value='{$result['tipo']}' >
-                                <input name='img' value='{$result['img_produto']}'>
+                                <select name='img' id='imagem' onchange='mostrarImagem(this)' readonly>
+                                    <option value='{$result['img_produto']}' >{$result['img_produto']}</option>
+                                    ". imgs() ."
+                                </select>
+                                <br>
+                                <img id='imagemSelecionada' src='' alt='Imagem Selecionada' style='display:none; width: 100px; height: auto;'>
                     
                             </fieldset>
                             <input type='submit' value='enviar'>
@@ -87,9 +97,12 @@
                                 <input name='action' value='del' hidden>
                                 <input name='nome_produto' value='{$result['nome_produto']}' readonly>
                                 <input name='valor' value='{$result['valor']}' readonly>
-                                <input name='tipo' value='{$result['tipo']}' readonly>
-                                <input name='img' value='{$result['img_produto']}' readonly>
-    
+                                <input name='tipo' value='{$result['tipo']}' readonly>  
+                                <select name='img' id='imagem' onchange='mostrarImagem(this)' readonly>
+                                    <option value='{$result['img_produto']}' >{$result['img_produto']}</option>
+                                </select>
+                                <br>
+                                <img id='imagemSelecionada' src='' alt='Imagem Selecionada' style='display:none; width: 100px; height: auto;'>
                             </fieldset>
                             <input type='submit' value='deleta'>
                         </form>
@@ -99,6 +112,36 @@
                         </div>
                     </div>
                 ";
+            }elseif ($action == 'add') {
+                return "<div class='form_op'>
+                        <div class='btn_close'>
+                            <button onclick='telaOpen()'>
+                                <i class='bi bi-x-square'></i>
+                            </button>
+                        </div>
+    
+                        <form method='post' id='form' class='edita'>
+                            <fieldset class='dados'>
+                                <legend>dados entrega</legend>
+                                <input name='operacao' value='add' hidden>
+                                <input name='action' value='del' hidden>
+                                <input name='nome_produto' type='text'  placeholder='nome' required>
+                                <input name='valor' type='number'  placeholder='valor' required>
+                                <input name='tipo' type='text'  placeholder='tipo' required>
+                                <select name='img' id='imagem' onchange='mostrarImagem(this)'>
+                                    ". imgs() ."
+                                </select>
+                                <br>
+                                <img id='imagemSelecionada' src='' alt='Imagem Selecionada' style='display:none; width: 100px; height: auto;'>
+                               
+                            </fieldset>
+                            <input type='submit' value='adicionar'>
+                        </form>
+    
+                        <div id='mensagem'>
+                    
+                        </div>
+                    </div>";
             }
         }else{
             return '<h1>este produto nao existe!!</h1>';
@@ -145,5 +188,18 @@
             echo $e."error";
         }
         
+    }
+    function imgs() {
+        $diretorio = ROOT . '/img/default/';
+        $imagens = glob($diretorio . "*.{jpg,jpeg,png,gif,svg}", GLOB_BRACE);
+        $opcoes = '';
+    
+        // Exibe cada imagem como uma opção no select
+        foreach ($imagens as $imagem) {
+            $caminhoRelativo = str_replace(ROOT . '/', '', $imagem);
+            $opcoes .= "<option value='$caminhoRelativo'>$caminhoRelativo</option>";
+        }
+    
+        return $opcoes;
     }
 ?>
