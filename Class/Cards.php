@@ -19,7 +19,7 @@
             if ($conexão) 
             {
                 foreach ($tipos as $t) {
-                    echo "<div class='title_tipo'><h3>{$t}:</h3></div>";
+                    echo "<div class='title_tipo' id='{$t}'><h3>{$t}:</h3></div>";
                     try{
                         // Preparar e executar o SELECT
                         $sql = "SELECT  id_produto,nome_produto,valor,img_produto  FROM produtos WHERE tipo = :tipo AND id_empressa = :id_empressa AND status = 'ativo'";
@@ -58,33 +58,6 @@
             }
            
             return "src='./img/default/Pizza_padrao.svg'";
-        }
-        
-        public function verOsTipos()
-        {
-            $conexão = $this->conexão;
-            if($conexão){
-                try{
-                    // Preparar e executar o SELECT
-                    $sql = "SELECT  tipo  FROM produtos WHERE id_empressa = :id_empressa;";
-                    $stmt = $conexão->prepare($sql);
-                    $stmt->bindParam(':id_empressa', $this->empresa);
-                    $stmt->execute();
-
-                    // Buscar os resultados
-                    $produtos = $stmt->fetchAll();
-                    $tipo = [];
-                    // Exibir os resultados
-                    foreach ($produtos as $produto) {
-                        $tipo[] = $produto['tipo'];
-                    }
-                    $tipos = array_values(array_unique($tipo));
-                }catch(PDOException $e){
-                    echo "erro " .$e->getMessage();
-                }
-            }
-
-            return $tipos;
         }
         
     }

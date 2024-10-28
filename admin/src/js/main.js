@@ -36,6 +36,7 @@ function trocarCompainer(componente){
     }
   }
 }
+trocarCompainer('init');
 
 async function pegarProdutoUnico(id,action) {
   const params = new URLSearchParams();
@@ -103,7 +104,7 @@ function telaOpen() {
   }
 }
 
-trocarCompainer('produtos');
+
 
 async function addProduct() {
   await pegarProdutoUnico(null,'add');

@@ -8,6 +8,11 @@
     $dados_cardapio = $cardapio->SelecionarEmpresa();
     $dados_empressa = $dados_cardapio[0];
     $_SESSION['dados'] = $dados_empressa;
+
+
+    $tipo1 = $dados_cardapio[1][0]['tipo'];
+    $tipo2 =  $dados_cardapio[1][1]['tipo'];
+    $tipo3 = $dados_cardapio[1][2]['tipo'];
    
 ?>
 <!DOCTYPE html>
@@ -44,9 +49,9 @@
    </div>
    <div id="homeCont">
         <div class="container_home">
-            <div class="produtos pizzas">pizzas</div>
-            <div class="produtos hamburguer">hamburguer</div>
-            <div class="produtos bebidas">bebidas</div>
+            <div class="produtos <?php echo $tipo1?>" onclick="cards('<?php echo $tipo1?>')"> <?php echo $tipo1?></div>
+            <div class="produtos <?php echo $tipo2?>" onclick="cards('<?php echo $tipo2?> ')"><?php echo $tipo2?></div>
+            <div class="produtos <?php echo$tipo3?>" onclick="cards('<?php echo $tipo3?>')"><?php echo $tipo3?></div>
         </div>
    </div>
    <?php include "./components/footer.php"; ?>

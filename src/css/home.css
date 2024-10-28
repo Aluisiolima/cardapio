@@ -22,19 +22,19 @@
     font-size: xxx-large;
     text-shadow: 2px 2px 4px #000000;
 }
-.pizzas{
+.Pizza{
     background-image: url("../../img/screens/pizzas.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-.hamburguer{
+.Hambúrguer{
     background-image: url("../../img/screens/hamburguer.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-.bebidas{
+.Bebida{
     background-image: url("../../img/screens/bebidas.svg");
     background-size: cover;
     background-position: center;

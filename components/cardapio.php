@@ -8,7 +8,7 @@
         <div class="cardapio_produtos_lanche">
             <?php 
                 $card = new Cards($conexao,$_SESSION['dados']['id_empressa']);                
-                $card->geraCards($card->verOsTipos());
+                $card->geraCards(Produtos::typesProduct($conexao,$_SESSION['dados']['id_empressa']));
             ?>
         </div>
         

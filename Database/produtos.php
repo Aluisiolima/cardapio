@@ -73,7 +73,31 @@ class Produtos
 
         return $produtos;
     }
-    
+    static function typesProduct($conexão,$empresa)
+    {
+        if($conexão){
+            try{
+                // Preparar e executar o SELECT
+                $sql = "SELECT  tipo  FROM produtos WHERE id_empressa = :id_empressa;";
+                $stmt = $conexão->prepare($sql);
+                $stmt->bindParam(':id_empressa', $empresa);
+                $stmt->execute();
+
+                // Buscar os resultados
+                $produtos = $stmt->fetchAll();
+                $tipo = [];
+                // Exibir os resultados
+                foreach ($produtos as $produto) {
+                    $tipo[] = $produto['tipo'];
+                }
+                $tipos = array_values(array_unique($tipo));
+            }catch(PDOException $e){
+                echo "erro " .$e->getMessage();
+            }
+        }
+
+        return $tipos;
+    }
 }
 
 ?>

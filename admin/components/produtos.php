@@ -127,7 +127,10 @@
                                 <input name='action' value='del' hidden>
                                 <input name='nome_produto' type='text'  placeholder='nome' required>
                                 <input name='valor' type='number'  placeholder='valor' required>
-                                <input name='tipo' type='text'  placeholder='tipo' required>
+                                
+                                <select name='tipo' id='tipos'>
+                                    ". tipos($conexao,$_SESSION['dados']['id_empressa']) ."
+                                </select>
                                 <select name='img' id='imagem' onchange='mostrarImagem(this)'>
                                     ". imgs() ."
                                 </select>
@@ -188,6 +191,17 @@
             echo $e."error";
         }
         
+    }
+    function tipos($conexao,$id_empressa){
+        $result = Produtos::typesProduct($conexao,$id_empressa);
+        $opcoes = '';
+    
+        // Exibe cada imagem como uma opção no select
+        foreach ($result as $tipos) {
+            $opcoes .= "<option value='$tipos'>$tipos</option>";
+        }
+    
+        return $opcoes;
     }
     function imgs() {
         $diretorio = ROOT . '/img/default/';

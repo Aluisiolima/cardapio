@@ -15,33 +15,36 @@ function carregaCarinho() {
     },100);
 }
 
-
-function getDetalhes(id) {
+async function getDetalhes(id) {
     const detalhes = document.getElementById('container_detalhes');
     const content_load = document.getElementById('container_load');
-    content_load.style.display = 'flex'
+    content_load.style.display = 'flex';
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', './components/detalheProduto.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-        if (xhr.status === 200) { 
-            detalhes.innerHTML = xhr.responseText;
+    try {
+        const response = await fetch('./components/detalheProduto.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({ id: id }), // Usando URLSearchParams para codificar os dados
+        });
+
+        if (response.ok) { // Verifica se a resposta é 2xx
+            const responseData = await response.text(); // Lê a resposta como texto
+            detalhes.innerHTML = responseData;
             detalhes.style.display = 'flex';
             content_load.style.display = 'none';
             document.body.style.overflow = 'hidden';
-            
         } else {
-            console.error('Request failed. Status:', xhr.status);
-            document.getElementById('container_detalhes').innerHTML = 'Erro na solicitação.';
+            console.error('Request failed. Status:', response.status);
+            detalhes.innerHTML = 'Erro na solicitação.';
         }
-    };
-    xhr.onerror = function() {
-        console.error('Request error.');
-        document.getElementById('container_detalhes').innerHTML = 'Erro na solicitação.';
-    };
-    xhr.send('id=' + encodeURIComponent(id));
+    } catch (error) {
+        console.error('Request error:', error);
+        detalhes.innerHTML = 'Erro na solicitação.';
+    }
 }
+
 
 function fechaDetalhes(){
     const detalhes = document.getElementById('container_detalhes');
@@ -81,37 +84,39 @@ function addCarinho(){
  * esta funcao manda para o ./config/loadContent.php que ler o para content e retorna a pagina que vc que vc dever ser direcionado
  * @param {any} content este parametro e a pagina que vc quer e ir 
  */   
-function loadContent(content) {
-    
+async function loadContent(content) {
     const content_resposta = document.getElementById('content-area');
     const content_load = document.getElementById('container_load');
-    
+
     content_load.style.display = 'flex';
     content_resposta.style.display = 'none';
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', './config/loadContent.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    try {
+        const response = await fetch('./config/loadContent.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'content=' + encodeURIComponent(content)
+        });
 
-    xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            content_resposta.innerHTML = xhr.responseText;
-            content_resposta.style.display = 'block';
-            content_load.style.display = 'none';
+        if (response.ok) {
+            const data = await response.text();
+            content_resposta.innerHTML = data;
         } else {
             content_resposta.innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
-            content_resposta.style.display = 'block';
-            content_load.style.display = 'none';
         }
-    };
-
-    xhr.onerror = function () {
+    } catch (error) {
         content_resposta.innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
+    } finally {
         content_resposta.style.display = 'block';
         content_load.style.display = 'none';
-    };
+    }
+}
 
-    xhr.send('content=' + encodeURIComponent(content));
+async function cards(tipo) {
+    await cardapioAtive();
+    window.location.href = `#${tipo}`; 
 }
 
 setInterval(updateCarrinho, 1000);
