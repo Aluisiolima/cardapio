@@ -23,6 +23,7 @@ function menu() {
 
 function trocarCompainer(componente){
   const componentes = ['init','produtos','funcionario','vendas_historico'];
+  const menu = document.getElementById('menu');
   for (let i = 0; i < componentes.length; i++) {
     const element = componentes[i];
     const container = document.getElementById(element);
@@ -35,6 +36,7 @@ function trocarCompainer(componente){
     
     }
   }
+  menu.style.display = 'none';
 }
 trocarCompainer('produtos');
 
