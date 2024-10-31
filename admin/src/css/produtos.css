@@ -59,12 +59,10 @@
     border: none;
     color: white;
 }
-
+.btn_edit{background: darkgreen;}
 .edita {background-color: green;}
 .delete { background-color: red;}
-.type{
-    color: #777;
-}
+.type{color: #777;}
 #operacoes{
     width: 100%;
     height: 100vh;
@@ -90,6 +88,13 @@
     justify-content: end;
     background: none;
 }
+.btn_close > button{
+    border: none;
+    width: 5%;
+    height: 100%;
+    background: #ffffff;
+    font-size: 1.5em;
+}
 .form_op > form{ 
     height: auto;
     width: 100%;
@@ -97,13 +102,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }  
-.dados{
+.inputs{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    width: 100%;
-    padding: 1em
+    width: 80%;
+    height: 100%;
 }
+.form_op > form > input{
+    align-self: end;
+    margin: .5em;
+    width: 25%;
+    height: 2.5em;
+    border-radius: 10px;
+    color: white;
+    border: 2px solid white;
+}
+.inputs > input,select{
+    margin: 0.2em;
+    width: 100%;
+    padding: .5em;
+    text-align: center;
+    background: aliceblue;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
 #add{
     justify-content: center;
     width: 4em;

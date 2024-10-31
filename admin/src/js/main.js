@@ -36,7 +36,7 @@ function trocarCompainer(componente){
     }
   }
 }
-trocarCompainer('init');
+trocarCompainer('produtos');
 
 async function pegarProdutoUnico(id,action) {
   const params = new URLSearchParams();

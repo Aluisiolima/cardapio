@@ -47,7 +47,8 @@
         $result = $id ? Produtos::pegarUnicoProduto($conexao,$id) : null;
         
         if($result || $action == 'add'){
-            if ($action == 'edit') {
+            if ($action == 'edit') 
+            {
                 return "
                     <div class='form_op'>
                         <div class='btn_close'>
@@ -57,30 +58,35 @@
                         </div>
     
                         <form method='post' id='form' class='edita'>
-                            <fieldset class='dados'>
-                                <legend>dados entrega</legend>
+                            <div class='inputs'>
                                 <input name='operacao' value='edit' hidden>
                                 <input name='id' value='{$result['id_produto']}' hidden>
                                 <input name='action' value='edit' hidden>
                                 <input name='nome_produto' value='{$result['nome_produto']}' >
-                                <input name='valor' value='{$result['valor']}' >
-                                <input name='tipo' value='{$result['tipo']}' >
+                                <input name='valor' value='{$result['valor']}'step='0.01' >
+                            
+                                <select name='tipo' id='tipos'>
+                                    <option value='{$result['tipo']}' >{$result['tipo']}</option>
+                                    ". tipos($conexao,$_SESSION['date_user']['id_empressa']) ."
+                                </select>
                                 <select name='img' id='imagem' onchange='mostrarImagem(this)' readonly>
                                     <option value='{$result['img_produto']}' >{$result['img_produto']}</option>
                                     ". imgs() ."
                                 </select>
-                                <br>
+                            </div>
                                 <img id='imagemSelecionada' src='' alt='Imagem Selecionada' style='display:none; width: 100px; height: auto;'>
                     
-                            </fieldset>
-                            <input type='submit' value='enviar'>
+                   
+                            <input type='submit' value='enviar' class='btn_edit'>
                         </form>
                         <div id='mensagem'>
                     
                         </div>
                     </div>
                 ";
-            }elseif ($action == 'del'){
+
+            }elseif ($action == 'del')
+            {
                 return "
                     <div class='form_op'>
                         <div class='btn_close'>
@@ -90,8 +96,7 @@
                         </div>
     
                         <form method='post' id='form' class='delete'>
-                            <fieldset class='dados'>
-                                <legend>dados entrega</legend>
+                                <div class='inputs'>
                                 <input name='operacao' value='del' hidden>
                                 <input name='id' value='{$result['id_produto']}' hidden>
                                 <input name='action' value='del' hidden>
@@ -101,10 +106,11 @@
                                 <select name='img' id='imagem' onchange='mostrarImagem(this)' readonly>
                                     <option value='{$result['img_produto']}' >{$result['img_produto']}</option>
                                 </select>
-                                <br>
+                                
+                                </div>
                                 <img id='imagemSelecionada' src='' alt='Imagem Selecionada' style='display:none; width: 100px; height: auto;'>
-                            </fieldset>
-                            <input type='submit' value='deleta'>
+                           
+                            <input type='submit' value='deleta' class='delete'>
                         </form>
     
                         <div id='mensagem'>
@@ -112,8 +118,11 @@
                         </div>
                     </div>
                 ";
-            }elseif ($action == 'add') {
-                return "<div class='form_op'>
+
+            }elseif ($action == 'add') 
+            {
+                return "
+                    <div class='form_op'>
                         <div class='btn_close'>
                             <button onclick='telaOpen()'>
                                 <i class='bi bi-x-square'></i>
@@ -121,24 +130,23 @@
                         </div>
     
                         <form method='post' id='form' class='edita'>
-                            <fieldset class='dados'>
-                                <legend>dados entrega</legend>
+                                <div class='inputs'>
                                 <input name='operacao' value='add' hidden>
                                 <input name='action' value='del' hidden>
                                 <input name='nome_produto' type='text'  placeholder='nome' required>
-                                <input name='valor' type='number'  placeholder='valor' required>
+                                <input name='valor' type='number' step='0.01'  placeholder='valor' required>
                                 
                                 <select name='tipo' id='tipos'>
-                                    ". tipos($conexao,$_SESSION['dados']['id_empressa']) ."
+                                    ". tipos($conexao,$_SESSION['date_user']['id_empressa']) ."
                                 </select>
                                 <select name='img' id='imagem' onchange='mostrarImagem(this)'>
                                     ". imgs() ."
                                 </select>
-                                <br>
+                                </div>
                                 <img id='imagemSelecionada' src='' alt='Imagem Selecionada' style='display:none; width: 100px; height: auto;'>
                                
-                            </fieldset>
-                            <input type='submit' value='adicionar'>
+                      
+                            <input type='submit' value='adicionar' class='btn_edit'>
                         </form>
     
                         <div id='mensagem'>
@@ -146,6 +154,7 @@
                         </div>
                     </div>";
             }
+
         }else{
             return '<h1>este produto nao existe!!</h1>';
         }

@@ -9,11 +9,10 @@
     $dados_empressa = $dados_cardapio[0];
     $_SESSION['dados'] = $dados_empressa;
 
-
     $tipo1 = $dados_cardapio[1][0]['tipo'];
     $tipo2 =  $dados_cardapio[1][1]['tipo'];
     $tipo3 = $dados_cardapio[1][2]['tipo'];
-   
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
