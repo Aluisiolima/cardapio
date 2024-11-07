@@ -42,13 +42,18 @@
 .remove{
     position: absolute;
     z-index: 2;
-    right: -5%;
+    right: -15px;
     top: -20%;
     width: auto;
     height: auto;
     background: red;
     padding: 2%;
     border-radius: 10px;
+    max-width: 2em;
+    max-height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .card_img{
     width: 20%;

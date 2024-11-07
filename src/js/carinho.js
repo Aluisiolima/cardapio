@@ -51,7 +51,7 @@ function valorTotal() {
   let valor_total = 0;
 
   for (let i = 0; i < produtos_escolhidos.length; i++) {
-    valor_total += parseFloat(produtos_escolhidos[i][2]);
+    valor_total += parseFloat(produtos_escolhidos[i].valor);
   }
   document.getElementById("valortotal").textContent = valor_total.toFixed(2);
 
@@ -88,7 +88,7 @@ function menos1(){
 }
 function retirarImgsListaProdutos() {
   for (let i = 0; i < produtos_escolhidos.length; i++) {
-    produtos_escolhidos[i].pop();
+    delete produtos_escolhidos[i].img;
   
   }
   return produtos_escolhidos;
@@ -189,7 +189,7 @@ function tela1(telaCarinho,tela){
         </label>
       </fieldset>
       <div class="finaliza_pedido">
-        <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
+        <input type="text" name="produtos" id='product' value="" hidden>
         <input type="text" name="valor" value="${valorTotal()}" hidden>
         <input type="text" name="ids"  id="ids" value="" hidden>
         <p>valor = ${valorTotal()}</p>
@@ -235,7 +235,7 @@ tela.innerHTML= `
         </label>
       </fieldset>
       <div class="finaliza_pedido">
-        <input type="text" name="produtos" value="${retirarImgsListaProdutos()}" hidden>
+        <input type="text" name="produtos" id='product' value="" hidden>
         <input type="text" name="valor" value="${valorTotal()}" hidden>
         <input type="text" name="ids" id="ids" value="" hidden>
         <p>valor =${valorTotal()}</p>

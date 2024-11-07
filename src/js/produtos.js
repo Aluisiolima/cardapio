@@ -4,8 +4,10 @@ const ids = [];
 
 function enviarDadosProdutos() {
     
-    const jsonString = JSON.stringify(ids);
-    document.getElementById('ids').value = jsonString;
+    const jsonIDs = JSON.stringify(ids);
+    const jsonProduct = JSON.stringify(retirarImgsListaProdutos());
+    document.getElementById('ids').value = jsonIDs;
+    document.getElementById('product').value = jsonProduct;
 
     return true; 
 }

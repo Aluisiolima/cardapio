@@ -18,22 +18,13 @@
 
     function listProduto($produtos)
     {
-        $lista = "";
-        $count = 0;
-        $virgula = "";
-
-        foreach($produtos as $p){
-            if ($count > 0 && $count == 2) {
-                $virgula = ', ';
-                $count = 0;
-            }else{
-                $virgula = "";
-                $count++;
-            }
-            $lista  .= " $p$virgula ";
-            
+        $frase = '';
+        foreach ($produtos as $p)
+        {
+            $frase .= "{$p['quantidade']}  {$p['nome']}  {$p['valor']}, ";
         }
-        return $lista;
+         
+        return $frase;
     }
 
     function localDePedido($mesa,$entrega,$Nmesa,$bairro, $rua,$Ncasa)

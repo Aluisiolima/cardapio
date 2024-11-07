@@ -13,7 +13,7 @@
         $Ncasa =  isset($_POST["Ncasa"]) ? htmlspecialchars($_POST["Ncasa"]) : null;
         $mesa =  isset($_POST["mesa"]) ? htmlspecialchars($_POST["mesa"])  : null;
         $Nmesa = isset($_POST["Nmesa"]) ? htmlspecialchars($_POST["Nmesa"] ) : null;
-        $produtos = explode(",", htmlspecialchars($_POST["produtos"]));
+        $produtos = json_decode($_POST["produtos"], true);
         $ids = json_decode($_POST["ids"], true);
         $valor = htmlspecialchars($_POST["valor"]);
         
