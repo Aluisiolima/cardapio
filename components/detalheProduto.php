@@ -38,7 +38,7 @@ if (isset($_POST['id'])) {
                 
                   <div class='janela_detalhe' id='tela_detalhe'>
                     <div class='volta'>
-                      <button onclick='fechaDetalhes()' ><i class='bi bi-x-lg'></i></i></button>
+                      <button onclick='fechaDetalhes()' ><i class='bi bi-x-lg'></i></button>
                     </div>
                     <div class='detalhe'>
                       <div class='inf_produto'>

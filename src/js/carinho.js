@@ -2,16 +2,18 @@
 
 function geraCardsProduct(product){
   const cardProduto = document.getElementById("produtos_carinho");
-  let produtos = "";
-  let nome;
-  let valor;
-  let quantidade;
-  let img;
+
+  const cardsExistentes = document.querySelectorAll('.card_produto');
+  cardsExistentes.forEach(card => card.remove());
+  
+  let produtos = '';
   for (let i = 0; i < product.length; i++) {
-    nome = produtos_escolhidos[i][1];
-    valor = produtos_escolhidos[i][2];
-    quantidade = produtos_escolhidos[i][0];
-    img = produtos_escolhidos[i][3];
+    const nome = produtos_escolhidos[i].nome;
+    const valor = produtos_escolhidos[i].valor;
+    const quantidade = produtos_escolhidos[i].quantidade;
+    const img = produtos_escolhidos[i].img;
+    const id = produtos_escolhidos[i].id;
+    
     
    
   
@@ -23,6 +25,7 @@ function geraCardsProduct(product){
                 <div class="card_nome">${nome}</div>
                 <div class="card_quantidade">${quantidade}</div>
                 <div class="card_valor">R$${valor}</div>
+                <div class='remove' onclick='removeItem(${id})'><i class='bi bi-x-lg'></i></div>
               </div>  
     `
 
@@ -90,7 +93,15 @@ function retirarImgsListaProdutos() {
   }
   return produtos_escolhidos;
 }
+function removeItem(id){
 
+  const indice = produtos_escolhidos.findIndex(produto => produto.id === id);
+
+  if (indice !== -1) {
+      produtos_escolhidos.splice(indice, 1);
+  }
+  geraCardsProduct(produtos_escolhidos);
+}
 /**
  * function que mudar o estado se vc estar ou nao no estabelecimento
  * receber a variavel local e que um bool que por padrao e true dizendo que o cliente nao esta no estabelicimento

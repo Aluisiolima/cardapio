@@ -55,5 +55,6 @@ class Venda
             return false; // Retorna falso em caso de erro
         }
     }
+    
 }
 ?>

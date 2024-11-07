@@ -37,6 +37,18 @@
     flex-direction: row;
     align-items: center;
     padding: .5em;
+    position: relative;
+}
+.remove{
+    position: absolute;
+    z-index: 2;
+    right: -5%;
+    top: -20%;
+    width: auto;
+    height: auto;
+    background: red;
+    padding: 2%;
+    border-radius: 10px;
 }
 .card_img{
     width: 20%;

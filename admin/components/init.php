@@ -11,4 +11,8 @@
     <form action="../config/sair.php" method="post" class="sair">
         <button type="submit" class="btn-sair">sair</button>
     </form>
+
+    <div class="venda_hj">
+        
+    </div>
 </div>

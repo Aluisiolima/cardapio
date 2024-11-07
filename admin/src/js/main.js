@@ -38,7 +38,7 @@ function trocarCompainer(componente){
   }
   menu.style.display = 'none';
 }
-trocarCompainer('produtos');
+
 
 async function pegarProdutoUnico(id,action) {
   const params = new URLSearchParams();
@@ -128,3 +128,5 @@ function mostrarImagem(select) {
         imgElement.style.display = 'none'; // Esconde a imagem se não houver seleção
     }
 }
+
+document.addEventListener('DOMContentLoaded',trocarCompainer('init'));
