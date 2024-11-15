@@ -1,0 +1,36 @@
+.vendas_historico,.venda_hj{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.card_venda{
+    width: 80%;
+    height: auto;
+    padding: .5em;
+    background-color: forestgreen;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+    text-shadow: 1px 2px 12px black;
+}
+.sub_card_produto{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: .2em;
+    border: 1px solid white;
+} 
+.sub_card_produto .name{
+    width: 70%;
+}
+.sub_card_produto .valor{
+    width: 20%;
+}
+.sub_card_produto .quant{
+    width: 10%;
+}

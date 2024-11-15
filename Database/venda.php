@@ -56,5 +56,116 @@ class Venda
         }
     }
     
+    public static function pegarVendasHoje($conexao, $id_empresa)
+    {
+        $dataHoje = date('d/m/Y');
+
+        $sqlVenda = "SELECT 
+            ped.id_pedido, 
+            ped.nome_cliente, 
+            ped.tipo_pagamento, 
+            ped.rua, 
+            ped.bairro, 
+            ped.numero_casa, 
+            ped.numero_mesa, 
+            ped.mesa, 
+            ped.data_pedido,
+            p.nome_produto, 
+            p.valor,
+            v.quantidade
+        FROM venda v
+        JOIN produtos p ON v.id_produto = p.id_produto
+        JOIN pedido ped ON v.id_pedido = ped.id_pedido
+        WHERE v.id_empressa = :id_empresa
+        AND STR_TO_DATE(ped.data_pedido, '%d/%m/%Y') = STR_TO_DATE(:date, '%d/%m/%Y')";
+
+        $stmt = $conexao->prepare($sqlVenda);
+        $stmt->bindValue(':id_empresa', $id_empresa);
+        $stmt->bindValue(':date', $dataHoje);
+        $stmt->execute();
+
+        // Organizar os resultados por `id_pedido`
+        $vendasAgrupadas = [];
+        
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $idPedido = $row['id_pedido'];
+            if (!isset($vendasAgrupadas[$idPedido])) {
+                $vendasAgrupadas[$idPedido] = [
+                    'cliente' => $row['nome_cliente'],
+                    'tipo_pagamento' => $row['tipo_pagamento'],
+                    'endereco' => $row['bairro'] ? "{$row['rua']}, {$row['bairro']}, Nº {$row['numero_casa']}" : 'Estabelecimento',
+                    'mesa' => $row['mesa'] ? "{$row['numero_mesa']}" : "Delivery",
+                    'data_pedido' => $row['data_pedido'],
+                    'produtos' => [],
+                    'valor_total' => 0
+                ];
+            }
+
+            // Adicionar os produtos ao pedido
+            $vendasAgrupadas[$idPedido]['produtos'][] = [
+            'nome_produto' => $row['nome_produto'],
+            'valor' => $row['valor'],
+            'quantidade' => $row['quantidade']
+            ];
+
+            $vendasAgrupadas[$idPedido]['valor_total'] += ($row['valor'] * $row['quantidade']);
+        }
+
+        return $vendasAgrupadas;
+    }
+    
+    public static function pegarVendas($conexao, $id_empresa)
+    {   
+        $sqlVenda = "SELECT 
+                        ped.id_pedido, 
+                        ped.nome_cliente, 
+                        ped.tipo_pagamento, 
+                        ped.rua, 
+                        ped.bairro, 
+                        ped.numero_casa, 
+                        ped.numero_mesa, 
+                        ped.mesa, 
+                        ped.data_pedido,
+                        p.nome_produto, 
+                        p.valor,
+                        v.quantidade
+                    FROM venda v
+                    JOIN produtos p ON v.id_produto = p.id_produto
+                    JOIN pedido ped ON v.id_pedido = ped.id_pedido
+                    WHERE v.id_empressa = :id_empresa";
+
+        $stmt = $conexao->prepare($sqlVenda);
+        $stmt->bindValue(':id_empresa', $id_empresa);
+        $stmt->execute();
+
+        // Organizar os resultados por `id_pedido`
+        $vendasAgrupadas = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $idPedido = $row['id_pedido'];
+            if (!isset($vendasAgrupadas[$idPedido])) {
+                $vendasAgrupadas[$idPedido] = [
+                    'cliente' => $row['nome_cliente'],
+                    'tipo_pagamento' => $row['tipo_pagamento'],
+                    'endereco' => $row['bairro'] ? "{$row['rua']}, {$row['bairro']}, Nº {$row['numero_casa']}" : 'Estabelecimento',
+                    'mesa' => $row['mesa'] ? "Mesa {$row['numero_mesa']}" : "Delivery",
+                    'data_pedido' => $row['data_pedido'],
+                    'produtos' => [],
+                    'valor_total' => 0
+                ];
+            }
+
+            // Adicionar os produtos ao pedido
+            $vendasAgrupadas[$idPedido]['produtos'][] = [
+                'nome_produto' => $row['nome_produto'],
+                'valor' => $row['valor'],
+                'quantidade' => $row['quantidade']
+            ];
+
+            $vendasAgrupadas[$idPedido]['valor_total'] += ($row['valor'] * $row['quantidade']);
+        }
+
+        return $vendasAgrupadas;
+    }
+    
 }
 ?>

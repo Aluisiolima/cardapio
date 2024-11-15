@@ -5,6 +5,7 @@
     require_once(ROOT.'/Database/pedido.php');
     require_once(ROOT.'/Database/venda.php');
     require_once(ROOT.'/Database/produtos.php');
+    require_once(ROOT.'/Database/Adm.php');
     
     $servername = 'localhost' ;
     $username = 'root';
