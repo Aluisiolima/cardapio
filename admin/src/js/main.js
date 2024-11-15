@@ -73,6 +73,12 @@ async function del(id){
   mostrarImagem(select)
 }
 
+async function ativa(id){
+  await pegarProdutoUnico(id,'ativa');
+  telaOpen();
+  setTimeout(telaOpen, 1000)
+}
+
 function operacao() {
   const form = document.getElementById('form');
 

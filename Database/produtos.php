@@ -3,8 +3,20 @@
 class Produtos
 {
 
-    static public function pegaProdutos($conexao,$id_empressa){
+    static public function pegaProdutosAtivo($conexao,$id_empressa)
+    {
         $sql = "SELECT * FROM produtos WHERE id_empressa = :id_empressa AND status = 'ativo';";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindParam(':id_empressa', $id_empressa);
+        $stmt->execute();
+
+        $produtos = $stmt->fetchAll();
+
+        return $produtos;
+    }
+    static public function pegaProdutosDesativado($conexao,$id_empressa)
+    {
+        $sql = "SELECT * FROM produtos WHERE id_empressa = :id_empressa AND status = 'desativado';";
         $stmt = $conexao->prepare($sql);
         $stmt->bindParam(':id_empressa', $id_empressa);
         $stmt->execute();
@@ -15,7 +27,8 @@ class Produtos
     }
 
     
-    static public function editProdutos($conexao,$id_produto,$nome,$valor,$tipo,$img){
+    static public function editProdutos($conexao,$id_produto,$nome,$valor,$tipo,$img)
+    {
         $sql = "UPDATE produtos SET nome_produto = :nome, valor = :valor, tipo = :tipo, img_produto = :img  WHERE id_produto = :id_produto";
 
         
@@ -32,7 +45,8 @@ class Produtos
         return "produto {$id_produto} foi alterado com sucesso!!";
     }
 
-    static public function desativaProduto($conexao,$id_produto,$status = "desativado"){
+    static public function desativaProduto($conexao,$id_produto,$status = "desativado")
+    {
         $sql = "UPDATE  produtos SET status = :status  WHERE id_produto = :id_produto";
 
         $stmt = $conexao->prepare($sql);
@@ -44,7 +58,9 @@ class Produtos
 
         return "O produto {$id_produto} foi deletado com sucesso!!!";
     }
-    static public function addProduto($conexao,$id_empressa,$nome,$tipo,$valor,$img){
+
+    static public function addProduto($conexao,$id_empressa,$nome,$tipo,$valor,$img)
+    {
         $sql = "INSERT INTO  produtos (nome_produto,valor,img_produto,tipo,id_empressa) VALUES (:nome,:valor,:img,:tipo,:id_empressa)";
 
         $stmt = $conexao->prepare($sql);
@@ -60,7 +76,8 @@ class Produtos
         return "O produto foi adicionado com sucesso com sucesso!!!";
     }
 
-    static public function pegarUnicoProduto($conexao,$id_produto){
+    static public function pegarUnicoProduto($conexao,$id_produto)
+    {
         $sql = "SELECT * FROM produtos WHERE id_produto = :id_produto";
 
         $stmt = $conexao->prepare($sql);
@@ -73,6 +90,7 @@ class Produtos
 
         return $produtos;
     }
+
     static function typesProduct($conexão,$empresa)
     {
         if($conexão){

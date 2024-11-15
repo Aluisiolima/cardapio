@@ -31,6 +31,10 @@
 
                 if($action == "add"){
                     echo geraFormProduct($conexao,null,$action);
+                }elseif($action == "ativa"){
+                    $id = $_POST['id'];
+                    Produtos::desativaProduto($conexao,$id,'ativo');
+                    echo "<h1>Produto ativado</h1>";
                 }else{
                     $id = $_POST['id'];
                     echo geraFormProduct($conexao,$id,$action);

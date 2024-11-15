@@ -14,7 +14,7 @@
 
     function produtos($conexao)
     {
-        $produtos = Produtos::pegaProdutos($conexao,$_SESSION['date_user']['id_empressa']);
+        $produtos = Produtos::pegaProdutosAtivo($conexao,$_SESSION['date_user']['id_empressa']);
         foreach ($produtos as $produto) {
             
             echo "  <div class='container'>
@@ -40,6 +40,32 @@
                     <div id='add' onclick='addProduct()'> <i class='bi bi-plus-lg'></i></div>
                     
                     ";
+        if($produtosDesativado = Produtos::pegaProdutosDesativado($conexao,$_SESSION['date_user']['id_empressa'])){
+            echo "<h1>Produtos desativados</h1>";
+
+            foreach ($produtosDesativado as $produto) 
+            {    
+                echo "  <div class='container'>
+                            <img src='../../".$produto['img_produto']."' onerror=".pegaImgs($produto['tipo']).">
+                            <div class='infs_produto'>
+                                <div class='detalhes'>
+                                    <div class='inf'>
+                                        <p>{$produto['status']}</p>
+                                        <p>{$produto['nome_produto']}</p>
+                                        <p class='type'> {$produto['tipo']}</p>
+                                    </div>
+                                    <p>R$ {$produto['valor']}</p>
+                                </div> 
+                                <div class='btn_produto'>
+                                    <button onclick='ativa({$produto['id_produto']})' class='btn edita'><i class='bi bi-check2'></i></button>
+                                </div>  
+                            </div>
+                            
+                        </div>";
+            }
+        }
+
+        
     }
 
 ?>
