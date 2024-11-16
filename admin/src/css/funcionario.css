@@ -1,0 +1,47 @@
+.funcionario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.card_funcionario{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 3em;
+    background-color: green;
+    color: white;
+    text-shadow: 4px 4px 15px black;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-top: 10px;
+}
+.btn_op_funcionario{
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    background-color: green;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn_op_funcionario button{
+    background-color: transparent;
+    border: none;
+    font-size: 3em;
+    color: white;
+}
+.form_funcionario{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}

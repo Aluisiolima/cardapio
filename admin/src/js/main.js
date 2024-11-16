@@ -135,4 +135,8 @@ function mostrarImagem(select) {
     }
 }
 
+function openForm() {
+  const form = document.getElementById('formFuncionario'); 
+  form.style.display = 'flex';
+}
 document.addEventListener('DOMContentLoaded',trocarCompainer('init'));

@@ -58,7 +58,8 @@ class Venda
     
     public static function pegarVendasHoje($conexao, $id_empresa)
     {
-        $dataHoje = date('d/m/Y');
+        date_default_timezone_set('America/Sao_Paulo');
+        $dataHoje  = date('d/m/Y');
 
         $sqlVenda = "SELECT 
             ped.id_pedido, 
@@ -77,11 +78,11 @@ class Venda
         JOIN produtos p ON v.id_produto = p.id_produto
         JOIN pedido ped ON v.id_pedido = ped.id_pedido
         WHERE v.id_empressa = :id_empresa
-        AND STR_TO_DATE(ped.data_pedido, '%d/%m/%Y') = STR_TO_DATE(:date, '%d/%m/%Y')";
+        AND STR_TO_DATE(ped.data_pedido, '%d/%m/%Y') = STR_TO_DATE(:data, '%d/%m/%Y');";
 
         $stmt = $conexao->prepare($sqlVenda);
         $stmt->bindValue(':id_empresa', $id_empresa);
-        $stmt->bindValue(':date', $dataHoje);
+        $stmt->bindValue(':data', $dataHoje);
         $stmt->execute();
 
         // Organizar os resultados por `id_pedido`

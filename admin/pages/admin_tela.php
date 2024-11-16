@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../src/css/init.css">
     <link rel="stylesheet" href="../src/css/produtos.css">
     <link rel="stylesheet" href="../src/css/vendas.css">
+    <link rel="stylesheet" href="../src/css/funcionario.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>

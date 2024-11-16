@@ -20,5 +20,19 @@
             $resultado = $stmt->fetch();
             return $resultado;
         }
+        public static function pegaAdm($conexao,$id_empressa)
+        {
+            $sql = "SELECT * FROM user_adm WHERE id_empressa = :id_empressa;";
+
+            $stmt = $conexao->prepare($sql);
+
+            $stmt->bindValue(':id_empressa', $id_empressa);
+
+            $stmt->execute();
+
+            $resultado = $stmt->fetchAll();
+            return $resultado;
+        }
+
     }
 ?>
