@@ -112,18 +112,23 @@ function mudarValorDaVariavel(){
   const mesa = document.getElementById("mesa");
   const entrega = document.getElementById("entrega");
 
-  entrega.addEventListener("click", ()=>{
-    entrega.style.background = "green";
-    mesa.style.background = "antiquewhite";
-    local = true;
-    return local;
-  });
-  mesa.addEventListener("click", ()=>{
-    mesa.style.background = "green";
-    entrega.style.background = "antiquewhite";
-    local = false;
-    return local;
-  })
+  if(entrega){
+    entrega.addEventListener("click", ()=>{
+      entrega.style.background = "green";
+      mesa.style.background = "antiquewhite";
+      local = true;
+      return local;
+    });
+  }
+  if(mesa){
+    mesa.addEventListener("click", ()=>{
+      mesa.style.background = "green";
+      entrega.style.background = "antiquewhite";
+      local = false;
+      return local;
+    });
+  }
+  
   return local;
 }
 /**

@@ -2,9 +2,8 @@
 /**
  * essa e funcao responsavel por te levar pra o carinho e carregar os script dele
  */
-function carregaCarinho() {
-    loadContent('carinho');
-    
+async function carregaCarinho() {
+    await loadContent('carinho');
     setTimeout(()=>{
         const script = document.createElement('script');
 

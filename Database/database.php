@@ -1,23 +1,15 @@
 <?php
-
+    session_start();
     include (ROOT."/Database/Conexao.php");
     include (ROOT."/Database/Empresa.php"); 
     require_once(ROOT.'/Database/pedido.php');
     require_once(ROOT.'/Database/venda.php');
     require_once(ROOT.'/Database/produtos.php');
     require_once(ROOT.'/Database/Adm.php');
-    
-    $servername = 'localhost' ;
-    $username = 'root';
-    $password = '';
-    $dbname = 'cardapio';
-    $port = 3306;
-    $charset = 'utf8mb4';
 
-
-    $conn = new Conexão( $servername, $username, $password, $dbname , $port , $charset);
+    $conn = new Conexão();
     $conexao = $conn->connect();
-    session_start();
+    
 
     
     

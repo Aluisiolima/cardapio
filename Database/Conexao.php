@@ -1,39 +1,28 @@
 <?php
-    class  Conexão
-    {
-        private $servername;
-        private $username;
-        private $password;
-        private $dbname;
-        private $port;
-        private $charset;
+class Conexão
+{
+    protected $conn;
+    protected $host     = 'br620.hostgator.com.br';
+    protected $database = 'hdcurs93_efastmenu';
+    protected $user     = 'hdcurs93_hdcurso';
+    protected $password = 'hdcurso10';
 
-        public function __construct( $servername,  $username,  $password,  $dbname,  $port = null, $charset= null)
-        {
-            $this->servername = $servername;
-            $this->username = $username;
-            $this->password = $password;
-            $this->dbname = $dbname;
-            $this->port = $port;
-            $this->charset = $charset;
+    public function connect()
+    { 
+                
+        try {
+            $username = "hdcurs93_hdcurso";
+            $password = "hdcurso10";  
+            $conn = new PDO('mysql:host=br620.hostgator.com.br;dbname=hdcurs93_efastmenu', $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        }
-        
-        public function connect() {
-            $dsn = "mysql:host={$this->servername};port={$this->port};dbname={$this->dbname};charset={$this->charset}";
-            $options = [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-            ];
-
-            try {
-                $pdo = new PDO($dsn, $this->username, $this->password, $options);
-                return $pdo;
-            } catch (PDOException $e) {
-                echo "Connection failed: " . $e->getMessage();
-                return null;
+            if ($conn === null) {
+                throw new Exception("Conexão não estabelecida.");
             }
+            return $conn;
+        } catch(PDOException $e) {
+            echo 'ERROR: ao Conectar ao Banco' . $e->getMessage();
         }
     }
+}
 ?>
