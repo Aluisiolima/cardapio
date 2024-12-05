@@ -2,18 +2,16 @@
 class Conexão
 {
     protected $conn;
-    protected $host     = 'br620.hostgator.com.br';
-    protected $database = 'hdcurs93_efastmenu';
-    protected $user     = 'hdcurs93_hdcurso';
-    protected $password = 'hdcurso10';
+    protected $host     = 'localhost';
+    protected $database = 'cardapio';
+    protected $user     = 'root';
+    protected $password = '';
 
     public function connect()
     { 
                 
-        try {
-            $username = "hdcurs93_hdcurso";
-            $password = "hdcurso10";  
-            $conn = new PDO('mysql:host=br620.hostgator.com.br;dbname=hdcurs93_efastmenu', $username, $password);
+        try { 
+            $conn = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->user, $this->password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             if ($conn === null) {

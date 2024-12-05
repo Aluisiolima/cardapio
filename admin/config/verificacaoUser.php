@@ -3,7 +3,6 @@
     include  ROOT.'/Database/database.php';
 
     if (!$conexao) {
-        echo '<h1>CONTATE O SUPORTE POIS NAO TEM CONEXÃO!!</h1>';
         exit();
     }
 
@@ -15,9 +14,8 @@
         $resultado = Adm::verificaUser($conexao,$codigo,$senha,$empressa);
 
         if (!empty($resultado)){
-            session_start();
             $_SESSION['date_user'] = $resultado;
-            header("Location: ../pages/admin_tela.php");
+            echo '<meta http-equiv="refresh" content="0;url=../pages/admin_tela.php">';
             exit(); 
         }
         echo "nao tem esse usuario";

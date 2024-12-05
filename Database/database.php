@@ -10,7 +10,4 @@
     $conn = new Conexão();
     $conexao = $conn->connect();
     
-
-    
-    
 ?>   

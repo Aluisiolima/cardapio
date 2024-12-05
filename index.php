@@ -50,7 +50,7 @@
         <div class="container_home">
             <div class="produtos <?php echo $tipo1?>" onclick="cards('<?php echo $tipo1?>')"> <?php echo $tipo1?></div>
             <div class="produtos <?php echo $tipo2?>" onclick="cards('<?php echo $tipo2?> ')"><?php echo $tipo2?></div>
-            <div class="produtos <?php echo$tipo3?>" onclick="cards('<?php echo $tipo3?>')"><?php echo $tipo3?></div>
+            <div class="produtos <?php echo $tipo3?>" onclick="cards('<?php echo $tipo3?>')"><?php echo $tipo3?></div>
         </div>
    </div>
    <?php include "./components/footer.php"; ?>

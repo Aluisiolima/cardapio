@@ -96,6 +96,12 @@ function retirarImgsListaProdutos() {
 function removeItem(id){
 
   const indice = produtos_escolhidos.findIndex(produto => produto.id === id);
+  const index = ids.findIndex(item => item.id === String(id));
+
+
+  if (index !== -1) {
+      ids.splice(index, 1);
+  }
 
   if (indice !== -1) {
       produtos_escolhidos.splice(indice, 1);
