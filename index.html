@@ -5,6 +5,7 @@
     <meta name="keywords" content="cardapio,hamburgueria,lanche">
     <meta name="description" content="um cardapio de laches,lanche e delicias, alto longa,piaui">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>{{name empressa}}</title>
 
     <!--CSSs-->
@@ -22,7 +23,7 @@
 </head>
 <body>
 <div class="container">
-   
+   <div class="container_nav" id="container-nav"></div>
    <div id="container_load">
         <div class="load"></div>
         <p>carregando...</p>
@@ -31,13 +32,11 @@
    
    </div>
    <div id="homeCont">
-        <div class="container_home">
-            <div class="produtos <?php echo $tipo1?>" onclick="cards('<?php echo $tipo1?>')"> <?php echo $tipo1?></div>
-            <div class="produtos <?php echo $tipo2?>" onclick="cards('<?php echo $tipo2?> ')"><?php echo $tipo2?></div>
-            <div class="produtos <?php echo $tipo3?>" onclick="cards('<?php echo $tipo3?>')"><?php echo $tipo3?></div>
+        <div class="container_home" id="container-home">
+
         </div>
    </div>
-  
+  <div class="conatainer_footer" id="container-footer"></div>
 </div>
 
 </body>
@@ -46,5 +45,5 @@
     <script src="./src/js/cabercario.js" defer></script>
     <script src="./src/js/carinho.js" defer></script>
     <!-- arquivo main.js e responsavel por quase tudo que ocorre no site -->
-    <script src='./src/js/main.js' defer></script>
+    <script type="module" src='./src/js/main.js' defer></script>
 </html>
