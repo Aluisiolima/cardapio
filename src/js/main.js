@@ -1,3 +1,4 @@
+const link_api =  window.location.hostname != "localhost" ? "" : "http://localhost/Efast/Efast_api";
 
 /**
  * Funcao responsavel por requisicoes a api
@@ -40,8 +41,14 @@ async function fetchApi(data = [], method = "GET", url) {
     }
 }
 
-const link_api =  window.location.hostname != "localhost" ? "" : "http://localhost/Efast/Efast_api/";
 
+
+/**
+ * 
+ * @param {String} templatePath - e o path para um arquivo html de template
+ * @param {Array} data - sao os dados a serem dicionados em um arquivo de template
+ * @param {String} targetElementId - e um id de um elemento do dow aonde aloca esse templates com seus repectivos dados
+ */
 async function render(templatePath, data, targetElementId){
     try {
         const response = await fetch(templatePath);
@@ -56,35 +63,35 @@ async function render(templatePath, data, targetElementId){
         console.error(error);
     }
 }
-const data_nav = {
-    "img_path":"foto-perfilempresa.svg",
-    "name_empresa":"padrao",
-    "whastapp":"+5586981132378",
-    "instagram":"aluiz_nt",
-    "facebook":""
-};
-render("./components/nav.html", data_nav, "container-nav");
 
-const data_home = [
-    {
-        "tipo": "pizza"
-    },
-    {
-        "tipo": "hamburguer"
-    },
-    {
-        "tipo": "bebida"
-    }
-];
-
-data_home.forEach(data_home => {
-    render("./components/card_home.html", data_home, "container-home");
-});
-
-const data_footer = {
-    "whastapp":"+5586981132378",
-    "instagram":"aluiz_nt",
-    "endereco":"marinopolis",
-    "email":"aaluisio309@gmail.com"
+function reloadCardapio(id){
+    const key = `id=${id}`;
+    const baseUrl = window.location.origin + window.location.pathname;
+    window.location.href = `${baseUrl}?${key}`;
 }
-render("./components/footer.html", data_footer, "container-footer");
+// 
+// render("./components/nav.html", data_nav, "container-nav");
+
+// const data_home = [
+//     {
+//         "tipo": "pizza"
+//     },
+//     {
+//         "tipo": "hamburguer"
+//     },
+//     {
+//         "tipo": "bebida"
+//     }
+// ];
+
+// data_home.forEach(data_home => {
+//     render("./components/card_home.html", data_home, "container-area");
+// });
+
+// const data_footer = {
+//     "whastapp":"+5586981132378",
+//     "instagram":"aluiz_nt",
+//     "endereco":"marinopolis",
+//     "email":"aaluisio309@gmail.com"
+// }
+// 
