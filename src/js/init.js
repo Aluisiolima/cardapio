@@ -7,19 +7,29 @@ const params = new URLSearchParams(new URL(url).search);
 if (params.has('id')) {
     buscarDadosEmpresa(params.get("id"));
 } else {
-    document.title = "Efats-menu"
     buscarEmpresas();
 }
 
 async function buscarDadosEmpresa(id) {
     const dateEmpresa = await fetchApi(null,"GET",`${link_api}/pegarEmpresa/${id}`);
     if (!dateEmpresa.error){
+        if (dateEmpresa.data.length === 0) {
+            buscarEmpresas();
+            return;
+        }
         sessionStorage.setItem('empresa', JSON.stringify(dateEmpresa.data[0]));
         montarHome();
     }
 }
 
 async function buscarEmpresas() {
+    document.title = "Efats-menu"
+    let url = new URL(window.location.href);
+
+    url.search = "";
+   
+    window.history.replaceState({}, "", url);
+
     const dateEmpresa = await fetchApi(null,"GET",`${link_api}/pegarEmpresas/`);
     if (!dateEmpresa.error){
         dateEmpresa.data.forEach(data => {

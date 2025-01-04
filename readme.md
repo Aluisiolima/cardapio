@@ -1,16 +1,17 @@
-# projeto do cardapio
 
+---
+# Efast-menu
 
-* Este projeto esta direcionado aos restaurantes de alto longa 
+O **Efast-menu** e uma aplicacao web de cardapios digitais movidos pela sua implementacao back end seja nada no cardapior e static é tudo vem do nosso banco de dados robusto em conjuto com nossa api
 
-* Com um mundo cada vez mais digital essa ideia esta aqui para desenvolver um cardapio acessivo e resposivo para os clientes 
+---
+## aplicacao 
 
-## participantes 
-* Aluisio
-* Eduardo
-* Carlos
-* Felipe
+O flow de consumo desse services e da seguibte forma voce entra pela url do site passando ou nao um paramentro chamando de __id__ ou seja e um id da empresa que voce deseja consumi os produtos
 
+![flox-scheme-home](./docs/flow-scheme-home.drawio.png)
 
-### surpevisao e mentorial professo Cassio
-http://localhost:3000/?cardapio=1
+Logo apois voce podera seguir para o menu de produtos apertando em um dos produtos principias para seguir direto ou aperta em **cardapio** 
+
+![flox-scheme-home](./docs/flow-scheme-menuCardapio.drawio.png)
+
