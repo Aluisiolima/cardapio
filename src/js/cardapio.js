@@ -1,4 +1,4 @@
-function NotFoundImg(tipo) {
+function NotFoundImg(tipo, img) {
     const tiposImgs = {
         pizza:"./img/default/Pizza_padrao.svg",
         hamburguer:"./img/default/Hambúrguer_padrao.svg",
@@ -6,5 +6,5 @@ function NotFoundImg(tipo) {
         default:"./img/default/Pizza_padrao.svg"
     }
 
-    return tiposImgs[tipo] || tiposImgs.default;
+    img.src = tiposImgs[tipo] || tiposImgs.default;
 }

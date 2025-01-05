@@ -53,11 +53,11 @@ async function render(templatePath, data, targetElementId){
     try {
         const response = await fetch(templatePath);
         const template = await response.text();
-
-        const rendered = template.replace(/{{\s*(\w+)}}/g, (match, variavel) => {
+        
+        const rendered = template.replace(/{{\s*(\w+)}}/g,  (match, variavel) => {
             return data[variavel] !== undefined ? data[variavel] : match;
         });
-
+        
         document.getElementById(targetElementId).innerHTML += rendered;
     } catch (error) {
         console.error(error);
@@ -69,29 +69,6 @@ function reloadCardapio(id){
     const baseUrl = window.location.origin + window.location.pathname;
     window.location.href = `${baseUrl}?${key}`;
 }
-// 
-// render("./components/nav.html", data_nav, "container-nav");
 
-// const data_home = [
-//     {
-//         "tipo": "pizza"
-//     },
-//     {
-//         "tipo": "hamburguer"
-//     },
-//     {
-//         "tipo": "bebida"
-//     }
-// ];
-
-// data_home.forEach(data_home => {
-//     render("./components/card_home.html", data_home, "container-area");
-// });
-
-// const data_footer = {
-//     "whastapp":"+5586981132378",
-//     "instagram":"aluiz_nt",
-//     "endereco":"marinopolis",
-//     "email":"aaluisio309@gmail.com"
-// }
-// 
+const empresa = [];
+const produtosMain = [];
