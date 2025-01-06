@@ -1,12 +1,10 @@
 async function montarHome() {
-    
     render("./components/cardapio.html",null,"container");
-    if (sessionStorage.getItem("empresa")) {
-        document.title = empresa[0].nome_empresa;
-        render("./components/nav.html", empresa[0], "container-nav");   
-        render("./components/footer.html", empresa[0], "container-footer");
-        pegarProdutosPrincipais(empresa[0].id_empresa);
-    }
+    
+    document.title = empresa[0].nome_empresa;
+    render("./components/nav.html", empresa[0], "container-nav");   
+    render("./components/footer.html", empresa[0], "container-footer");
+    pegarProdutosPrincipais(empresa[0].id_empresa);
 }
 
 async function pegarProdutosPrincipais(id) {

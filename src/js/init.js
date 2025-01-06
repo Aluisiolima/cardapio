@@ -12,6 +12,7 @@ if (params.has('id')) {
 
 async function buscarDadosEmpresa(id) {
     const dateEmpresa = await fetchApi(null,"GET",`${link_api}/pegarEmpresa/${id}`);
+    
     if (!dateEmpresa.error && dateEmpresa.data.length !== 0){
         empresa.push(dateEmpresa.data[0]);
         montarHome();
