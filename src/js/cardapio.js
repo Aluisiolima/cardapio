@@ -8,3 +8,8 @@ function NotFoundImg(tipo, img) {
 
     img.src = tiposImgs[tipo] || tiposImgs.default;
 }
+
+function fechaDetalhes(){
+    document.getElementById("container_detalhes").style.display = "none";
+    document.getElementById("container_detalhes").innerHTML = "";
+}
