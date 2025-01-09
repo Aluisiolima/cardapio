@@ -17,3 +17,8 @@ async function pegarProdutosPrincipais(id) {
         });
     }
 }
+
+async function filterTipo(tipo, id) {
+    await cardapioAtive(id);
+    window.location.href = `#${tipo}`; 
+}
