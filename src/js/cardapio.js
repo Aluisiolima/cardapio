@@ -19,16 +19,18 @@ function addCarinho() {
   detalhes.classList.add("animate");
 
   const id = document.getElementById("imgProduct").alt;
-  const nomeProduto = document.getElementById("nameProduct").textContent;
   const quantidade = document.getElementById("quantidade").textContent;
+  const desconto = document.getElementById("desconto").textContent;
+  const nomeProduto = document.getElementById("nameProduct").textContent;
+  const valorProduto = document.getElementById("value").textContent;
   const imgProduto = document.getElementById("imgProduct").src;
   const tipoProduto = document.getElementById("imgProduct").getAttribute("type");
-  const valorProduto = document.getElementById("value").textContent;
 
   // logica de implementa o produto no carrinho
   const listProduto = {
     "id": Number(id),
     "quantidade": Number(quantidade),
+    "desconto": Number(desconto),
     "nome": String(nomeProduto),
     "valor": String(valorProduto),
     "path": String(imgProduto),
@@ -36,8 +38,8 @@ function addCarinho() {
   };
 
   produtos_escolhidos.push(listProduto);
-  const dir = { id: Number(id), quantidade: Number(quantidade) };
-  ids.push(dir);
+  const dir = { id: Number(id), quantidade: Number(quantidade), desconto: Number(desconto) };
+  keyProducts.push(dir);
 
   detalhes.addEventListener("animationend", () => {
     detalhes.classList.remove("animate");

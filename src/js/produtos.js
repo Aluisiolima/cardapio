@@ -1,10 +1,10 @@
 const produtos_escolhidos = [];
 let local = true;
-const ids = [];
+const keyProducts = [];
 
 function enviarDadosProdutos() {
 
-    const jsonIDs = JSON.stringify(ids);
+    const jsonIDs = JSON.stringify(keyProducts);
     const jsonProduct = JSON.stringify(retirarImgsListaProdutos());
     document.getElementById("ids").value = jsonIDs;
     document.getElementById("product").value = jsonProduct;
