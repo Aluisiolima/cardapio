@@ -47,45 +47,6 @@ function geraCardsProduct(product){
   return produtos;
 }
 
-function valorTotal() {
-  let valor_total = 0;
-
-  for (let i = 0; i < produtos_escolhidos.length; i++) {
-    valor_total += parseFloat(produtos_escolhidos[i].valor);
-  }
-  document.getElementById("valortotal").textContent = valor_total.toFixed(2);
-
-  return valor_total.toFixed(2);
-}
-
-function mais1(){
-  const quantidade = document.getElementById("quantidade");
-  const valorProduto = document.getElementById("value");
-  let quantidadeValor = parseInt(quantidade.textContent);
-  const valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
-
-  if(quantidadeValor>=0){
-    quantidadeValor += 1;
-    quantidade.textContent = quantidadeValor;
-    valorProduto.textContent = (valor_produto_sem_alteracoes*quantidadeValor).toFixed(2);
-}
-
-}
-function menos1(){
-  const quantidade = document.getElementById("quantidade");
-  const valorProduto = document.getElementById("value");
-  const valorAtual = valorProduto.textContent ;
-  let quantidadeValor = parseInt(quantidade.textContent);
-  const valor_produto_sem_alteracoes = valorProduto.getAttribute('product-value');
-
-  if(quantidadeValor <= 1){
-    quantidade.textContent = quantidadeValor;
-  }else if(quantidadeValor >=1){
-    quantidadeValor -= 1;
-    quantidade.textContent = quantidadeValor;
-    valorProduto.textContent = (valorAtual - valor_produto_sem_alteracoes).toFixed(2);
-  }
-}
 function retirarImgsListaProdutos() {
   for (let i = 0; i < produtos_escolhidos.length; i++) {
     delete produtos_escolhidos[i].img;
@@ -108,6 +69,7 @@ function removeItem(id){
   }
   geraCardsProduct(produtos_escolhidos);
 }
+
 /**
  * function que mudar o estado se vc estar ou nao no estabelecimento
  * receber a variavel local e que um bool que por padrao e true dizendo que o cliente nao esta no estabelicimento
@@ -137,6 +99,7 @@ function mudarValorDaVariavel(){
   
   return local;
 }
+
 /**
  * responsavel por imprimi na tela quais tipos de informacoes sao enterressante que o cliente der para a entrega do produto
  */
