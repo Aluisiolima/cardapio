@@ -12,17 +12,6 @@ function enviarDadosProdutos() {
     return true; 
 }
 
-function updateCarrinho(){
-    if(produtos_escolhidos == 0){
-        return;
-    }
-    
-    const numerador = document.getElementById("Ncompras");
-    numerador.style.background = "#66c13f";
-    let numero = produtos_escolhidos.length;
-    numerador.innerText = numero;
-}
-
 async function carregaCardsProdutos(id){
     document.getElementById("container_load").style.display = "flex";
     const produtos = await fetchApi(null,"GET",`${link_api}/pegarProdutos/${id}`);
@@ -36,7 +25,7 @@ async function carregaCardsProdutos(id){
             }
             // render("./components/card_produto.html",data,"produtos");
             container.innerHTML += `<div class="card" >
-                                        <img src="${data.path}" alt="imagem" onerror="NotFoundImg("{{tipo}}", this)">
+                                        <img src="${data.path}" alt="imagem" onerror="NotFoundImg('${data.tipo}', this)">
                                         <p class="detalhes">${data.nome_produto}</p>
                                         <p class="detalhes">R$ ${data.valor}</p>
                                         <button onclick="getDetalhes('${data.id_produto}')" class="buttoncompra">compra</button>
