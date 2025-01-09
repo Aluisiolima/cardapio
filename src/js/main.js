@@ -1,4 +1,4 @@
-const link_api =  window.location.hostname != "localhost" ? "" : "http://localhost/Efast/Efast_api";
+const link_api = window.location.hostname != "localhost" ? "" : "http://localhost/Efast/Efast_api";
 
 /**
  * Funcao responsavel por requisicoes a api
@@ -11,7 +11,7 @@ async function fetchApi(data = [], method = "GET", url) {
     try {
         // Recupera o token do sessionStorage
         const token = sessionStorage.getItem("token");
-        
+
         const headers = {
             "Content-Type": "application/json",
         };
@@ -41,30 +41,28 @@ async function fetchApi(data = [], method = "GET", url) {
     }
 }
 
-
-
 /**
  * 
  * @param {String} templatePath - e o path para um arquivo html de template
  * @param {Array} data - sao os dados a serem dicionados em um arquivo de template
  * @param {String} targetElementId - e um id de um elemento do dow aonde aloca esse templates com seus repectivos dados
  */
-async function render(templatePath, data, targetElementId){
+async function render(templatePath, data, targetElementId) {
     try {
         const response = await fetch(templatePath);
         const template = await response.text();
-        
-        const rendered = template.replace(/{{\s*(\w+)}}/g,  (match, variavel) => {
+
+        const rendered = template.replace(/{{\s*(\w+)}}/g, (match, variavel) => {
             return data[variavel] !== undefined ? data[variavel] : match;
         });
-        
+
         document.getElementById(targetElementId).innerHTML += rendered;
     } catch (error) {
         console.error(error);
     }
 }
 
-function reloadCardapio(id){
+function reloadCardapio(id) {
     const key = `id=${id}`;
     const baseUrl = window.location.origin + window.location.pathname;
     window.location.href = `${baseUrl}?${key}`;

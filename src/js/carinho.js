@@ -1,50 +1,23 @@
 
 
 function geraCardsProduct(product){
-  const cardProduto = document.getElementById("produtos_carinho");
-
-  const cardsExistentes = document.querySelectorAll('.card_produto');
-  cardsExistentes.forEach(card => card.remove());
-  
-  let produtos = '';
-  for (let i = 0; i < product.length; i++) {
-    const nome = produtos_escolhidos[i].nome;
-    const valor = produtos_escolhidos[i].valor;
-    const quantidade = produtos_escolhidos[i].quantidade;
-    const img = produtos_escolhidos[i].img;
-    const id = produtos_escolhidos[i].id;
-    
-    
-   
-  
-    cardProduto.innerHTML += `
-              <div class="card_produto">
-                <div class="card_img">
-                    <img src="${img}" alt="pizza_padrao">
-                </div>
-                <div class="card_nome">${nome}</div>
-                <div class="card_quantidade">${quantidade}</div>
-                <div class="card_valor">R$${valor}</div>
-                <div class='remove' onclick='removeItem(${id})'><i class='bi bi-x-lg'></i></div>
-              </div>  
-    `
-
-  
-
-   produtos +=  `<div class="card_produto">
-                <div class="card_img">
-                    <img src="${img}" alt="pizza_padrao">
-                </div>
-                <div class="card_nome">${nome}</div>
-                <div class="card_quantidade">${quantidade}</div>
-                <div class="card_valor">R$${valor}</div>
-              </div>`  ;
-
-  }
+  document.getElementById("produtos_carinho").innerHTML = "";
+  product.forEach(element => {
+    render("./components/card_carinho.html",element,"produtos_carinho");
+  });
   
   valorTotal();
+}
 
-  return produtos;
+function valorTotal() {
+  let valor_total = 0;
+
+  for (let i = 0; i < produtos_escolhidos.length; i++) {
+    valor_total += parseFloat(produtos_escolhidos[i].valor);
+  }
+  document.getElementById("valortotal").textContent = valor_total.toFixed(2);
+
+  return valor_total.toFixed(2);
 }
 
 function retirarImgsListaProdutos() {
@@ -56,9 +29,8 @@ function retirarImgsListaProdutos() {
 }
 function removeItem(id){
 
-  const indice = produtos_escolhidos.findIndex(produto => produto.id === id);
-  const index = ids.findIndex(item => item.id === String(id));
-
+  const indice = produtos_escolhidos.findIndex(produto => produto.id === Number(id));
+  const index = ids.findIndex(item => item.id === Number(id));
 
   if (index !== -1) {
       ids.splice(index, 1);
@@ -67,6 +39,7 @@ function removeItem(id){
   if (indice !== -1) {
       produtos_escolhidos.splice(indice, 1);
   }
+  
   geraCardsProduct(produtos_escolhidos);
 }
 
