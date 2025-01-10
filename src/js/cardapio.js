@@ -37,23 +37,18 @@ function addCarinho() {
     "tipo": String(tipoProduto)
   };
 
-  
-
   const ProdutoExiste = produtos_escolhidos.find(produto => produto.id === listProduto.id);
 
-  if(ProdutoExiste){
+  if (ProdutoExiste) {
     ProdutoExiste.quantidade += listProduto.quantidade;
     keyProducts.find(key => key.id === listProduto.id).quantidade += listProduto.quantidade;
 
-  }else{
+  } else {
     produtos_escolhidos.push(listProduto);
-    const dir = { id: Number(id), quantidade: Number(quantidade), desconto: Number(desconto)};
+    const dir = { id: Number(id), quantidade: Number(quantidade), desconto: Number(desconto) };
     keyProducts.push(dir);
-    
+
   }
-
-
-  
 
   detalhes.addEventListener("animationend", () => {
     detalhes.classList.remove("animate");
@@ -106,6 +101,7 @@ function menos1() {
 
 async function carregaCarinho() {
   document.getElementById("container-area").innerHTML = "";
-  await render("./components/carinho.html",null,"container-area");
+  await render("./components/carinho.html", null, "container-area");
   geraCardsProduct(produtos_escolhidos);
+  mudarValorDaVariavel();
 }

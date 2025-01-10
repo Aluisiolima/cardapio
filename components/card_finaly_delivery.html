@@ -1,0 +1,41 @@
+
+<div class="container_pagamentos">
+  <form action="./Database/crud.php" method="post" onsubmit="return enviarDadosProdutos();">
+    <fieldset class="dados">
+      <legend>dados para entrega</legend>
+      <input type="text" placeholder="nome" name="nome" required>
+      <input type="text" placeholder="bairro" name="bairro" required>
+      <input type="text" placeholder="rua" name="rua" required>
+      <input type="number" placeholder="numero da casa" name="Ncasa" required>
+      <input type="text"  name="entrega" value="entrega" hidden>
+    </fieldset>
+    <details class="produtos_escolhidos" id="itensEscolhidos">
+      <summary>
+        produstos <i class="bi bi-caret-down-fill"></i>
+      </summary>
+        
+    </details>
+    <fieldset class="formas_De_Pagamento">
+      <legend>formas de pagamento</legend>
+      <label class="meios_de_pagamento">
+        <img src="./img/form_pagamento/pix.svg" alt="pix" height="50">
+        <input type="radio" name="type_pagamento" id="dinheiro" value="pix" required>
+      </label>
+      <label class="meios_de_pagamento">
+        <img src="./img/form_pagamento/cartao.svg" alt="cartao" height="50">
+        <input type="radio" name="type_pagamento" id="dinheiro" value="cartao" required>
+      </label>
+      <label class="meios_de_pagamento">
+        <img src="./img/form_pagamento/dinheiro.svg" alt="dinheiro" height="50">
+        <input type="radio" name="type_pagamento" id="dinheiro" value="dinheiro" required>
+      </label>
+    </fieldset>
+    <div class="finaliza_pedido">
+      <input type="text" name="produtos" id="product" value="{{product}}" hidden>
+      <input type="text" name="valor" value="{{valor}}" hidden>
+      <input type="text" name="ids"  id="ids" value="{{keys}}" hidden>
+      <p>valor = {{valor}}</p>
+      <input type="submit" valeu="comprar" >
+    </div>
+  </form>
+</div>
