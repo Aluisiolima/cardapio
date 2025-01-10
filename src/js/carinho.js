@@ -67,7 +67,7 @@ function mudarValorDaVariavel(){
 }
 
 
-function telaDeEmtrega(){
+async function telaDeEmtrega(){
   const navegacao = document.getElementById("navegacao");
   if(parseFloat(valorTotal()) > 0){
     const dates = {
@@ -77,11 +77,16 @@ function telaDeEmtrega(){
     document.getElementById("container-area").innerHTML = "";
     const delivery = mudarValorDaVariavel();
     if(!delivery){
-      render("./components/card_finaly_mesa.html",dates,"container-area");
+      await render("./components/card_finaly_mesa.html",dates,"container-area");
+      produtos_escolhidos.forEach(element => {
+        render("./components/card_produto_pagamento.html",element,"itensEscolhidos");
+      });
       return;
     }
-    render("./components/card_finaly_delivery.html",dates,"container-area"); 
-    
+    await render("./components/card_finaly_delivery.html",dates,"container-area"); 
+    produtos_escolhidos.forEach(element => {
+      render("./components/card_produto_pagamento.html",element,"itensEscolhidos");
+    });
   }else{
     alert("por favor faça um pedido!!")
   }
