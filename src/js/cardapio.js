@@ -37,9 +37,23 @@ function addCarinho() {
     "tipo": String(tipoProduto)
   };
 
-  produtos_escolhidos.push(listProduto);
-  const dir = { id: Number(id), quantidade: Number(quantidade), desconto: Number(desconto) };
-  keyProducts.push(dir);
+  
+
+  const ProdutoExiste = produtos_escolhidos.find(produto => produto.id === listProduto.id);
+
+  if(ProdutoExiste){
+    ProdutoExiste.quantidade += listProduto.quantidade;
+    keyProducts.find(key => key.id === listProduto.id).quantidade += listProduto.quantidade;
+
+  }else{
+    produtos_escolhidos.push(listProduto);
+    const dir = { id: Number(id), quantidade: Number(quantidade), desconto: Number(desconto)};
+    keyProducts.push(dir);
+    
+  }
+
+
+  
 
   detalhes.addEventListener("animationend", () => {
     detalhes.classList.remove("animate");

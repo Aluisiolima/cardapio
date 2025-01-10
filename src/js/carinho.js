@@ -30,10 +30,10 @@ function retirarImgsListaProdutos() {
 function removeItem(id){
 
   const indice = produtos_escolhidos.findIndex(produto => produto.id === Number(id));
-  const index = ids.findIndex(item => item.id === Number(id));
+  const index = keyProducts.findIndex(item => item.id === Number(id));
 
   if (index !== -1) {
-      ids.splice(index, 1);
+    keyProducts.splice(index, 1);
   }
 
   if (indice !== -1) {
@@ -76,22 +76,20 @@ function mudarValorDaVariavel(){
 /**
  * responsavel por imprimi na tela quais tipos de informacoes sao enterressante que o cliente der para a entrega do produto
  */
-function telaDeEmtrega(local){
-  let typeDelivery = local;
+function telaDeEmtrega(delivery){
+
   const tela = document.querySelector(".container_pagamentos");
   const telaCarinho = document.querySelector(".container_carinho");
   const navegacao = document.getElementById("navegacao");
   if(parseFloat(valorTotal()) > 0){
-    switch(typeDelivery){
-      case true: 
-        tela1(telaCarinho,tela); 
-        navegacao.style.display ="none";
-        break;
-      case false:
-        tela2(telaCarinho,tela);
-        navegacao.style.display ="none";
-        break;
+    if(!delivery){
+      tela2(telaCarinho,tela);
+      navegacao.style.display ="none";
+      return;
     }
+    tela1(telaCarinho,tela); 
+    navegacao.style.display ="none";  
+    
   }else{
     alert("por favor faça um pedido!!")
   }
@@ -118,7 +116,7 @@ function tela1(telaCarinho,tela){
           <summary>
             produstos <i class="bi bi-caret-down-fill"></i>
           </summary>
-          ${geraCardsProduct(produtos_escolhidos)}
+          ${geraCardsProduct(produtos_escolhidos)}.
         </details>
       <fieldset class="formas_De_Pagamento">
         <legend>formas de pagamento</legend>
@@ -192,7 +190,5 @@ tela.innerHTML= `
   `
 }
 
-mudarValorDaVariavel();
-geraCardsProduct(produtos_escolhidos);
 
   
