@@ -3,24 +3,26 @@
     display: flex;
     background: black;
     width: 100%;
-    align-items: baseline;
-    height: auto;
-    
+    min-height: 75vh;
 }
 .cardapio_produtos_lanche{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
+    height: fit-content;
 }
 .card{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     background: antiquewhite;
+    color: black;
     margin: .6em;
     border-radius: 1.5em;
     padding: .5em;
+    height: 10em;
 }
 .card > img{ 
     width: 3.8em;
@@ -28,9 +30,9 @@
 }
 .detalhes{
     text-align: center;
-    font-size: smaller;
+    font-size: small;
     font-weight: bold;
-    margin: .2em;
+    margin: 0;
 }
 .buttoncompra{
     background:  #3e8e41;

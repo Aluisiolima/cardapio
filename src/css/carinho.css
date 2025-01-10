@@ -6,7 +6,7 @@
     padding:2em;
 }
 .container_list_produtos{
-    width: 95%;
+    width: 80%;
     margin: 0 auto;
 }
 .title{
@@ -118,7 +118,7 @@
     margin: 0 auto;
     width: 90%;
     border-radius: .4em;
-   
+    color: black;
 }
 .container_pagamentos form{
     width: 90%;
@@ -127,13 +127,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 10em;
+    min-height: 10em;
 }
-.dados input{
+.input_dados{
     width: 70%;
     margin: .6em 0 0 .2em;
     border: none;
-    height: 100%;    
+    height: 2.5em;    
     font-weight: bold;
     border-radius: .5em;
     padding: .3em;
@@ -168,7 +168,7 @@
     flex-direction: column;
     font-weight: bold;
 }
-.finaliza_pedido input{
+.finaly{
     width: 100%;
     border: none;
     border-radius: .4em;
@@ -177,4 +177,14 @@
     height: 2em;
     margin: .3em;
 }
-    
+.erro {
+    border: 2px solid red;
+    animation: vibrar linear 1s;
+}
+@keyframes vibrar {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}

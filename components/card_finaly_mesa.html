@@ -1,0 +1,38 @@
+
+<div class="container_pagamentos">
+  <form>
+    <fieldset class="dados">
+      <legend>dados da mesa</legend>
+      <input class="input_dados" type="text" placeholder="nome" name="nome" required>
+      <input class="input_dados" type="text"  name="mesa" value=true hidden>
+      <input class="input_dados" type="number" placeholder="numero da mesa" name="numero_mesa" required>
+      <input class="input_dados" type="number" placeholder="numero para contato" name="numero_contato">
+    </fieldset>
+    
+    <details class="produtos_escolhidos" id="itensEscolhidos">
+      <summary>
+        produstos <i class="bi bi-caret-down-fill"></i>
+      </summary>
+      
+    </details>
+  
+    <fieldset class="formas_De_Pagamento">
+      <legend>formas de pagamento</legend>
+      <label class="meios_de_pagamento">
+        <img src="./img/form_pagamento/pix.svg" alt="pix" height="50">
+        <input type="radio" name="tipo_pagamento" id="dinheiro" value="pix" required checked>
+      </label>
+      <label class="meios_de_pagamento">
+        <img src="./img/form_pagamento/cartao.svg" alt="cartao" height="50">
+        <input type="radio" name="tipo_pagamento" id="dinheiro" value="cartao" required>
+      </label>
+      <label class="meios_de_pagamento">
+        <img src="./img/form_pagamento/dinheiro.svg" alt="dinheiro" height="50">
+        <input type="radio" name="tipo_pagamento" id="dinheiro" value="dinheiro" required>
+      </label>
+    </fieldset>
+    <div class="finaliza_pedido">
+      <p>valor = R$ {{valor}}</p>
+      <button type="button" class="finaly" onclick="enviaPedido(this)">comprar</button>
+    </div>
+  </form>

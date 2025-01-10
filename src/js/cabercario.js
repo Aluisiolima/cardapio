@@ -1,34 +1,24 @@
 
-//botao que leva ao cardapio
-const home = document.getElementById('home');
-const homec = document.getElementById('homeCont');
-//botao que leva ao cardapio
-const cardapio = document.getElementById('cardapio');
 
-/**
- * essa funcao e responsavel por leva para a home da pagina 
- * ela nao receber parametros mais receber duas variaveis que estam sendo declaradas no cabercario.js 
- * {'home' , 'cardapio'}
- */
 function homeAtive(){
-    const content_resposta = document.getElementById('content-area');
-    content_resposta.style.display = 'none';
-    homec.style.display = 'flex';
+    const home = document.getElementById("home");
+    const cardapio = document.getElementById("cardapio");
     home.style.textDecoration = "underline";
-    cardapio.style.textDecoration = "none";
-
+    cardapio.style.textDecoration = "none"; 
+    document.getElementById("container-area").innerHTML = "";
+    produtosMain[0].forEach(data => {
+        render("./components/card_home.html", data, "container-area");
+    });
 }
-/**
- * essa funcao e responsavel por leva para o cardapio 
- * ela nao receber parametros mais receber duas variaveis que estam sendo declaradas no cabercario.js 
- * {'cardapio' , 'home'}
- */
-async function cardapioAtive() {
-    homec.style.display = 'none';
-    await loadContent('cardapio'); 
 
-    cardapio.style.textDecoration = "underline";
-    home.style.textDecoration = "none";  
+async function cardapioAtive(id) {
+    const home = document.getElementById("home");
+    const cardapio = document.getElementById("cardapio");
+    home.style.textDecoration = "none";
+    cardapio.style.textDecoration = "underline"; 
+    document.getElementById("container-area").innerHTML = "";
+    await render("./components/cardapio-menu.html",null,"container-area");
+    await carregaCardsProdutos(id);
 }
 
 

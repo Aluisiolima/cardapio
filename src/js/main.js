@@ -1,128 +1,72 @@
+const link_api = window.location.hostname != "localhost" ? "" : "http://localhost/Efast/Efast_api";
 
 /**
- * essa e funcao responsavel por te levar pra o carinho e carregar os script dele
+ * Funcao responsavel por requisicoes a api
+ * @param {Array} data - sao os dados enviado na requisicao
+ * @param {String} method - e metodo de requisicao a ser ultizado
+ * @param {String} url - e a url de requisicao
+ * @returns 
  */
-async function carregaCarinho() {
-    await loadContent('carinho');
-    setTimeout(()=>{
-        const script = document.createElement('script');
-
-        script.src = "./src/js/carinho.js";
-
-        document.body.appendChild(script);
-        
-    },100);
-}
-
-async function getDetalhes(id) {
-    const detalhes = document.getElementById('container_detalhes');
-    const content_load = document.getElementById('container_load');
-    content_load.style.display = 'flex';
-
+async function fetchApi(data = [], method = "GET", url) {
     try {
-        const response = await fetch('./components/detalheProduto.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({ id: id }), // Usando URLSearchParams para codificar os dados
-        });
+        // Recupera o token do sessionStorage
+        const token = sessionStorage.getItem("token");
 
-        if (response.ok) { // Verifica se a resposta é 2xx
-            const responseData = await response.text(); // Lê a resposta como texto
-            detalhes.innerHTML = responseData;
-            detalhes.style.display = 'flex';
-            content_load.style.display = 'none';
-            document.body.style.overflow = 'hidden';
-        } else {
-            console.error('Request failed. Status:', response.status);
-            detalhes.innerHTML = 'Erro na solicitação.';
+        const headers = {
+            "Content-Type": "application/json",
+        };
+
+        if (token) {
+            headers.Authorization = `Bearer ${token}`;
+        };
+
+        const options = {
+            method,
+            headers,
+        };
+
+        if (data) {
+            options.body = JSON.stringify(data);
         }
+
+        const response = await fetch(url, options);
+
+        const result = await response.json();
+        return result;
+
     } catch (error) {
-        console.error('Request error:', error);
-        detalhes.innerHTML = 'Erro na solicitação.';
+
+        console.error("Erro ao chamar a API:", error);
+        throw error;
     }
-}
-
-
-function fechaDetalhes(){
-    const detalhes = document.getElementById('container_detalhes');
-    detalhes.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function addCarinho(){
-    //alteracoes de tela [ animacoes ]
-    const tela_detalhes = document.getElementById('container_detalhes');
-    const detalhes = document.getElementById('tela_detalhe');
-    detalhes.classList.add("animate");
-    detalhes.addEventListener("animationend", ()=>{
-        detalhes.classList.remove("animate");
-        detalhes.style.display = "none";
-        tela_detalhes.style.display = "none";
-        document.body.style.overflow = 'auto';
-    })
-
-    
-
-    const id = document.getElementById("imgProduct").alt;
-    const nomeProduto = document.getElementById("nameProduct").textContent;
-    const quantidade = document.getElementById("quantidade").textContent;
-    const imgProduto = document.getElementById("imgProduct").src;
-    const valorProduto = document.getElementById("value").textContent;
-
-    // logica de implementa o produto no carrinho
-    const listProduto = {
-        'id' : Number(id),
-        'quantidade' : String(quantidade),
-        'nome' : String(nomeProduto),
-        'valor' : String(valorProduto),
-        'img' : String(imgProduto)
-    }
-    produtos_escolhidos.push(listProduto);
-    const dir = {id : id, quantidade : quantidade};
-    ids.push(dir);
-    
 }
 
 /**
- * esta funcao manda para o ./config/loadContent.php que ler o para content e retorna a pagina que vc que vc dever ser direcionado
- * @param {any} content este parametro e a pagina que vc quer e ir 
- */   
-async function loadContent(content) {
-    const content_resposta = document.getElementById('content-area');
-    const content_load = document.getElementById('container_load');
-
-    content_load.style.display = 'flex';
-    content_resposta.style.display = 'none';
-
+ * 
+ * @param {String} templatePath - e o path para um arquivo html de template
+ * @param {Array} data - sao os dados a serem dicionados em um arquivo de template
+ * @param {String} targetElementId - e um id de um elemento do dow aonde aloca esse templates com seus repectivos dados
+ */
+async function render(templatePath, data, targetElementId) {
     try {
-        const response = await fetch('./config/loadContent.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: 'content=' + encodeURIComponent(content)
+        const response = await fetch(templatePath);
+        const template = await response.text();
+
+        const rendered = template.replace(/{{\s*(\w+)}}/g, (match, variavel) => {
+            return data[variavel] !== undefined ? data[variavel] : match;
         });
 
-        if (response.ok) {
-            const data = await response.text();
-            content_resposta.innerHTML = data;
-        } else {
-            content_resposta.innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
-        }
+        document.getElementById(targetElementId).innerHTML += rendered;
     } catch (error) {
-        content_resposta.innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
-    } finally {
-        content_resposta.style.display = 'block';
-        content_load.style.display = 'none';
+        console.error(error);
     }
 }
 
-async function cards(tipo) {
-    await cardapioAtive();
-    window.location.href = `#${tipo}`; 
+function reloadCardapio(id) {
+    const key = `id=${id}`;
+    const baseUrl = window.location.origin + window.location.pathname;
+    window.location.href = `${baseUrl}?${key}`;
 }
 
-setInterval(updateCarrinho, 1000);
-homeAtive();
+const empresa = [];
+const produtosMain = [];

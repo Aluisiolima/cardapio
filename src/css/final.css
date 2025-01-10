@@ -1,6 +1,8 @@
-body{
+.container_finaly{
     background: rgb(57, 162, 57);
     color: white;
+    display: flex;
+    align-items: center;
 }
 .ok{
     display: flex;
@@ -11,7 +13,7 @@ body{
     align-items: center;
 }
 .ok i{
-    font-size: 25pc;
+    font-size: 15pc;
     
 }
-p{font-size: 2.5pc;}
+.text_inf{font-size: 2.5pc;}
