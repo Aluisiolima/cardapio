@@ -1,5 +1,5 @@
 async function enviaPedido(form) {
-  const formulario = form.form; 
+  const formulario = form.form;
   const inputs = formulario.querySelectorAll("input[required]"); // Seleciona todos os inputs obrigatórios
   let todosPreenchidos = true;
 
@@ -8,14 +8,14 @@ async function enviaPedido(form) {
       todosPreenchidos = false;
       input.classList.add("erro"); // Destaca os campos vazios (opcional)
       input.addEventListener("animationend", () => {
-        input.classList.remove("erro"); 
+        input.classList.remove("erro");
       });
     } else {
       input.classList.remove("erro"); // Remove o destaque se preenchido
     }
   });
 
-  if(!todosPreenchidos){
+  if (!todosPreenchidos) {
     return;
   }
 
@@ -26,17 +26,22 @@ async function enviaPedido(form) {
     dados[key] = value;
   });
 
-  if(dados["entrega"]){
+  if (dados["entrega"]) {
     dados["entrega"] = Boolean(dados["entrega"]);
-    }else{
-      dados["mesa"] = Boolean(dados["mesa"]);
-    };
+  } else {
+    dados["mesa"] = Boolean(dados["mesa"]);
+  };
 
-    dados["produtos"] = keyProducts;
+  dados["produtos"] = keyProducts;
 
-    const result = await fetchApi(dados,"POST",`${link_api}/inserirPedido/${empresa[0].id_empresa}`);
-    if(!result.error){
-        console.log(result);
-    }
-    console.error(result);
+  const result = await fetchApi(dados, "POST", `${link_api}/inserirPedido/${empresa[0].id_empresa}`);
+  if (!result.error) {
+    document.getElementById("container").innerHTML = ""
+    render("./components/finaly_ok.html", null, "container");
+    criar_mensagem(dados);
+    return;
+  }
+  document.getElementById("container").innerHTML = ""
+  render("./components/finaly_erro.html", null, "container")
+  console.error(result);
 }

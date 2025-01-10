@@ -14,8 +14,11 @@ function valorTotal() {
   for (let i = 0; i < produtos_escolhidos.length; i++) {
     valor_total += parseFloat(produtos_escolhidos[i].valor);
   }
-  document.getElementById("valortotal").textContent = valor_total.toFixed(2);
+  const container_valor = document.getElementById("valortotal");
 
+  if(container_valor){
+    container_valor.textContent = valor_total.toFixed(2);
+  }
   return valor_total.toFixed(2);
 }
 

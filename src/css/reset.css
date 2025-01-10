@@ -16,6 +16,7 @@
 }
 
 #container-area{
+    overflow-y: auto;
     background: black;
     display: flex;
     height: 80vh;
@@ -23,6 +24,7 @@
     justify-content: space-evenly;
     align-items: center;
     width: 100vw;
+    padding: 1em;
 }
 /*Fontes*/
 .open-sans{
