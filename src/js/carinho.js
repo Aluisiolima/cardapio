@@ -70,13 +70,17 @@ function mudarValorDaVariavel(){
 function telaDeEmtrega(){
   const navegacao = document.getElementById("navegacao");
   if(parseFloat(valorTotal()) > 0){
+    const dates = {
+      valor: valorTotal(),
+      keys : keyProducts,
+    };
     document.getElementById("container-area").innerHTML = "";
     const delivery = mudarValorDaVariavel();
     if(!delivery){
-      render("./components/card_finaly_mesa.html",[],"container-area");
+      render("./components/card_finaly_mesa.html",dates,"container-area");
       return;
     }
-    render("./components/card_finaly_delivery.html",[],"container-area"); 
+    render("./components/card_finaly_delivery.html",dates,"container-area"); 
     
   }else{
     alert("por favor faça um pedido!!")

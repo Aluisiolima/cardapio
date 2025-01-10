@@ -45,7 +45,7 @@ function addCarinho() {
 
   } else {
     produtos_escolhidos.push(listProduto);
-    const dir = { id: Number(id), quantidade: Number(quantidade), desconto: Number(desconto) };
+    const dir = { id: Number(id), quantidade: Number(quantidade), desconto_aplicado: Number(desconto) };
     keyProducts.push(dir);
 
   }
