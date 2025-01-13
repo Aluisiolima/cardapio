@@ -42,8 +42,33 @@ async function getDetalhes(id) {
     document.getElementById("container_detalhes").style.display = "flex"
     if (!produto.error && produto.data.length !== 0) {
         produto.data.forEach(data => {
+            data["mensagem"] = mensagens();
             render("./components/card_detalhes.html", data, "container_detalhes");
         })
     }
     document.getElementById("container_load").style.display = "none";
+}
+
+
+function mensagens() {
+    const mensagensPropaganda = [
+        "😋 O sabor que você adora está aqui, esperando por você! Experimente agora! 🍴",
+        "✨ Um toque de magia em cada pedido. Faça parte dessa experiência única! 🌟",
+        "🔥 Chegou o momento de se deliciar com algo especial. Não perca! 🚀",
+        "🎉 Surpreenda-se com algo incrível! Peça agora e aproveite! 🛒",
+        "🌟 Porque você merece o melhor, nós entregamos com qualidade e rapidez! 🚚",
+        "💥 Promoção imperdível hoje! Faça seu pedido e aproveite essa oferta especial! 🤑",
+        "🥳 Tudo o que você precisa para transformar o dia em uma festa está aqui! 🎊",
+        "🧡 Cada detalhe feito para trazer sabor e alegria para você e sua família! 😍",
+        "⏳ Não perca tempo! A felicidade está a apenas um clique de distância! 📲",
+        "💡 Descubra o que temos de mais especial para você. Seu próximo pedido está te esperando! 🤩",
+        "📞 É fácil, rápido e delicioso! Peça agora e aproveite o melhor de nós! ✅",
+        "🍀 Um toque de sabor para iluminar seu dia. Experimente e se encante! 🌈",
+        "🌎 Estamos aqui para trazer mais alegria ao seu momento. Entre em contato agora! 🤗",
+        "🎁 Surpreenda-se com algo novo e delicioso. O que está esperando? Peça já! 📦",
+        "❤️ Porque sua satisfação é nossa prioridade. Estamos prontos para atender você! 🌟"
+    ];
+    const indexMensagem = Math.floor(Math.random() * mensagensPropaganda.length);
+
+    return mensagensPropaganda[indexMensagem];
 }
