@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app1:
+    image: aluiznt/efast:v1.0
+    container_name: app1
+    ports:
+      - "8080:80"
+  
+
+  app2:
+    image: aluiznt/efast:v1.0
+    container_name: app2
+    ports:
+      - "8084:80"
+
+  app3:
+    image: aluiznt/efast:v1.0
+    container_name: app3
+    ports:
+      - "8083:80"
+
+  app4:
+    image: aluiznt/efast:v1.0
+    container_name: app4
+    ports:
+      - "8082:80"
+
+  app5:
+    image: aluiznt/efast:v1.0
+    container_name: app5
+    ports:
+      - "8081:80"
+
+  nginx:
+    build: ./nginx
+    container_name: cardapios
+
+    ports:
+      - "80:80"
+
+    depends_on:
+      - app1
+      - app2
+      - app3
+      - app4
+      - app5
