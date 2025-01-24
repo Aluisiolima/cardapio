@@ -36,6 +36,9 @@ services:
     build: ./nginx
     container_name: cardapios
 
+    ports:
+      - "80:80"
+
     depends_on:
       - app1
       - app2
