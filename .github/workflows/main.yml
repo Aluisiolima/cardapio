@@ -39,6 +39,7 @@ jobs:
           host: ${{ secrets.SSH_SERVER_IP }}
           username: ${{ secrets.SSH_SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
           script: |
             cd /home/u485559575/domains/efastmenu.com/public_html
             docker-compose down
