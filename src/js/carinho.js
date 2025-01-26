@@ -29,6 +29,7 @@ function retirarImgsListaProdutos() {
   }
   return produtos_escolhidos;
 }
+
 function removeItem(id){
 
   const indice = produtos_escolhidos.findIndex(produto => produto.id === Number(id));

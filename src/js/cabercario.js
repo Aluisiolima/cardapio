@@ -19,6 +19,7 @@ async function cardapioAtive(id) {
     document.getElementById("container-area").innerHTML = "";
     await render("./components/cardapio-menu.html",null,"container-area");
     await carregaCardsProdutos(id);
+    updateCarrinho();
 }
 
 
