@@ -1,7 +1,13 @@
 FROM nginx:latest
 
-RUN rm /etc/nginx/conf.d/default.conf
+# Copiar o arquivo de configuração do Nginx para o contêiner
+COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Criar o diretório de cache
+RUN mkdir -p /var/cache/nginx
 
-EXPOSE 80 443
+# Configurar permissões para o diretório de cache
+RUN chown -R nginx:nginx /var/cache/nginx
+
+
+EXPOSE 80
