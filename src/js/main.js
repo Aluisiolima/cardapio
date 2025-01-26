@@ -1,4 +1,4 @@
-const link_api = window.location.hostname != "localhost" ? "" : "http://localhost/Efast/Efast_api";
+const link_api = window.location.hostname != "localhost" ? "https://efastmenu.com/api" : "http://localhost/efast/Efast_api";
 
 /**
  * Funcao responsavel por requisicoes a api
