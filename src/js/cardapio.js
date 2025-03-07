@@ -30,9 +30,8 @@ function addCarinho() {
   const listProduto = {
     "id": Number(id),
     "quantidade": Number(quantidade),
-    "desconto": Number(desconto),
     "nome": String(nomeProduto),
-    "valor": String(valorProduto),
+    "valor": String((valorProduto * (1 - desconto / 100))),
     "path": String(imgProduto),
     "tipo": String(tipoProduto)
   };

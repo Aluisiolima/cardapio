@@ -25,9 +25,10 @@ async function carregaCardsProdutos(id) {
             }
             // render("./components/card_produto.html",data,"produtos");
             container.innerHTML += `<div class="card" >
+                                        <div class="desconto">${(data.desconto === 0) ? "" : data.desconto + "%"}</div>
                                         <img src="${data.path}" alt="${data.tipo}" onerror="NotFoundImg('${data.tipo}', this)">
                                         <p class="detalhes">${data.nome_produto}</p>
-                                        <p class="detalhes">R$ ${data.valor}</p>
+                                        <p class="detalhes">R$ ${(data.valor * (1 - data.desconto / 100)).toFixed(2)}</p>
                                         <button onclick="getDetalhes('${data.id_produto}')" class="buttoncompra">compra</button>
                                     </div>`
 
