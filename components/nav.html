@@ -1,41 +1,33 @@
-
-
 <nav class="cabecario">
-        <div class="logo">
-          <img src="{{path}}" alt="logo" height="30" onerror="this.src='./img/business_icon/foto-perfilempresa.svg'">  
-        <h1> {{nome_empresa}} </h1>
-        </div>
+  <div class="logo">
+    <img
+      src="{{path}}"
+      alt="logo"
+      height="30"
+      onerror="this.src='./img/business_icon/foto-perfilempresa.svg'"
+    />
+    <h1>{{nome_empresa}}</h1>
+  </div>
 
-    <div class="operacional">
-        <div class="link-navegacao" id="navegacao">
-            <div class="links">
-                <p  id="home" onclick="homeAtive()">home</p>
-            </div>
-            <div class="links" >
-                <p id="cardapio" onclick="cardapioAtive('{{id_empresa}}')">cardapio</p>
-            </div>
-        </div>
-
-        <div class="contatos">
-            <ul>
-                <li>
-                    <a href="https://wa.me/{{whatsapp}}">
-                        <i class="bi bi-whatsapp" style="font-size: 1.5em;"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/{{instagram}}/">
-                        <i class="bi bi-instagram" style="font-size: 1.5em;margin-left: .5em;"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/{{facebook}}">
-                        <i class="bi bi-facebook" style="font-size: 1.5em;margin-left: .5em;"></i>
-                    </a>
-                </li>
-            </ul>
-        
-            
-        </div>
+  <div class="operacional">
+    <div class="link-navegacao" id="navegacao">
+      <div class="links">
+        <p id="home" onclick="homeAtive()">home</p>
+      </div>
+      <div class="links">
+        <p id="cardapio" onclick="cardapioAtive('{{id_empresa}}')">cardapio</p>
+      </div>
     </div>
-</nav> 
+
+    <div class="contatos">
+      <ul>
+        <li>
+          <a href="https://wa.me/{{whatsapp}}">
+            <i class="bi bi-whatsapp" style="font-size: 1.5em"></i>
+          </a>
+        </li>
+        {{networksNav}}
+      </ul>
+    </div>
+  </div>
+</nav>
