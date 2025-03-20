@@ -2,11 +2,18 @@ function NotFoundImg(tipo, img) {
   const tiposImgs = {
     pizza: "./img/default/Pizza_padrao.svg",
     hamburguer: "./img/default/Hambúrguer_padrao.svg",
+    hambuguer: "./img/default/Hambúrguer_padrao.svg",
     bebida: "./img/default/Bebida_padrao.svg",
-    default: "./img/default/Pizza_padrao.svg"
+    bebidas: "./img/default/Bebida_padrao.svg",
+    adicionais: "./img/default/adicionais.jpeg",
+    artesanal: "./img/default/artersanais.png",
+    porção: "./img/default/batatinha.webp",
+    sucos: "./img/default/sucos.webp",
+    default: "./img/default/Pizza_padrao.svg",
   }
+  const tipoSemEspaco = tipo.replace(/\s+/g, "");
 
-  img.src = tiposImgs[tipo] || tiposImgs.default;
+  img.src = tiposImgs[tipoSemEspaco] || tiposImgs.default;
 }
 
 function fechaDetalhes() {
