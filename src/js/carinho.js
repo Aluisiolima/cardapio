@@ -12,7 +12,7 @@ function valorTotal() {
   let valor_total = 0;
 
   for (let i = 0; i < produtos_escolhidos.length; i++) {
-    valor_total += parseFloat(produtos_escolhidos[i].valor);
+    valor_total += parseFloat((produtos_escolhidos[i].valor * produtos_escolhidos[i].quantidade));
   }
   const container_valor = document.getElementById("valortotal");
 
