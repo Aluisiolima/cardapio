@@ -91,6 +91,7 @@ async function telaDeEmtrega(){
     produtos_escolhidos.forEach(element => {
       render("./components/card_produto_pagamento.html",element,"itensEscolhidos");
     });
+    await calcFrete();
   }else{
     alert("por favor faça um pedido!!")
   }

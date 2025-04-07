@@ -12,7 +12,7 @@
     </fieldset>
     <details class="produtos_escolhidos" id="itensEscolhidos">
       <summary>
-        produstos <i class="bi bi-caret-down-fill"></i>
+        produtos <i class="bi bi-caret-down-fill"></i>
       </summary>
         
     </details>
@@ -32,7 +32,8 @@
       </label>
     </fieldset>
     <div class="finaliza_pedido">
-      <p>valor = {{valor}}</p>
+      <p id="frete"></p>
+      <p>valor = <span id="valor">{{valor}}</span></p>
       <button type="button" class="finaly" onclick="enviaPedido(this)">comprar</button>
     </div>
   </form>
