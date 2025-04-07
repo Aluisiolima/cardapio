@@ -68,5 +68,38 @@ function reloadCardapio(id) {
     window.location.href = `${baseUrl}?${key}`;
 }
 
+async function calcFrete() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        let latitude =  position.coords.latitude;
+        let longitude =  position.coords.longitude;
+        
+        const dates = {
+          "lat": latitude,
+          "lon": longitude
+        };
+       
+        const frete = await fetchApi(dates, "POST", `${link_api}/calcFrete/${params.get("id")}`);
+
+        if (!frete.error) {
+            document.getElementById("frete").innerText = `frete = ${frete.data.frete}`;
+        }
+      },
+      (error) => {
+        console.error("Erro ao obter localização:", error);
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000, 
+        maximumAge: 0    
+      }
+    );
+  } else {
+      console.error("Geolocalização não é suportada pelo navegador.");
+  }
+}
+
+
 const empresa = [];
 const produtosMain = [];
