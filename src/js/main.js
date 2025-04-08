@@ -53,6 +53,10 @@ async function render(templatePath, data, targetElementId) {
         const template = await response.text();
 
         const rendered = template.replace(/{{\s*(\w+)}}/g, (match, variavel) => {
+            if (typeof data[variavel] === "number" && !Number.isInteger(data[variavel])) {
+              data[variavel] = (data[variavel]).toFixed(2)
+            }
+    
             return data[variavel] !== undefined ? data[variavel] : match;
         });
 
