@@ -58,7 +58,7 @@ async function render(templatePath, data, targetElementId) {
             }
     
             return data[variavel] !== undefined ? data[variavel] : match;
-        });
+        })
 
         document.getElementById(targetElementId).innerHTML += rendered;
     } catch (error) {
