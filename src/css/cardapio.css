@@ -23,7 +23,8 @@
   margin: 0.6em;
   border-radius: 1.5em;
   padding: 0.5em;
-  height: 10em;
+  max-width: 33.3333vw;
+  height: fit-content;
 }
 .card > img {
   width: 3.8em;
