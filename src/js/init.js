@@ -1,6 +1,6 @@
 
 const url = window.location.href;
-
+//teste
 const params = new URLSearchParams(new URL(url).search);
 
 // Verifica se a chave 'id' está presente
