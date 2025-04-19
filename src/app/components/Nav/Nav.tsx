@@ -9,7 +9,7 @@ type NavProps = {
     facebook: string | null;
 }
 
-export const Nav: React.FC<{data: NavProps}> = ({ data }) => {
+export const Nav: React.FC<{data: NavProps, onTroca: (nome: string) => void}> = ({ data, onTroca }) => {
     const icons = [
         { key: "whatsapp", className: "bi bi-whatsapp", prefix: "https://wa.me/" },
         { key: "facebook", className: "bi bi-facebook", prefix: "https://www.facebook.com/" },
@@ -31,10 +31,10 @@ export const Nav: React.FC<{data: NavProps}> = ({ data }) => {
             <div className="operacional">
                 <div className="link-navegacao" id="navegacao">
                     <div className="links">
-                        <p id="home" onClick={() => {alert("cardapio")}}>home</p>
+                        <p id="home" onClick={() => {onTroca("Home")}}>home</p>
                     </div>
                     <div className="links">
-                        <p id="cardapio" onClick={() => {alert("cardapio")}}>cardapio</p>
+                        <p id="cardapio" onClick={() => {onTroca("Cardapio")}}>cardapio</p>
                     </div>
                 </div>
 
