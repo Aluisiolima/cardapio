@@ -13,7 +13,7 @@ import { ResponseApi } from "../types/Response.type";
  * @example
  * const response = await fetchApi([{ name: "John" }], "POST", "/api/users");
  */
-export async function fetchApi(data: [] | null, method: string, url: string): Promise<ResponseApi> {
+export async function fetchApi<T>(data: [] | null, method: string, url: string): Promise<T | null> {
     try {
 
         const token = sessionStorage.getItem("token");
@@ -37,8 +37,14 @@ export async function fetchApi(data: [] | null, method: string, url: string): Pr
 
         const response = await fetch(url, options);
 
-        const result: ResponseApi = await response.json();
-        return result;
+        const result: ResponseApi<T> = await response.json();
+
+        if (result.error) {
+            console.log(result.message);
+            return null;
+        }
+
+        return result.data;
 
     } catch (error) {
         console.error("Erro ao chamar a API:", error);

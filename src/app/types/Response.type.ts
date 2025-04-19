@@ -1,6 +1,6 @@
-export type ResponseApi = {
+export type ResponseApi<T> = {
     error:boolean;
     sucess:boolean;
-    data?: [] | null;
-    message?: string | null;
+    data: T | null;
+    message: string | null;
 }
