@@ -1,5 +1,6 @@
 import "./Nav.css";
 import logo from "../../asset/image.png";
+import { useState } from "react";
 
 type NavProps = {
     path: string;
@@ -9,7 +10,9 @@ type NavProps = {
     facebook: string | null;
 }
 
-export const Nav: React.FC<{data: NavProps, onTroca: (nome: string) => void}> = ({ data, onTroca }) => {
+export const Nav: React.FC<{ data: NavProps, onTroca: (nome: string) => void }> = ({ data, onTroca }) => {
+    const [cardapio, setCadapio] = useState<boolean>(false);
+
     const icons = [
         { key: "whatsapp", className: "bi bi-whatsapp", prefix: "https://wa.me/" },
         { key: "facebook", className: "bi bi-facebook", prefix: "https://www.facebook.com/" },
@@ -23,7 +26,7 @@ export const Nav: React.FC<{data: NavProps, onTroca: (nome: string) => void}> = 
                     src={data.path}
                     alt="logo"
                     height={30}
-                    onError={(e) => {(e.currentTarget as HTMLImageElement).src = logo}}
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = logo }}
                 />
                 <h1>{data.nome_empresa}</h1>
             </div>
@@ -31,10 +34,11 @@ export const Nav: React.FC<{data: NavProps, onTroca: (nome: string) => void}> = 
             <div className="operacional">
                 <div className="link-navegacao" id="navegacao">
                     <div className="links">
-                        <p id="home" onClick={() => {onTroca("Home")}}>home</p>
+                        <p 
+                        id="home" onClick={(e) => { onTroca("Home"); setCadapio(false) }} style={{ textDecoration: cardapio === false ? "underline" : "none" }}>home</p>
                     </div>
                     <div className="links">
-                        <p id="cardapio" onClick={() => {onTroca("Cardapio")}}>cardapio</p>
+                        <p id="cardapio" onClick={(e) => { onTroca("Cardapio"); setCadapio(true) }} style={{ textDecoration: cardapio === true ? "underline" : "none" }}>cardapio</p>
                     </div>
                 </div>
 
@@ -46,7 +50,7 @@ export const Nav: React.FC<{data: NavProps, onTroca: (nome: string) => void}> = 
                             return (
                                 <li key={key}>
                                     <a href={`${prefix}${url}`} target="_blank" rel="noopener noreferrer">
-                                        <i className={`${className}`} style={{fontSize: "1.5em", marginLeft: ".5em"}}></i>
+                                        <i className={`${className}`} style={{ fontSize: "1.5em", marginLeft: ".5em" }}></i>
                                     </a>
                                 </li>
                             );

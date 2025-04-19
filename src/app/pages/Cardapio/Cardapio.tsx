@@ -13,7 +13,6 @@ import { Load } from "../../components/Load/Load";
 export const Cardapio: React.FC = () => {
     const { id } = useParams();
     const [empresaData, setEmpresaData] = useState<Empresa | null | "notfound">(null);
-    const [loading, setLoading] = useState(true);
     const [component, setComponent] = useState<string>("Home");
 
     const components: Record<string, JSX.Element> = {
