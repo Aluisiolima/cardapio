@@ -35,7 +35,7 @@ export async function fetchApi<T>(data: [] | null, method: string, url: string):
             options.body = JSON.stringify(data);
         }
 
-        const apiKey = process.env.REACT_APP_API_KEY;
+        const apiKey = process.env.REACT_APP_LINK_API;
 
         const response = await fetch(`${apiKey}${url}`, options);
 
