@@ -6,7 +6,7 @@ import { navigate } from "wouter/use-browser-location";
 import { Nav } from "../../components/Nav/Nav";
 import { Main } from "../../components/Main/Main";
 import { Footer } from "../../components/Footer/Footer";
-import { Destaques } from "../../components/Destaques/Destaques";
+import { Destaque } from "../../components/Destaques/Destaques";
 import { Menu } from "../../components/Menu/Menu";
 import { Load } from "../../components/Load/Load";
 
@@ -16,7 +16,7 @@ export const Cardapio: React.FC = () => {
     const [component, setComponent] = useState<string>("Home");
 
     const components: Record<string, JSX.Element> = {
-        Home: <Destaques />,
+        Home: <Destaque />,
         Cardapio: <Menu />,
         Load: <Load />,
        

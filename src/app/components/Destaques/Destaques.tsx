@@ -8,7 +8,7 @@ type Destaques = {
     tipo: string;
 }
 
-export const Destaques: React.FC = (): JSX.Element => {
+export const Destaque: React.FC = (): JSX.Element => {
     const { id } = useParams();
     const [data, setData] = useState<Destaques[] | null>(null);
 
