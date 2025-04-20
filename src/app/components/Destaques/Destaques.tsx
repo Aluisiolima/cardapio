@@ -15,8 +15,7 @@ export const Destaque: React.FC = (): JSX.Element => {
     useEffect(() => {
         const getProdutos = async () => {
             try {
-                const apiKey = process.env.REACT_APP_API_KEY;
-                const result = await fetchApi<Destaques[]>(null, "GET", `${apiKey}/pegarProdutos/${id}/main`);
+                const result = await fetchApi<Destaques[]>(null, "GET", `/pegarProdutos/${id}/main`);
                 setData(result);
             } catch (error) {
                 console.error(error);

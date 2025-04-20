@@ -25,8 +25,7 @@ export const Cardapio: React.FC = () => {
     useEffect(() => {
         const getEmpresa = async () => {
             try {
-                const apiKey = process.env.REACT_APP_API_KEY;
-                const result = await fetchApi<Empresa>(null, "GET", `${apiKey}/pegarEmpresa/${id}`);
+                const result = await fetchApi<Empresa>(null, "GET", `/pegarEmpresa/${id}`);
                 setEmpresaData(result);
             } catch (error) {
                 console.error(error);

@@ -12,8 +12,7 @@ export const Menu: React.FC = () => {
     useEffect(() => {
         const getEmpresa = async () => {
             try {
-                const apiKey = process.env.REACT_APP_API_KEY;
-                const result = await fetchApi<Product[]>(null, "GET", `${apiKey}/pegarProdutos/${id}`);
+                const result = await fetchApi<Product[]>(null, "GET", `/pegarProdutos/${id}`);
                 setData(result);
             } catch (error) {
                 console.error(error);
