@@ -36,7 +36,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
                             if (key === "maps") {
                                 return (
                                     <li className="margin-bottom" key={key}>
-                                        <a href="#" className="a" target="_blank" rel="noopener noreferrer">
+                                        <a href="/" className="a" target="_blank" rel="noopener noreferrer">
                                             <span>
                                                 <i className={className} style={{margin: ".5em"}}></i>
                                                  { data.endereco }
