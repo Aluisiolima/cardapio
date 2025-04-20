@@ -1,5 +1,5 @@
 import "./Nav.css";
-import logo from "../../asset/image.png";
+import logo from "../../asset/defualt/image.png";
 import { useState } from "react";
 
 type NavProps = {

@@ -4,7 +4,7 @@ import { Load } from "../Load/Load";
 import { useParams } from "wouter";
 import { fetchApi } from "../../utils/req";
 import "./Menu.css";
-
+import { bebida,adicionais,artesanais,batatinha,hamburguer,pizza,sucos } from "../../asset/defualt";
 export const Menu: React.FC = () => {
     const { id } = useParams();
     const [data, setData] = useState<Product[] | null>(null);
@@ -28,7 +28,21 @@ export const Menu: React.FC = () => {
     };
 
     const handleImageError = (tipo: string, e: React.SyntheticEvent<HTMLImageElement>) => {
-        (e.target as HTMLImageElement).src = "";
+        const tiposImgs: Record<string, string> = {
+            pizza: pizza,
+            hamburguer: hamburguer,
+            hambuguer: hamburguer,
+            bebida: bebida,
+            bebidas: bebida,
+            adicionais: adicionais,
+            artesanal: artesanais,
+            porção: batatinha,
+            sucos: sucos,
+            default: pizza,
+        }
+        const tipoSemEspaco = tipo.replace(/\s+/g, "");
+
+        (e.target as HTMLImageElement).src = tiposImgs[tipoSemEspaco] || tiposImgs.default;
     };
 
     const handleDetalhes = (id: number) => {
