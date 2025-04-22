@@ -6,3 +6,11 @@ export type Product = {
     path: string;
     desconto: number;
 }
+export type ProductStoreIds = {
+    id: number;
+    quantidade: number;
+    desconto_aplicado: number; 
+}
+export type ProductCarrinho = Product & {
+    quantidade: number;
+}

@@ -1,9 +1,13 @@
-import { Product } from "../../types/Product.type";
+import { useState } from "react";
 import { Load } from "../Load/Load";
 import "./Menu.css";
+import { Product } from "../../types/Product.type";
 import { bebida, adicionais, artesanais, batatinha, hamburguer, pizza, sucos } from "../../asset/defualt";
+import { Detalhes } from "../Detalhes/Detalhes";
 
 export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
+    const [idDetalhes, setDetalhes] = useState<number>(0);
+    const [onCloseDatalhes, onClose] = useState<boolean>(true);
 
     const getPrecoComDesconto = (valor: number, desconto: number): string => {
         return (valor * (1 - desconto / 100)).toFixed(2);
@@ -28,7 +32,8 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
     };
 
     const handleDetalhes = (id: number) => {
-        console.log("Detalhes do produto:", id);
+        setDetalhes(id);
+        onClose(false);
     };
 
     const grouped = data?.reduce((acc, item) => {
@@ -65,7 +70,7 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
                                         R$ {getPrecoComDesconto(+produto.valor, produto.desconto)}
                                     </p>
                                     <button
-                                        onClick={() => handleDetalhes(produto.id_produto)}
+                                        onClick={() => {handleDetalhes(produto.id_produto); onClose(false)}}
                                         className="buttoncompra"
                                     >
                                         compra
@@ -84,7 +89,10 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
                 </button>
             </div>
 
-            <div id="container_detalhes" className="container_detalhais"></div>
+            {!onCloseDatalhes ? (<div id="container_detalhes" className="container_detalhais">
+                <Detalhes id={idDetalhes} notFound={handleImageError} onClose={onClose}/>
+            </div>
+            ) : (<></>)}
         </div>
 
     );

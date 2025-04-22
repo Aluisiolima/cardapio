@@ -1,0 +1,142 @@
+
+.container_detalhais{ 
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #00000028;
+}
+.volta{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.volta button{
+    background: #3e8e41;
+    border: none;
+    border-radius: .5em;
+    width: 2rem;
+    height: 2rem;
+
+}
+
+.janela_detalhe{
+    position: fixed;
+    transform: translate(-50%, -50%); /* Centraliza o card */
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transition: opacity 0.5s; 
+    transition: translate 0.5s;
+        
+}
+.detalhe{
+    background: rgb(18, 18, 18);
+    border-radius: .2em;
+    padding: 1em;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.tamanho,#mais1,#menos1{
+    width: 3em;
+    font-size: 1em;
+    border-radius: 0.5em;
+    border: 1px solid black;
+    background: beige;
+    margin: .2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inf_produto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.produto_detalhes{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: center;
+    width: 60%;
+    color: white;
+}
+.produto_detalhes> img{
+    width: 100%;
+}
+.quantidade{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.descricao{
+    background: #c7c7c7;
+    display: flex;
+    width: 40%;
+    padding: .8em;
+}
+
+.value{
+    color: #c7c7c7;
+}
+
+.config{
+    width: 100%;
+    display: flex;
+}
+#adicionarCarrinho{
+    width: 80%;
+    height: 2em;
+    background-color: #3e8e41;
+    border: none;
+    border-radius: .3em;
+    margin: 0 auto;
+}
+@keyframes moveAndShrink {
+    0% {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(10%, 35%) scale(0.1);
+        opacity: 0;
+    }
+}
+
+.animate {
+    animation: moveAndShrink 0.5s linear forwards;
+}
+
+@media (min-width: 800px) {
+    .janela_detalhe{
+        width: 50%;
+    }
+    @keyframes moveAndShrink {
+        0% {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(50%,10%)  scale(0.1);
+            opacity: 0;
+        }
+    }
+    
+    .animate {
+        animation: moveAndShrink 1s linear ;
+    }
+}
