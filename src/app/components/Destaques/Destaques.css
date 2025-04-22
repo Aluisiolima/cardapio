@@ -7,22 +7,7 @@
   justify-content: center;
   font-size: xxx-large;
   text-shadow: 2px 2px 4px #000000;
-}
-.pizza {
-  /* background-image: url("../../img/screens/pizzas.svg"); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.hamburguer {
-  /* background-image: url("../../img/screens/hamburguer.svg"); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.bebida {
-  /* background-image: url("../../img/screens/bebidas.svg"); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  border: 4px white inset;
+  border-radius: 10px;
+  background: gray;
 }

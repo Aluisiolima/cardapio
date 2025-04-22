@@ -2,47 +2,56 @@ import { JSX, useEffect, useState } from "react"
 import { useParams } from "wouter"
 import { Empresa } from "../../types/Empresa.type";
 import { fetchApi } from "../../utils/req";
-import { navigate } from "wouter/use-browser-location";
 import { Nav } from "../../components/Nav/Nav";
 import { Main } from "../../components/Main/Main";
 import { Footer } from "../../components/Footer/Footer";
 import { Destaque } from "../../components/Destaques/Destaques";
 import { Menu } from "../../components/Menu/Menu";
 import { Load } from "../../components/Load/Load";
+import { Product } from "../../types/Product.type";
+import { Destaques } from "../../types/Destaques.type";
+import {  } from "../../asset/defualt"
 
 export const Cardapio: React.FC = () => {
     const { id } = useParams();
-    const [empresaData, setEmpresaData] = useState<Empresa | null | "notfound">(null);
+    const [empresaData, setEmpresaData] = useState<Empresa | null >(null);
+    const [produtoData, setDataProduto] = useState<Product[] | null>(null);
+    const [destaquesData, setDataDestaques] = useState<Destaques[] | null>(null);
     const [component, setComponent] = useState<string>("Home");
 
     const components: Record<string, JSX.Element> = {
-        Home: <Destaque />,
-        Cardapio: <Menu />,
+        Home: <Destaque data={destaquesData}/>,
+        Cardapio: <Menu data={produtoData}/>,
         Load: <Load />,
        
     }
 
     useEffect(() => {
-        const getEmpresa = async () => {
+        const fetchAllData = async () => {
             try {
-                const result = await fetchApi<Empresa>(null, "GET", `/pegarEmpresa/${id}`);
-                setEmpresaData(result);
+                const [empresa, produtos, destaques] = await Promise.all([
+                    fetchApi<Empresa>(null, "GET", `/pegarEmpresa/${id}`),
+                    fetchApi<Product[]>(null, "GET", `/pegarProdutos/${id}`),
+                    fetchApi<Destaques[]>(null, "GET", `/pegarProdutos/${id}/main`)
+                ]);
+    
+                setEmpresaData(empresa);
+                setDataProduto(produtos);
+                setDataDestaques(destaques);
             } catch (error) {
                 console.error(error);
-                setEmpresaData("notfound");
+                setEmpresaData(null);
+                setDataProduto(null);
+                setDataDestaques(null);
             }
         };
-
-        getEmpresa();
+    
+        fetchAllData();
     }, [id]);
+    
 
-    useEffect(() => {
-        if (empresaData === "notfound") {
-            navigate("/");
-        }
-    }, [empresaData]);
+    if (!empresaData) return <Load />;
 
-    if (!empresaData || empresaData === "notfound") return <></>;
 
     window.document.title = empresaData.nome_empresa;
     return (
