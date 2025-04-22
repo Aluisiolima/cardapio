@@ -4,6 +4,7 @@ import "./Menu.css";
 import { Product } from "../../types/Product.type";
 import { bebida, adicionais, artesanais, batatinha, hamburguer, pizza, sucos } from "../../asset/defualt";
 import { Detalhes } from "../Detalhes/Detalhes";
+import { ProductStore } from "../../utils/productStore";
 
 export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
     const [idDetalhes, setDetalhes] = useState<number>(0);
@@ -56,7 +57,7 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
                         </div>
                         <div className="cardapio_produtos_lanche" id="produtos">
                             {produtos.map((produto) => (
-                                <div className="card" key={produto.id_produto}>
+                                <div className="card" key={produto.id_produto} onClick={() => {handleDetalhes(produto.id_produto); onClose(false)}}>
                                     <div className="desconto">
                                         {produto.desconto === 0 ? "" : `${produto.desconto}%`}
                                     </div>
@@ -83,7 +84,7 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
                 ))
             )}
             <div>
-                <p id="Ncompras" className="numerador"></p>
+                <p id="Ncompras" className="numerador">{(ProductStore.getProdutos()).length}</p>
                 <button id="button_carinho">
                     <i className="bi bi-cart4"></i>
                 </button>

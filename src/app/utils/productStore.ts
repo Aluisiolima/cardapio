@@ -12,11 +12,38 @@ export class ProductStore {
      */
     public static addProduto(produto: ProductCarrinho): void {
         const produtoExistente = this.produtos.find(p => p.id_produto === produto.id_produto);
+        const produtoIdExistente = this.ids.find(p => p.id_produto === produto.id_produto);
         if (produtoExistente) {
-            produtoExistente.quantidade += 1;
-        }else {
+            produtoExistente.quantidade += produto.quantidade;
+        } else {
             this.produtos.push(produto);
         }
-        console.log(this.produtos);
+        if (produtoIdExistente) {
+            produtoIdExistente.quantidade += produto.quantidade;
+        } else {
+            this.ids.push({ id_produto: produto.id_produto, quantidade: produto.quantidade, desconto_aplicado: produto.desconto });
+        }
+
     }
+
+    public static removeProduto(id_produto: number): void {
+        this.produtos = this.produtos.filter(produto => produto.id_produto !== id_produto);
+        this.ids = this.ids.filter(produto => produto.id_produto !== id_produto);
+    }
+
+    public static valorTotal(): number {
+        return this.produtos.reduce((total, produto) => {
+            const valorComDesconto = produto.valor - (produto.valor * (produto.desconto / 100));
+            return total + (valorComDesconto * produto.quantidade);
+        }, 0);
+    }
+
+    public static getProdutos(): ProductCarrinho[] {
+        return this.produtos;
+    }
+
+    public static getIds(): ProductStoreIds[] {
+        return this.ids;
+    }
+
 }

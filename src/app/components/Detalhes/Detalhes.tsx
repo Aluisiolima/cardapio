@@ -58,7 +58,10 @@ export const Detalhes: React.FC<Props> = ({ id, notFound, onClose }) => {
                 <p className="value"> valor = <span id="value" product-value={data.valor}>{data.valor}</span> </p>
                 <p className="value"> desconto atual: <span id="desconto"> {data.desconto} </span>% </p>
                 <div className="config">
-                    <button id="adicionarCarrinho" onClick={() => ProductStore.addProduto({ ...data, quantidade })}>add carrinho</button>
+                    <button id="adicionarCarrinho" onClick={() => {
+                        ProductStore.addProduto({ ...data, quantidade });
+                        onClose(true)
+                        }}>add carrinho</button>
                 </div>
             </div>
         </div>

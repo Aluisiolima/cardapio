@@ -25,7 +25,6 @@
   margin: 0.6em;
   border-radius: 1.5em;
   padding: 0.5em;
-  max-width: 26vw;
   height: fit-content;
 }
 .card > img {
@@ -102,8 +101,8 @@
 .numerador {
   text-align: center;
   color: white;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
   font-weight: bold;
   border: none;
   border-radius: 50%;
@@ -111,6 +110,7 @@
   z-index: 1001;
   right: 75px;
   bottom: 55px;
+  font-size: x-large;
 }
 .title_tipo {
   grid-column: 1 / -1;
