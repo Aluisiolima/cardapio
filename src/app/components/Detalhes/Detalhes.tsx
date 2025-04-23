@@ -4,14 +4,14 @@ import { Load } from "../Load/Load";
 import "./Detalhes.css";
 import { ProductStore } from "../../utils/productStore";
 import { fetchApi } from "../../utils/req";
+import { ImageError } from "../../utils/ImageError";
 
 type Props = {
     id: number;
     onClose: (close: boolean) => void;
-    notFound: (tipo: string, e: React.SyntheticEvent<HTMLImageElement>) => void;
 }
 
-export const Detalhes: React.FC<Props> = ({ id, notFound, onClose }) => {
+export const Detalhes: React.FC<Props> = ({ id, onClose }) => {
     const [data, setData] = useState<Product | null>(null);
     const [quantidade, setQuantidade] = useState<number>(1);
 
@@ -42,7 +42,7 @@ export const Detalhes: React.FC<Props> = ({ id, notFound, onClose }) => {
             <div className="detalhe">
                 <div className="inf_produto">
                     <div className="produto_detalhes">
-                        <img src={data.path} id={"imgProduct"} alt={data.tipo} style={{width: "200px"}} onError={(e) => notFound(data.tipo, e)} />
+                        <img src={data.path} id={"imgProduct"} alt={data.tipo} style={{width: "200px"}} onError={(e) => ImageError(data.tipo, e)} />
                         <div className="quantidade">
                             <button id="menos1" onClick={() => setQuantidade(prev => Math.max(1, prev - 1))}>-</button>
                             <p id="quantidade">{quantidade}</p>
@@ -55,8 +55,7 @@ export const Detalhes: React.FC<Props> = ({ id, notFound, onClose }) => {
                     </div>
                 </div>
                 <p id="nameProduct"> {data.nome_produto}</p>
-                <p className="value"> valor = <span id="value" product-value={data.valor}>{data.valor}</span> </p>
-                <p className="value"> desconto atual: <span id="desconto"> {data.desconto} </span>% </p>
+                <p className="value"> valor = {((data.valor * (1 - data.desconto / 100)) * quantidade).toFixed(2)}</p>
                 <div className="config">
                     <button id="adicionarCarrinho" onClick={() => {
                         ProductStore.addProduto({ ...data, quantidade });

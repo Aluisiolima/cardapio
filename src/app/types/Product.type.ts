@@ -8,7 +8,7 @@ export type Product = {
 }
 
 export type ProductStoreIds = {
-    id_produto: number;
+    id: number;
     quantidade: number;
     desconto_aplicado: number; 
 }

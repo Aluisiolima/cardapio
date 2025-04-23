@@ -13,7 +13,7 @@ import { ResponseApi } from "../types/Response.type";
  * @example
  * const response = await fetchApi([{ name: "John" }], "POST", "/api/users");
  */
-export async function fetchApi<T>(data: [] | null, method: string, url: string): Promise<T | null> {
+export async function fetchApi<T>(data: any | null, method: string, url: string): Promise<T | null> {
     try {
 
         const token = sessionStorage.getItem("token");

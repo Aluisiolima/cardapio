@@ -12,7 +12,7 @@ export class ProductStore {
      */
     public static addProduto(produto: ProductCarrinho): void {
         const produtoExistente = this.produtos.find(p => p.id_produto === produto.id_produto);
-        const produtoIdExistente = this.ids.find(p => p.id_produto === produto.id_produto);
+        const produtoIdExistente = this.ids.find(p => p.id === produto.id_produto);
         if (produtoExistente) {
             produtoExistente.quantidade += produto.quantidade;
         } else {
@@ -21,14 +21,14 @@ export class ProductStore {
         if (produtoIdExistente) {
             produtoIdExistente.quantidade += produto.quantidade;
         } else {
-            this.ids.push({ id_produto: produto.id_produto, quantidade: produto.quantidade, desconto_aplicado: produto.desconto });
+            this.ids.push({ id: produto.id_produto, quantidade: produto.quantidade, desconto_aplicado: produto.desconto });
         }
 
     }
 
     public static removeProduto(id_produto: number): void {
         this.produtos = this.produtos.filter(produto => produto.id_produto !== id_produto);
-        this.ids = this.ids.filter(produto => produto.id_produto !== id_produto);
+        this.ids = this.ids.filter(produto => produto.id !== id_produto);
     }
 
     public static valorTotal(): number {

@@ -11,6 +11,9 @@ import { Load } from "../../components/Load/Load";
 import { Product } from "../../types/Product.type";
 import { Destaques } from "../../types/Destaques.type";
 import {  } from "../../asset/defualt"
+import { Carinho } from "../../components/Carinho/Carinho";
+import { Delivery } from "../../components/CardEntrega/Delivery";
+import { Mesa } from "../../components/CardEntrega/Mesa";
 
 export const Cardapio: React.FC = () => {
     const { id } = useParams();
@@ -21,7 +24,10 @@ export const Cardapio: React.FC = () => {
 
     const components: Record<string, JSX.Element> = {
         Home: <Destaque data={destaquesData}/>,
-        Cardapio: <Menu data={produtoData}/>,
+        Cardapio: <Menu data={produtoData} onTroca={setComponent}/>,
+        Carinho: <Carinho onTroca={setComponent}/>,
+        Delivery: <Delivery />,
+        Mesa: <Mesa />,
         Load: <Load />,
        
     }

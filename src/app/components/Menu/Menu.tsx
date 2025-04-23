@@ -2,34 +2,16 @@ import { useState } from "react";
 import { Load } from "../Load/Load";
 import "./Menu.css";
 import { Product } from "../../types/Product.type";
-import { bebida, adicionais, artesanais, batatinha, hamburguer, pizza, sucos } from "../../asset/defualt";
 import { Detalhes } from "../Detalhes/Detalhes";
 import { ProductStore } from "../../utils/productStore";
+import { ImageError } from "../../utils/ImageError";
 
-export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
+export const Menu: React.FC<{ data: Product[] | null, onTroca: (nome: string) => void}> = ({ data, onTroca }) => {
     const [idDetalhes, setDetalhes] = useState<number>(0);
     const [onCloseDatalhes, onClose] = useState<boolean>(true);
 
     const getPrecoComDesconto = (valor: number, desconto: number): string => {
         return (valor * (1 - desconto / 100)).toFixed(2);
-    };
-
-    const handleImageError = (tipo: string, e: React.SyntheticEvent<HTMLImageElement>) => {
-        const tiposImgs: Record<string, string> = {
-            pizza: pizza,
-            hamburguer: hamburguer,
-            hambuguer: hamburguer,
-            bebida: bebida,
-            bebidas: bebida,
-            adicionais: adicionais,
-            artesanal: artesanais,
-            porção: batatinha,
-            sucos: sucos,
-            default: pizza,
-        }
-        const tipoSemEspaco = tipo.replace(/\s+/g, "");
-
-        (e.target as HTMLImageElement).src = tiposImgs[tipoSemEspaco] || tiposImgs.default;
     };
 
     const handleDetalhes = (id: number) => {
@@ -64,7 +46,7 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
                                     <img
                                         src={produto.path}
                                         alt={produto.tipo}
-                                        onError={(e) => handleImageError(produto.tipo, e)}
+                                        onError={(e) => ImageError(produto.tipo, e)}
                                     />
                                     <p className="detalhes">{produto.nome_produto}</p>
                                     <p className="detalhes">
@@ -83,7 +65,7 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
                     </div>
                 ))
             )}
-            <div>
+            <div onClick={() => onTroca("Carinho")} className="carinho">
                 <p id="Ncompras" className="numerador">{(ProductStore.getProdutos()).length}</p>
                 <button id="button_carinho">
                     <i className="bi bi-cart4"></i>
@@ -91,7 +73,7 @@ export const Menu: React.FC<{ data: Product[] | null }> = ({ data }) => {
             </div>
 
             {!onCloseDatalhes ? (<div id="container_detalhes" className="container_detalhais">
-                <Detalhes id={idDetalhes} notFound={handleImageError} onClose={onClose}/>
+                <Detalhes id={idDetalhes} onClose={onClose}/>
             </div>
             ) : (<></>)}
         </div>
