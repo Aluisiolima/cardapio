@@ -26,7 +26,7 @@ export const Mesa: React.FC = () => {
     });
 
     const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
-    const [produtos, setProdutos] = useState<ProductCarrinho[]>(ProductStore.getProdutos());
+    const [produtos,] = useState<ProductCarrinho[]>(ProductStore.getProdutos());
     const { id } = useParams();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

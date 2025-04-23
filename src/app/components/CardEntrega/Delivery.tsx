@@ -30,7 +30,7 @@ export const Delivery: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
-  const [produtos, setProdutos] = useState<ProductCarrinho[]>(ProductStore.getProdutos());
+  const [produtos, ] = useState<ProductCarrinho[]>(ProductStore.getProdutos());
   const { id } = useParams<{ id:number }>();
   const [frete, setFrete] = useState<string | null | void>(null);
 
