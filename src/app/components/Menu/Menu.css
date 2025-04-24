@@ -47,7 +47,7 @@
 }
 
 .desconto {
-  background-image: url("../../asset/defualt/desconto.svg");
+  background-image: url('../../asset/defualt/desconto.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
