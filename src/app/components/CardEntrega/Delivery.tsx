@@ -24,8 +24,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
   data,
   onTroca,
 }) => {
-  const [formData, setFormData] = useState<Entrega>({
-    nome: '',
+  const [formData, setFormData] = useState<Entrega>({nome: '',
     bairro: '',
     rua: '',
     numero_casa: '',
