@@ -5,22 +5,26 @@ import { ProductCarrinho, ProductStoreIds } from '../../types/Product.type';
 import { fetchApi } from '../../utils/req';
 import { useParams } from 'wouter';
 import { ImageError } from '../../utils/ImageError';
+import { criarMensagem } from '../../utils/Whatsapp';
+import { Empresa } from '../../types/Empresa.type';
 
 type mesa = {
     nome: string;
     numero_mesa: string;
     numero_contato: string;
     mesa: boolean;
+    entrega: boolean;
     tipo_pagamento: "pix" | "cartao" | "dinheiro";
     produtos: ProductStoreIds[];
 };
 
-export const Mesa: React.FC = () => {
+export const Mesa: React.FC<{ data: Empresa | null, onTroca: (nome: string) => void }> = ({ data, onTroca }) => {
     const [formData, setFormData] = useState<mesa>({
         nome: "",
         numero_mesa: "",
         numero_contato: "",
         mesa: true,
+        entrega: false,
         tipo_pagamento: "pix",
         produtos: ProductStore.getIds(),
     });
@@ -53,12 +57,19 @@ export const Mesa: React.FC = () => {
         }
 
         try {
+            onTroca("Load");
             await fetchApi(formData, "POST", `/inserirPedido/${id}`);
-
+            
         } catch (error) {
             console.error("Error handling detalhes:", error);
         } finally {
-
+            onTroca("Success");
+            criarMensagem(
+              formData,
+              produtos,
+              data as Empresa,
+              () => ProductStore.valorTotal()
+            );
         }
     };
 

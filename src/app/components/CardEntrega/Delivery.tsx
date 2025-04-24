@@ -6,6 +6,8 @@ import { fetchApi } from "../../utils/req";
 import { useParams } from "wouter";
 import { ImageError } from "../../utils/ImageError";
 import { calcFrete } from "../../utils/calcFrete";
+import { criarMensagem } from "../../utils/Whatsapp";
+import { Empresa } from "../../types/Empresa.type";
 
 type Entrega = {
   nome: string;
@@ -14,10 +16,11 @@ type Entrega = {
   numero_casa: string;
   numero_contato: string;
   entrega: boolean;
-  tipo_pagamento: "pix" | "cartao" | "dinheiro";
+  mesa: boolean;
+  tipo_pagamento: string | "pix" | "cartao" | "dinheiro";
   produtos: ProductStoreIds[];
 };
-export const Delivery: React.FC = () => {
+export const Delivery: React.FC<{ data: Empresa | null, onTroca: (name: string) => void }> = ({ data, onTroca }) => {
   const [formData, setFormData] = useState<Entrega>({
     nome: "",
     bairro: "",
@@ -25,6 +28,7 @@ export const Delivery: React.FC = () => {
     numero_casa: "",
     numero_contato: "",
     entrega: true,
+    mesa: false,
     tipo_pagamento: "pix",
     produtos: ProductStore.getIds(),
   });
@@ -65,12 +69,19 @@ export const Delivery: React.FC = () => {
       return;
     }
     try {
+      onTroca("Load");
       await fetchApi(formData, "POST", `/inserirPedido/${id}`);
 
     } catch (error) {
       console.error("Error handling detalhes:", error);
     } finally {
-
+      onTroca("Success");
+      criarMensagem(
+        formData,
+        produtos,
+        data as Empresa,
+        () => ProductStore.valorTotal()
+      );
     }
   };
 

@@ -32,6 +32,16 @@ export const Detalhes: React.FC<Props> = ({ id, onClose }) => {
             }
     }, [id]);
 
+    const setAnimacao = () => {
+        const tela = document.getElementById("tela_detalhe");
+        if (tela) {
+            tela.classList.add("animate");
+            setTimeout(() => {
+                tela.classList.remove("animate");
+            }, 500);
+        }
+    }
+
     if (!data) return <Load />;
 
     return (
@@ -59,7 +69,10 @@ export const Detalhes: React.FC<Props> = ({ id, onClose }) => {
                 <div className="config">
                     <button id="adicionarCarrinho" onClick={() => {
                         ProductStore.addProduto({ ...data, quantidade });
-                        onClose(true)
+                        setAnimacao();
+                        setTimeout(() => {
+                            onClose(true);
+                        }, 500);
                         }}>add carrinho</button>
                 </div>
             </div>

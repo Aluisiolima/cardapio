@@ -33,7 +33,7 @@ export async function calcFrete(id: number): Promise<string | void | null> {
         },
         {
           enableHighAccuracy: true,
-          timeout: 10000,
+          timeout: 1000000,
           maximumAge: 0,
         }
       );

@@ -5,29 +5,28 @@ import { fetchApi } from "../../utils/req";
 import { Nav } from "../../components/Nav/Nav";
 import { Main } from "../../components/Main/Main";
 import { Footer } from "../../components/Footer/Footer";
-import { Destaque } from "../../components/Destaques/Destaques";
 import { Menu } from "../../components/Menu/Menu";
 import { Load } from "../../components/Load/Load";
 import { Product } from "../../types/Product.type";
-import { Destaques } from "../../types/Destaques.type";
-import {  } from "../../asset/defualt"
+import { } from "../../asset/defualt"
+import { } from "../../asset/pagamentos"
 import { Carinho } from "../../components/Carinho/Carinho";
 import { Delivery } from "../../components/CardEntrega/Delivery";
 import { Mesa } from "../../components/CardEntrega/Mesa";
+import { Success } from "../../components/Success/Success";
 
 export const Cardapio: React.FC = () => {
     const { id } = useParams();
     const [empresaData, setEmpresaData] = useState<Empresa | null >(null);
     const [produtoData, setDataProduto] = useState<Product[] | null>(null);
-    const [destaquesData, setDataDestaques] = useState<Destaques[] | null>(null);
-    const [component, setComponent] = useState<string>("Home");
+    const [component, setComponent] = useState<string>("Cardapio");
 
     const components: Record<string, JSX.Element> = {
-        Home: <Destaque data={destaquesData}/>,
         Cardapio: <Menu data={produtoData} onTroca={setComponent}/>,
         Carinho: <Carinho onTroca={setComponent}/>,
-        Delivery: <Delivery />,
-        Mesa: <Mesa />,
+        Delivery: <Delivery data={empresaData} onTroca={setComponent}/>,
+        Mesa: <Mesa data={empresaData} onTroca={setComponent}/>,
+        Success: <Success />,
         Load: <Load />,
        
     }
@@ -35,20 +34,17 @@ export const Cardapio: React.FC = () => {
     useEffect(() => {
         const fetchAllData = async () => {
             try {
-                const [empresa, produtos, destaques] = await Promise.all([
+                const [empresa, produtos] = await Promise.all([
                     fetchApi<Empresa>(null, "GET", `/pegarEmpresa/${id}`),
                     fetchApi<Product[]>(null, "GET", `/pegarProdutos/${id}`),
-                    fetchApi<Destaques[]>(null, "GET", `/pegarProdutos/${id}/main`)
                 ]);
     
                 setEmpresaData(empresa);
                 setDataProduto(produtos);
-                setDataDestaques(destaques);
             } catch (error) {
                 console.error(error);
                 setEmpresaData(null);
                 setDataProduto(null);
-                setDataDestaques(null);
             }
         };
     

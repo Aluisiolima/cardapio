@@ -1,0 +1,20 @@
+.container_finaly{
+    background: rgb(57, 162, 57);
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+}
+.ok{
+    display: flex;
+    height: 80vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ok i{
+    font-size: 15pc;
+    
+}
+.text_inf{font-size: 2.5pc;}

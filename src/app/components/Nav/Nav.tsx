@@ -1,6 +1,5 @@
 import "./Nav.css";
 import logo from "../../asset/defualt/image.png";
-import { useState } from "react";
 
 type NavProps = {
     path: string;
@@ -11,7 +10,6 @@ type NavProps = {
 }
 
 export const Nav: React.FC<{ data: NavProps, onTroca: (nome: string) => void }> = ({ data, onTroca }) => {
-    const [cardapio, setCadapio] = useState<boolean>(false);
 
     const icons = [
         { key: "whatsapp", className: "bi bi-whatsapp", prefix: "https://wa.me/" },
@@ -34,11 +32,7 @@ export const Nav: React.FC<{ data: NavProps, onTroca: (nome: string) => void }> 
             <div className="operacional">
                 <div className="link-navegacao" id="navegacao">
                     <div className="links">
-                        <p 
-                        id="home" onClick={(e) => { onTroca("Home"); setCadapio(false) }} style={{ textDecoration: cardapio === false ? "underline" : "none" }}>home</p>
-                    </div>
-                    <div className="links">
-                        <p id="cardapio" onClick={(e) => { onTroca("Cardapio"); setCadapio(true) }} style={{ textDecoration: cardapio === true ? "underline" : "none" }}>cardapio</p>
+                        <p id="cardapio" onClick={(e) => { onTroca("Cardapio") }} style={{ textDecoration: "underline" }}>cardapio</p>
                     </div>
                 </div>
 
