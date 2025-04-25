@@ -19,7 +19,7 @@ export const Carinho: React.FC<{ onTroca: (nome: string) => void }> = ({ onTroca
   return (
     <>
       <header className="title">carinho</header>
-      <div className="container_list_produtos">
+      <div className="container_list_produtos" data-testid="carinho">
         <div className="card_produtos_carinho" id="produtos_carinho">
           {produtos.map((produto) => (
             <div className="card_produto" key={produto.id_produto}>

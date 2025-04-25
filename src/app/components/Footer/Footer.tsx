@@ -33,7 +33,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
   ];
 
   return (
-    <footer className="bg-dark text-light open-sans">
+    <footer className="bg-dark text-light open-sans" data-testid="footer">
       <div className="py-3">
         <div className="col-6">
           <p>Direto do forno para aquecer o coração...</p>
@@ -46,7 +46,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
               if (key === 'maps') {
                 return (
                   <li className="margin-bottom" key={key}>
-                    <a href="/" className="a" target="_blank" rel="noopener noreferrer">
+                    <a href="/" className="a" target="_blank" rel="noopener noreferrer" data-testid={key}>
                       <span>
                         <i className={className} style={{ margin: '.5em' }}></i>
                         {data.endereco}
@@ -63,6 +63,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
                     className={'a'}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-testid={`${key}`}
                   >
                     <span>
                       <i className={`${className}`} style={{ margin: '.5em' }}></i>
@@ -77,7 +78,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
       </div>
 
       <div className="assinatura">
-        Desenvolvido por{' '}
+        Desenvolvido por  
         <a href="https://www.instagram.com/aluiz_nt/" className="a">
           Aluisio Lima
         </a>

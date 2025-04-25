@@ -5,7 +5,7 @@ export const Success: React.FC = () => {
     <div className="container_finaly">
       <div className="ok">
         <i className="bi bi-check2-circle"></i>
-        <p className="text_inf">aguarde mais so mais um pouquinho</p>
+        <p className="text_inf">aguarde mais um pouquinho</p>
       </div>
     </div>
   );

@@ -43,7 +43,7 @@ export const Detalhes: React.FC<Props> = ({ id, onClose }) => {
   return (
     <div className="janela_detalhe" id="tela_detalhe">
       <div className="volta">
-        <button onClick={() => onClose(true)}>
+        <button onClick={() => onClose(true)} data-testid="close-button">
           <i className="bi bi-x-lg"></i>
         </button>
       </div>

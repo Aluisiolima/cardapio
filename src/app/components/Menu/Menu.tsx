@@ -82,7 +82,7 @@ export const Menu: React.FC<{ data: Product[] | null; onTroca: (nome: string) =>
         <p id="Ncompras" className="numerador">
           {ProductStore.getProdutos().length}
         </p>
-        <button id="button_carinho">
+        <button id="button_carinho" data-testid="btn-carinho">
           <i className="bi bi-cart4"></i>
         </button>
       </div>
