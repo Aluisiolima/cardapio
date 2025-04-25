@@ -46,7 +46,13 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
               if (key === 'maps') {
                 return (
                   <li className="margin-bottom" key={key}>
-                    <a href="/" className="a" target="_blank" rel="noopener noreferrer" data-testid={key}>
+                    <a
+                      href="/"
+                      className="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid={key}
+                    >
                       <span>
                         <i className={className} style={{ margin: '.5em' }}></i>
                         {data.endereco}
@@ -78,7 +84,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
       </div>
 
       <div className="assinatura">
-        Desenvolvido por  
+        Desenvolvido por
         <a href="https://www.instagram.com/aluiz_nt/" className="a">
           Aluisio Lima
         </a>

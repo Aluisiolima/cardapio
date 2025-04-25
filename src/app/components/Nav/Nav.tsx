@@ -55,7 +55,11 @@ export const Nav: React.FC<{ data: NavProps; onTroca: (nome: string) => void }> 
               if (!url) return null;
               return (
                 <li key={key}>
-                  <a href={`${prefix}${url}`} target="_blank" rel="noopener noreferrer" data-testid={`link-${key}`}
+                  <a
+                    href={`${prefix}${url}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={`link-${key}`}
                   >
                     <i
                       className={`${className}`}

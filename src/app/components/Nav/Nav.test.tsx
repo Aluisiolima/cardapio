@@ -27,7 +27,7 @@ describe('Nav component', () => {
   });
 
   it('deve renderizar link do whatsapp', () => {
-    const whatsappLink = screen.getByTestId("link-whatsapp");
+    const whatsappLink = screen.getByTestId('link-whatsapp');
     expect(whatsappLink).toHaveAttribute('href', 'https://wa.me/123456789');
   });
 

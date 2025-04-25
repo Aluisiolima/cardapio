@@ -43,7 +43,9 @@ describe('Detalhes Component', () => {
 
     expect(screen.getByTestId('loading')).toBeInTheDocument();
 
-    await waitFor(() => expect(fetchApi).toHaveBeenCalledWith(null, "GET", "/pegarProduto/unico/1"));
+    await waitFor(() =>
+      expect(fetchApi).toHaveBeenCalledWith(null, 'GET', '/pegarProduto/unico/1')
+    );
   });
 
   test('renderiza detalhes do produto após o carregamento', async () => {
@@ -78,10 +80,12 @@ describe('Detalhes Component', () => {
     fireEvent.click(screen.getByText(/add carrinho/i));
 
     await waitFor(() => {
-      expect(ProductStore.addProduto).toHaveBeenCalledWith(expect.objectContaining({
-        id_produto: 1,
-        quantidade: 1,
-      }));
+      expect(ProductStore.addProduto).toHaveBeenCalledWith(
+        expect.objectContaining({
+          id_produto: 1,
+          quantidade: 1,
+        })
+      );
       expect(mockOnClose).toHaveBeenCalledWith(true);
     });
   });
