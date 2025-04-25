@@ -4,7 +4,7 @@ echo "Executando formatação e testes..."
 
 yarn format
 
-yarn test
+yarn test --watchAll=false --bail
 
 
 if [ $? -ne 0 ]; then
