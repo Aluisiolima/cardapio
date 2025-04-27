@@ -1,23 +1,15 @@
 // Detalhes.test.tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Detalhes } from './Detalhes';
-import { Product } from '../../types/Product.type';
 import { ProductStore } from '../../utils/productStore';
 import { fetchApi } from '../../utils/req';
+import { Product } from '../../types/Product.type';
+import path from 'path';
+import { assert } from 'console';
 
-jest.mock('../../utils/productStore', () => ({
-  ProductStore: {
-    addProduto: jest.fn(),
-  },
-}));
-
-jest.mock('../../utils/req', () => ({
-  fetchApi: jest.fn(() => Promise.resolve({} as Product)),
-}));
-
-jest.mock('../Load/Load', () => ({
-  Load: () => <div data-testid="loading">Carregando...</div>,
-}));
+jest.spyOn(ProductStore, 'addProduto').mockImplementation(() => {
+  return Promise.resolve();
+});
 
 const mockProduct: Product = {
   id_produto: 1,
@@ -28,19 +20,25 @@ const mockProduct: Product = {
   path: '/pizza.png',
 };
 
-const renderComponent = (onClose = jest.fn()) => {
-  return render(<Detalhes id={1} onClose={onClose} />);
-};
+jest.mock('../../utils/req', () => ({
+  fetchApi: jest.fn(),
+}));
+
+jest.mock('../Load/Load', () => ({
+  Load: () => <div data-testid="loading">Carregando...</div>,
+}));
+
+const onClose = jest.fn();
 
 describe('Detalhes Component', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
     (fetchApi as jest.Mock).mockResolvedValue(mockProduct);
+    waitFor(() => {
+      render(<Detalhes id={1} onClose={onClose} />);
+    });
   });
 
-  test('mostra o loading enquanto carrega os dados', async () => {
-    renderComponent();
-
+  it('mostra o loading enquanto carrega os dados', async () => {
     expect(screen.getByTestId('loading')).toBeInTheDocument();
 
     await waitFor(() =>
@@ -48,33 +46,30 @@ describe('Detalhes Component', () => {
     );
   });
 
-  test('renderiza detalhes do produto após o carregamento', async () => {
-    renderComponent();
+  it('renderiza detalhes do produto após o carregamento', async () => {
     const descricao = await screen.findByText(/Pizza/, { selector: '.descricao' });
     expect(descricao).toBeInTheDocument();
     expect(screen.getByText(/valor/i)).toBeInTheDocument();
     expect(screen.getByText(/add carrinho/i)).toBeInTheDocument();
+    expect(screen.getByText(/1/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/Lanche/i)).toBeInTheDocument();
   });
 
-  test('altera a quantidade corretamente', async () => {
-    renderComponent();
+  it('altera a quantidade corretamente', async () => {
+    waitFor(async () => {
+      await screen.findByText(/Pizza/, { selector: '.descricao' });
+      const btnMais = screen.getByText('+');
+      const btnMenos = screen.getByText('-');
 
-    await screen.findByText(/Pizza/, { selector: '.descricao' });
+      fireEvent.click(btnMais);
+      expect(screen.getByText('2')).toBeInTheDocument();
 
-    const btnMais = screen.getByText('+');
-    const btnMenos = screen.getByText('-');
-
-    fireEvent.click(btnMais);
-    expect(screen.getByText('2')).toBeInTheDocument();
-
-    fireEvent.click(btnMenos);
-    expect(screen.getByText('1')).toBeInTheDocument();
+      fireEvent.click(btnMenos);
+      expect(screen.getByText('1')).toBeInTheDocument();
+    });
   });
 
-  test('adiciona o produto ao carrinho e chama addCarinho', async () => {
-    const mockOnClose = jest.fn();
-    renderComponent(mockOnClose);
-
+  it('adiciona o produto ao carrinho e chama addCarinho', async () => {
     await screen.findByText(/Pizza/, { selector: '.descricao' });
 
     fireEvent.click(screen.getByText(/add carrinho/i));
@@ -86,17 +81,14 @@ describe('Detalhes Component', () => {
           quantidade: 1,
         })
       );
-      expect(mockOnClose).toHaveBeenCalledWith(true);
+      expect(onClose).toHaveBeenCalledWith(true);
     });
   });
 
-  test('fecha o modal ao clicar no botão de fechar', async () => {
-    const mockOnClose = jest.fn();
-    renderComponent(mockOnClose);
-
+  it('fecha o modal ao clicar no botão de fechar', async () => {
     await screen.findByText(/Pizza/, { selector: '.descricao' });
 
     fireEvent.click(screen.getByTestId('close-button'));
-    expect(mockOnClose).toHaveBeenCalledWith(true);
+    expect(onClose).toHaveBeenCalledWith(true);
   });
 });

@@ -136,6 +136,7 @@ export const Mesa: React.FC<{ data: Empresa | null; onTroca: (nome: string) => v
               checked={formData.tipo_pagamento === 'pix'}
               onChange={handleChange}
             />
+            Pix
           </label>
           <label className="meios_de_pagamento">
             <img src={cartao} alt="Cartão" height="50" />
@@ -146,6 +147,7 @@ export const Mesa: React.FC<{ data: Empresa | null; onTroca: (nome: string) => v
               checked={formData.tipo_pagamento === 'cartao'}
               onChange={handleChange}
             />
+            Cartão
           </label>
           <label className="meios_de_pagamento">
             <img src={dinheiro} alt="Dinheiro" height="50" />
@@ -156,6 +158,7 @@ export const Mesa: React.FC<{ data: Empresa | null; onTroca: (nome: string) => v
               checked={formData.tipo_pagamento === 'dinheiro'}
               onChange={handleChange}
             />
+            Dinheiro
           </label>
         </fieldset>
 

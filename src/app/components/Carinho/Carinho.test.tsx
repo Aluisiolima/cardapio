@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Carinho } from './Carinho';
 import { ProductCarrinho } from '../../types/Product.type';
+import { ProductStore } from '../../utils/productStore';
 
 const mockOnTroca = jest.fn();
 const mockData: ProductCarrinho[] = [
@@ -24,14 +25,26 @@ const mockData: ProductCarrinho[] = [
   },
 ];
 
+const mockGetProducts = jest.spyOn(ProductStore, 'getProdutos');
+const mockValorTotal = jest.spyOn(ProductStore, 'valorTotal');
+
 describe('Carinho component', () => {
   beforeEach(() => {
+    mockGetProducts.mockReturnValue(mockData);
+    mockValorTotal.mockReturnValue(30.0);
     render(<Carinho onTroca={mockOnTroca} />);
   });
 
   it('deve renderizar o componente Carinho', () => {
     const container = screen.getByTestId('carinho');
     expect(container).toBeInTheDocument();
+  });
+
+  it('deve renderizar os produtos no carinho', () => {
+    const product1 = screen.getByText(/X-Burguer/i);
+    const product2 = screen.getByText(/Refrigerante/i);
+    expect(product1).toBeInTheDocument();
+    expect(product2).toBeInTheDocument();
   });
 
   it('deve renderizar o título "carinho"', () => {
@@ -52,6 +65,6 @@ describe('Carinho component', () => {
   it('O valor total deve ser exibido corretamente', () => {
     const valorTotal = screen.getByText(/valor total = R\$/i);
     expect(valorTotal).toBeInTheDocument();
-    expect(valorTotal).toHaveTextContent('0.00');
+    expect(valorTotal).toHaveTextContent('30.00');
   });
 });

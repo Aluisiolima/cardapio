@@ -9,6 +9,10 @@ export const Carinho: React.FC<{ onTroca: (nome: string) => void }> = ({ onTroca
   const [produtos, setProdutos] = useState<ProductCarrinho[]>(ProductStore.getProdutos());
 
   const finaliza = () => {
+    if (produtos.length === 0) {
+      alert('Adicione produtos ao carinho');
+      return;
+    }
     if (entrega) {
       onTroca('Delivery');
       return;

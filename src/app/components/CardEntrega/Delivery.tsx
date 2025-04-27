@@ -167,6 +167,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
               onChange={handleChange}
               required
             />
+            Pix
           </label>
           <label className="meios_de_pagamento">
             <img src={cartao} alt="cartao" height="50" />
@@ -178,6 +179,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
               onChange={handleChange}
               required
             />
+            Cartão
           </label>
           <label className="meios_de_pagamento">
             <img src={dinheiro} alt="dinheiro" height="50" />
@@ -188,6 +190,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
               onChange={handleChange}
               required
             />
+            Dinheiro
           </label>
         </fieldset>
 

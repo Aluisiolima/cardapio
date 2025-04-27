@@ -27,14 +27,18 @@ describe('Menu component', () => {
     render(<Menu data={mockData} onTroca={mockOnTroca} />);
   });
 
-  it('deve renderizar o título do tipo de produto', () => {
+  it('deve renderizar os títulos dos tipos de produto', () => {
     const title = screen.getByText(/Lanche:/i);
     expect(title).toBeInTheDocument();
+    const title2 = screen.getByText(/Bebida:/i);
+    expect(title2).toBeInTheDocument();
   });
 
-  it('deve renderizar o nome do produto', () => {
+  it('deve renderizar os nomes dos produtos', () => {
     const productName = screen.getByText(/X-Burguer/i);
     expect(productName).toBeInTheDocument();
+    const productName2 = screen.getByText(/Refrigerante/i);
+    expect(productName2).toBeInTheDocument();
   });
 
   it('deve renderizar o preço com desconto', () => {
@@ -46,5 +50,6 @@ describe('Menu component', () => {
     const carinho = screen.getByTestId('btn-carinho');
     fireEvent.click(carinho);
     expect(mockOnTroca).toHaveBeenCalledWith('Carinho');
+    expect(mockOnTroca).toHaveBeenCalledTimes(1);
   });
 });

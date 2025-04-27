@@ -156,6 +156,7 @@
 .meios_de_pagamento {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 0.5em 1em 0.5em;
 }
 .meios_de_pagamento img {

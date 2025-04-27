@@ -3,7 +3,7 @@ import { Footer } from './Footer';
 
 const mockDataFooter = {
   instagram: 'instagram',
-  facebook: 'facebook',
+  facebook: null,
   whatsapp: 'whatsapp',
   endereco: 'Rua dos bobos, 0',
   email: 'email',
@@ -22,6 +22,11 @@ describe('Footer component', () => {
   it('deve renderizar o texto "Desenvolvido por"', () => {
     const text = screen.getByText(/desenvolvido por/i);
     expect(text).toBeInTheDocument();
+  });
+
+  it('não deve renderizar o ícone do Facebook', () => {
+    const icon = screen.queryByTestId('facebook');
+    expect(icon).not.toBeInTheDocument();
   });
 
   it('deve renderizar o ícone do Whatsapp', () => {
