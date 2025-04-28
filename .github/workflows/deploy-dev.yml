@@ -1,0 +1,33 @@
+name: Deploy React App
+
+on:
+  push:
+    branches:
+      - refactore/react
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Instalar dependências com Yarn
+        run: yarn install --frozen-lockfile
+
+      - name: Criar .env com variáveis
+        run: |
+          echo "REACT_APP_LINK_API=${{ secrets.URL_API }}" >> .env
+
+      - name: Build do projeto
+        run: yarn build
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST_DEV }}
+          username: ${{ secrets.FTP_USERNAME_DEV }}
+          password: ${{ secrets.FTP_PASSWORD_DEV }}
+          local-dir: build/
+          server-dir: /

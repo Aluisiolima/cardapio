@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Executando formatação e testes..."
+
+yarn format
+
+yarn test --watchAll=false --bail
+
+
+if [ $? -ne 0 ]; then
+  echo "Commit cancelado: erro nos testes ou formatação."
+  exit 1
+fi
