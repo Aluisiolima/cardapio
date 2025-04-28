@@ -1,9 +1,9 @@
-name: Deploy React App to Testing
+name: Deploy React App to Production
 
 on:
   push:
     branches:
-      - refactore/react
+      - main
 
 jobs:
   build-and-deploy:
@@ -29,8 +29,8 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_HOST_DEV }}
-          username: ${{ secrets.FTP_USERNAME_DEV }}
-          password: ${{ secrets.FTP_PASSWORD_DEV }}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: build/
           server-dir: /
