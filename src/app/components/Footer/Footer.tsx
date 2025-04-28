@@ -29,7 +29,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
       text: 'Instagram',
     },
     { key: 'maps', className: 'bi bi-map', prefix: '#', text: '' },
-    { key: 'email', className: 'bi bi-envelope', prefix: 'mailto:', text: 'Email: ' },
+    { key: 'email', className: 'bi bi-envelope', prefix: 'mailto:', text: `Email: ${data.email}` },
   ];
 
   return (

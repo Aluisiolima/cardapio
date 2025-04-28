@@ -1,0 +1,15 @@
+.card_notFound {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  height: 4em;
+  border: 2px solid aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  text-shadow: 2px 2px 3px black;
+  margin-top: 20px;
+  border-radius: 12px;
+  background: green;
+}

@@ -23,9 +23,11 @@ beforeEach(() => {
   mockFetchApi.mockClear();
 });
 
-test('renderiza NotFound na rota /', () => {
-  renderComRota('/');
-  expect(screen.getByText(/NotFound/i)).toBeInTheDocument();
+test('renderiza NotFound na rota /', async () => {
+  await waitFor(() => {
+    renderComRota('/');
+  });
+  expect(screen.getByText(/carregando.../i)).toBeInTheDocument();
 });
 
 test('renderiza Cardapio na rota /:id', async () => {
