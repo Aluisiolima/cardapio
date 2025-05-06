@@ -45,6 +45,7 @@ const mockGetProdutos = [
     path: 'imagem.jpg',
     tipo: 'imagem',
     desconto: 0,
+    descricao: 'Descrição do produto',
   },
 ];
 const idsMock = [{ id: 1, quantidade: 2, desconto_aplicado: 0 }];

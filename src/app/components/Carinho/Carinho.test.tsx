@@ -13,6 +13,7 @@ const mockData: ProductCarrinho[] = [
     path: 'https://example.com/x-burguer.jpg',
     valor: 20.0,
     quantidade: 1,
+    descricao: 'Delicioso X-Burguer com queijo e bacon',
   },
   {
     id_produto: 2,
@@ -22,6 +23,7 @@ const mockData: ProductCarrinho[] = [
     path: 'https://example.com/refrigerante.jpg',
     valor: 5.0,
     quantidade: 2,
+    descricao: 'Refrigerante gelado de 2L',
   },
 ];
 

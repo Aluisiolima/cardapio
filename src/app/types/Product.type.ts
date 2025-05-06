@@ -5,6 +5,7 @@ export type Product = {
   tipo: string;
   path: string;
   desconto: number;
+  descricao: string | null;
 };
 
 export type ProductStoreIds = {

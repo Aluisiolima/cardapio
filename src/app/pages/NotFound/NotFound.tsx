@@ -12,7 +12,7 @@ export const NotFound: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetchApi<Empresa[]>(null, 'GET', '/pegarEmpresas');
+        const result = await fetchApi<Empresa[]>(null, 'GET', '/empresa/');
         setData(result);
       } catch (error) {
         console.error('Error fetching data:', error);

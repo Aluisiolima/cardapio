@@ -18,7 +18,7 @@ export async function calcFrete(id: number): Promise<string | void | null> {
             lon: longitude,
           };
 
-          const frete = await fetchApi<{ frete: string }>(dates, 'POST', `/calcFrete/${id}`);
+          const frete = await fetchApi<{ frete: string }>(dates, 'POST', `/frete/calc/${id}`);
           resolve(frete?.frete);
         } catch (error) {
           console.error('Erro ao calcular frete:', error);

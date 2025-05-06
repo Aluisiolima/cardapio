@@ -73,7 +73,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
     }
     try {
       onTroca('Load');
-      await fetchApi(formData, 'POST', `/inserirPedido/${id}`);
+      await fetchApi(formData, 'POST', `/pedido/inserir/${id}`);
     } catch (error) {
       console.error('Error handling detalhes:', error);
     } finally {
