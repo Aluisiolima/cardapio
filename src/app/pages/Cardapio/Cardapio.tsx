@@ -34,8 +34,8 @@ export const Cardapio: React.FC = () => {
     const fetchAllData = async () => {
       try {
         const [empresa, produtos] = await Promise.all([
-          fetchApi<Empresa>(null, 'GET', `/pegarEmpresa/${id}`),
-          fetchApi<Product[]>(null, 'GET', `/pegarProdutos/${id}`),
+          fetchApi<Empresa>(null, 'GET', `/empresa/${id}`),
+          fetchApi<Product[]>(null, 'GET', `/produto/empresa/${id}`),
         ]);
 
         setEmpresaData(empresa);

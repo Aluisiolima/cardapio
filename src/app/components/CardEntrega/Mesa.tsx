@@ -61,7 +61,7 @@ export const Mesa: React.FC<{ data: Empresa | null; onTroca: (nome: string) => v
 
     try {
       onTroca('Load');
-      await fetchApi(formData, 'POST', `/inserirPedido/${id}`);
+      await fetchApi(formData, 'POST', `/pedido/inserir/${id}`);
     } catch (error) {
       console.error('Error handling detalhes:', error);
     } finally {

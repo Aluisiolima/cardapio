@@ -18,7 +18,7 @@ export const Detalhes: React.FC<Props> = ({ id, onClose }) => {
   useEffect(() => {
     try {
       const produto = async (id: number) => {
-        const result = await fetchApi<Product>(null, 'GET', `/pegarProduto/unico/${id}`);
+        const result = await fetchApi<Product>(null, 'GET', `/produto/${id}`);
         setData(result);
       };
       produto(id);
@@ -68,7 +68,7 @@ export const Detalhes: React.FC<Props> = ({ id, onClose }) => {
             </div>
           </div>
 
-          <div className="descricao">{data.nome_produto}</div>
+          <div className="descricao">{data.descricao}</div>
         </div>
         <p id="nameProduct"> {data.nome_produto}</p>
         <p className="value">

@@ -11,6 +11,7 @@ const mockData: Product[] = [
     nome_produto: 'X-Burguer',
     path: 'https://example.com/x-burguer.jpg',
     valor: 20.0,
+    descricao: 'Delicioso X-Burguer com queijo e bacon',
   },
   {
     id_produto: 2,
@@ -19,6 +20,7 @@ const mockData: Product[] = [
     nome_produto: 'Refrigerante',
     path: 'https://example.com/refrigerante.jpg',
     valor: 5.0,
+    descricao: 'Refrigerante gelado de 2L',
   },
 ];
 

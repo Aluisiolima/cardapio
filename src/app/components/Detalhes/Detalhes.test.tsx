@@ -18,6 +18,7 @@ const mockProduct: Product = {
   desconto: 10,
   tipo: 'Lanche',
   path: '/pizza.png',
+  descricao: 'Deliciosa pizza de queijo',
 };
 
 jest.mock('../../utils/req', () => ({
@@ -41,13 +42,13 @@ describe('Detalhes Component', () => {
   it('mostra o loading enquanto carrega os dados', async () => {
     expect(screen.getByTestId('loading')).toBeInTheDocument();
 
-    await waitFor(() =>
-      expect(fetchApi).toHaveBeenCalledWith(null, 'GET', '/pegarProduto/unico/1')
-    );
+    await waitFor(() => expect(fetchApi).toHaveBeenCalledWith(null, 'GET', '/produto/1'));
   });
 
   it('renderiza detalhes do produto após o carregamento', async () => {
-    const descricao = await screen.findByText(/Pizza/, { selector: '.descricao' });
+    const descricao = await screen.findByText(/Deliciosa pizza de queijo/, {
+      selector: '.descricao',
+    });
     expect(descricao).toBeInTheDocument();
     expect(screen.getByText(/valor/i)).toBeInTheDocument();
     expect(screen.getByText(/add carrinho/i)).toBeInTheDocument();
@@ -70,7 +71,7 @@ describe('Detalhes Component', () => {
   });
 
   it('adiciona o produto ao carrinho e chama addCarinho', async () => {
-    await screen.findByText(/Pizza/, { selector: '.descricao' });
+    await screen.findByText(/Deliciosa pizza de queijo/, { selector: '.descricao' });
 
     fireEvent.click(screen.getByText(/add carrinho/i));
 
@@ -86,7 +87,7 @@ describe('Detalhes Component', () => {
   });
 
   it('fecha o modal ao clicar no botão de fechar', async () => {
-    await screen.findByText(/Pizza/, { selector: '.descricao' });
+    await screen.findByText(/Deliciosa pizza de queijo/, { selector: '.descricao' });
 
     fireEvent.click(screen.getByTestId('close-button'));
     expect(onClose).toHaveBeenCalledWith(true);

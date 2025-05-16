@@ -27,6 +27,7 @@ const mockGetProdutos = [
     path: 'imagem.jpg',
     tipo: 'imagem',
     desconto: 0,
+    descricao: 'Descrição do produto',
   },
 ];
 
