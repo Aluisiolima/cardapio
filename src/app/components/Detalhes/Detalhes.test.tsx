@@ -42,13 +42,13 @@ describe('Detalhes Component', () => {
   it('mostra o loading enquanto carrega os dados', async () => {
     expect(screen.getByTestId('loading')).toBeInTheDocument();
 
-    await waitFor(() =>
-      expect(fetchApi).toHaveBeenCalledWith(null, 'GET', '/produto/1')
-    );
+    await waitFor(() => expect(fetchApi).toHaveBeenCalledWith(null, 'GET', '/produto/1'));
   });
 
   it('renderiza detalhes do produto após o carregamento', async () => {
-    const descricao = await screen.findByText(/Deliciosa pizza de queijo/, { selector: '.descricao' });
+    const descricao = await screen.findByText(/Deliciosa pizza de queijo/, {
+      selector: '.descricao',
+    });
     expect(descricao).toBeInTheDocument();
     expect(screen.getByText(/valor/i)).toBeInTheDocument();
     expect(screen.getByText(/add carrinho/i)).toBeInTheDocument();
