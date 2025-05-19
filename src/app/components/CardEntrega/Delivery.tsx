@@ -200,7 +200,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
             valor = <span id="valor">{ProductStore.valorTotal().toFixed(2)}</span>
           </p>
           <button type="button" className="finaly" onClick={enviaPedido}>
-            comprar
+            Comprar
           </button>
         </div>
       </form>

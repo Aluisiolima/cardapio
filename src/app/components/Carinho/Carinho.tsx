@@ -76,14 +76,14 @@ export const Carinho: React.FC<{ onTroca: (nome: string) => void }> = ({ onTroca
               onTroca('Cardapio');
             }}
           >
-            add mais{' '}
+            Mais Produtos
           </button>
           <button
             onClick={() => {
               finaliza();
             }}
           >
-            finaliza
+            Compra
           </button>
         </div>
       </div>
