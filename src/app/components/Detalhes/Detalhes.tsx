@@ -86,7 +86,7 @@ export const Detalhes: React.FC<Props> = ({ id, onClose }) => {
               }, 500);
             }}
           >
-            add carrinho
+            adicionar ao carrinho
           </button>
         </div>
       </div>

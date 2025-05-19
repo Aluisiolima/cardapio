@@ -14,7 +14,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
       key: 'whatsapp',
       className: 'bi bi-whatsapp text-success',
       prefix: 'https://wa.me/',
-      text: 'Whatsapp',
+      text: 'WhatsApp',
     },
     {
       key: 'facebook',
@@ -86,7 +86,7 @@ export const Footer: React.FC<{ data: FooterProps }> = ({ data }) => {
       <div className="assinatura">
         Desenvolvido por
         <a href="https://www.instagram.com/aluiz_nt/" className="a">
-          Aluisio Lima
+          Aluísio Lima
         </a>
       </div>
     </footer>

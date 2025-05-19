@@ -70,7 +70,7 @@ export const Menu: React.FC<{ data: Product[] | null; onTroca: (nome: string) =>
                     }}
                     className="buttoncompra"
                   >
-                    compra
+                    ver mais
                   </button>
                 </div>
               ))}
