@@ -1,11 +1,8 @@
-// Detalhes.test.tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Detalhes } from './Detalhes';
 import { ProductStore } from '../../utils/productStore';
 import { fetchApi } from '../../utils/req';
 import { Product } from '../../types/Product.type';
-import path from 'path';
-import { assert } from 'console';
 
 jest.spyOn(ProductStore, 'addProduto').mockImplementation(() => {
   return Promise.resolve();
@@ -51,7 +48,7 @@ describe('Detalhes Component', () => {
     });
     expect(descricao).toBeInTheDocument();
     expect(screen.getByText(/valor/i)).toBeInTheDocument();
-    expect(screen.getByText(/add carrinho/i)).toBeInTheDocument();
+    expect(screen.getByText(/adicionar ao carrinho/i)).toBeInTheDocument();
     expect(screen.getByText(/1/i)).toBeInTheDocument();
     expect(screen.getByAltText(/Lanche/i)).toBeInTheDocument();
   });
@@ -73,7 +70,7 @@ describe('Detalhes Component', () => {
   it('adiciona o produto ao carrinho e chama addCarinho', async () => {
     await screen.findByText(/Deliciosa pizza de queijo/, { selector: '.descricao' });
 
-    fireEvent.click(screen.getByText(/add carrinho/i));
+    fireEvent.click(screen.getByText(/adicionar ao carrinho/i));
 
     await waitFor(() => {
       expect(ProductStore.addProduto).toHaveBeenCalledWith(
