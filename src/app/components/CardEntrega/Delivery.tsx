@@ -19,11 +19,16 @@ type Entrega = {
   mesa: boolean;
   tipo_pagamento: string | 'pix' | 'cartao' | 'dinheiro';
   produtos: ProductStoreIds[];
+  t_frete: number;
 };
 export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) => void }> = ({
   data,
   onTroca,
 }) => {
+  const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
+  const [produtos] = useState<ProductCarrinho[]>(ProductStore.getProdutos());
+  const { id } = useParams<{ id: number }>();
+  const [frete, setFrete] = useState<string | null | void>(null);
   const [formData, setFormData] = useState<Entrega>({
     nome: '',
     bairro: '',
@@ -34,12 +39,9 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
     mesa: false,
     tipo_pagamento: 'pix',
     produtos: ProductStore.getIds(),
+    t_frete: Number(frete)
   });
 
-  const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
-  const [produtos] = useState<ProductCarrinho[]>(ProductStore.getProdutos());
-  const { id } = useParams<{ id: number }>();
-  const [frete, setFrete] = useState<string | null | void>(null);
 
   useEffect(() => {
     const fetchFrete = async () => {
@@ -76,7 +78,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
       await fetchApi(formData, 'POST', `/pedido/inserir/${id}`);
     } catch (error) {
       console.error('Error handling detalhes:', error);
-    } finally {
+    }finally {
       onTroca('Success');
       criarMensagem(formData, produtos, data as Empresa, () => ProductStore.valorTotal());
     }

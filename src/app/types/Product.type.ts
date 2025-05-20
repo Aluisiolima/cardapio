@@ -11,7 +11,6 @@ export type Product = {
 export type ProductStoreIds = {
   id: number;
   quantidade: number;
-  desconto_aplicado: number;
 };
 
 export type ProductCarrinho = Product & {
