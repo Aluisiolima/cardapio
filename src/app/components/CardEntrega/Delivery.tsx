@@ -39,9 +39,8 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
     mesa: false,
     tipo_pagamento: 'pix',
     produtos: ProductStore.getIds(),
-    t_frete: Number(frete)
+    t_frete: Number(frete),
   });
-
 
   useEffect(() => {
     const fetchFrete = async () => {
@@ -78,7 +77,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
       await fetchApi(formData, 'POST', `/pedido/inserir/${id}`);
     } catch (error) {
       console.error('Error handling detalhes:', error);
-    }finally {
+    } finally {
       onTroca('Success');
       criarMensagem(formData, produtos, data as Empresa, () => ProductStore.valorTotal());
     }

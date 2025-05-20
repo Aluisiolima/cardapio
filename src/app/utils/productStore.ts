@@ -22,7 +22,7 @@ export class ProductStore {
     } else {
       this.ids.push({
         id: produto.id_produto,
-        quantidade: produto.quantidade
+        quantidade: produto.quantidade,
       });
     }
   }
