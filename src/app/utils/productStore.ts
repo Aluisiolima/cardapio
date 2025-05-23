@@ -23,7 +23,6 @@ export class ProductStore {
       this.ids.push({
         id: produto.id_produto,
         quantidade: produto.quantidade,
-        desconto_aplicado: produto.desconto,
       });
     }
   }
