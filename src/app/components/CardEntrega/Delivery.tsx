@@ -69,7 +69,6 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
       }
     });
 
-    console.log(formData);
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
