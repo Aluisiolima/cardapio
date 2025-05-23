@@ -45,7 +45,6 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
   useEffect(() => {
     const fetchFrete = async () => {
       const calculatedFrete = await calcFrete(id);
-      formData.t_frete = Number(calculatedFrete);
       setFrete(calculatedFrete);
     };
     fetchFrete();
@@ -63,6 +62,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
     const newErrors: { [key: string]: boolean } = {};
     const camposObrigatorios = ['nome', 'bairro', 'rua', 'numero_casa'];
 
+    formData.t_frete = Number(frete);
     camposObrigatorios.forEach((campo) => {
       if (!formData[campo as keyof Entrega]) {
         newErrors[campo] = true;
@@ -79,7 +79,7 @@ export const Delivery: React.FC<{ data: Empresa | null; onTroca: (name: string) 
       await fetchApi(formData, 'POST', `/pedido/inserir/${id}`);
     } catch (error) {
       console.error('Error handling detalhes:', error);
-    }finally {
+    } finally {
       onTroca('Success');
       criarMensagem(formData, produtos, data as Empresa, () => ProductStore.valorTotal());
     }
