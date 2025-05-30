@@ -10,6 +10,7 @@ interface DadosCliente {
   bairro?: string;
   rua?: string;
   numero_casa?: string;
+  frete?: number;
 }
 
 function gerarSaudacao(): string {
@@ -56,7 +57,8 @@ function montarMensagemWhatsApp(
 Gostaria de comprar os produtos: ${formatarProdutos(produtos)}.
 Valor total: R$-${valorTotal}
 Forma de pagamento: ${dados.tipo_pagamento} 💳
-${gerarLocalEntrega(dados)}`;
+${gerarLocalEntrega(dados)}
+Com frete de R$-${dados.frete || 0}. Obrigado!`;
 }
 
 export function criarMensagem(
