@@ -10,7 +10,7 @@ interface DadosCliente {
   bairro?: string;
   rua?: string;
   numero_casa?: string;
-  frete?: number;
+  t_frete?: number;
 }
 
 function gerarSaudacao(): string {
@@ -58,7 +58,7 @@ Gostaria de comprar os produtos: ${formatarProdutos(produtos)}.
 Valor total: R$-${valorTotal}
 Forma de pagamento: ${dados.tipo_pagamento} 💳
 ${gerarLocalEntrega(dados)}
-Com frete de R$-${dados.frete || 0}. Obrigado!`;
+Com frete de R$-${dados.t_frete || 0}. Obrigado!`;
 }
 
 export function criarMensagem(
