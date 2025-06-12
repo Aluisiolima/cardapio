@@ -25,7 +25,8 @@ export const Nav: React.FC<{ data: NavProps; onTroca: (nome: string) => void }> 
         <img
           src={data.path}
           alt="logo"
-          height={30}
+          height={50}
+          style={{ margin: '0 .5em' }}
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = logo;
           }}

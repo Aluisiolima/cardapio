@@ -56,7 +56,7 @@ function montarMensagemWhatsApp(
   return `Olá, ${gerarSaudacao()}! Meu nome é ${dados.nome}.
 Gostaria de comprar os produtos: ${formatarProdutos(produtos)}.
 Valor total: R$-${valorTotal}
-Forma de pagamento: ${dados.tipo_pagamento} 💳
+Forma de pagamento: ${dados.tipo_pagamento} ${dados.tipo_pagamento === 'dinheiro' ? '💵' : '💳'}.
 ${gerarLocalEntrega(dados)}
 Com frete de R$-${dados.t_frete || 0}. Obrigado!`;
 }
