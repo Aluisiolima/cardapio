@@ -64,7 +64,7 @@
   align-content: flex-start;
   align-items: center;
   width: 60%;
-  color: white;
+  color: black;
 }
 .produto_detalhes > img {
   width: 100%;
@@ -80,6 +80,7 @@
 
 .descricao {
   background: #c7c7c7;
+  color: black;
   display: flex;
   width: 40%;
   padding: 0.8em;
