@@ -94,7 +94,7 @@ function log(data: Log): void {
           {
             name: '🔀 Método',
             value: method,
-            inline: false,
+            inline: true,
           },
           {
             name: '📁 URI',
