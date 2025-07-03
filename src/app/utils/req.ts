@@ -19,7 +19,6 @@ export async function fetchApi<T>(
   url: string
 ): Promise<T | null> {
   try {
-    const startTime = Date.now();
     const token = sessionStorage.getItem('token');
 
     const headers: Record<string, string> = {
