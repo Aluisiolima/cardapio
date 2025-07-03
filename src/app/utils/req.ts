@@ -45,13 +45,6 @@ export async function fetchApi<T>(
 
     const result: ResponseApi<T> = await response.json();
 
-    log({
-      method,
-      uri: url,
-      startTime,
-      status: response.status,
-    });
-
     if (result.error) {
       console.log(result.message);
       return null;
@@ -62,71 +55,4 @@ export async function fetchApi<T>(
     console.error('Erro ao chamar a API:', error);
     throw error;
   }
-}
-
-interface Log {
-  method: string;
-  uri: string;
-  startTime: number;
-  status: number;
-}
-
-function log(data: Log): void {
-  const { method, uri, startTime, status } = data;
-  const discordWebhookUrl: string = process.env.REACT_APP_DISCORD_WEBHOOK_URL || '';
-
-  let color = 0x2ecc71;
-
-  if (status >= 400 && status < 600) {
-    color = 0xe74c3c;
-  } else if (status >= 300) {
-    color = 0xf1c40f;
-  }
-
-  const payload = {
-    username: 'Efast Cardapio logs',
-    avatar_url: 'https://example.com/avatar.png',
-    embeds: [
-      {
-        color: color,
-        timestamp: new Date().toISOString(),
-        fields: [
-          {
-            name: '🔀 Método',
-            value: method,
-            inline: true,
-          },
-          {
-            name: '📁 URI',
-            value: uri,
-            inline: true,
-          },
-          {
-            name: '📟 Status',
-            value: String(status),
-            inline: true,
-          },
-          {
-            name: '⏱️ Tempo de execução',
-            value: `${((Date.now() - startTime) / 1000).toFixed(3)} ms`,
-            inline: true,
-          },
-        ],
-      },
-    ],
-  };
-
-  fetch(discordWebhookUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  })
-    .then(() => {
-      console.log('Log enviado com sucesso');
-    })
-    .catch((error) => {
-      console.error('Erro ao enviar log:', error);
-    });
 }

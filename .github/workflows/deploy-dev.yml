@@ -19,8 +19,7 @@ jobs:
       - name: Criar .env com variáveis
         run: |
           echo "REACT_APP_LINK_API=${{ secrets.URL_API }}" >> .env
-          echo "REACT_APP_DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/1383212066583740426/GO5mFtxUUWPlqd7SrF06wOQ0Y9ZuN8mwHeUs3bqAUTZt8UmlYMdyM-mY1N4VKOxCosmL" >> .env
-
+    
       - name: Tests de aplicação
         run: yarn test --watchAll=false 
         
